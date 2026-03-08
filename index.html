@@ -1,0 +1,1189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahmed Taha — AI Agent Architect & Full-Stack Engineer</title>
+    <meta
+      name="description"
+      content="I build AI agents that build software. Portfolio of Ahmed Taha — autonomous agent systems, full-stack apps, and developer tooling."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg: #06060b;
+        --bg-card: #0d0d16;
+        --bg-card-hover: #12121f;
+        --surface: #16162a;
+        --border: #1e1e3a;
+        --border-glow: #a177fe33;
+        --text: #e8e6f0;
+        --text-dim: #8b89a0;
+        --text-muted: #5a587a;
+        --accent: #a177fe;
+        --accent-glow: #a177fe44;
+        --accent2: #7c5ecf;
+        --accent3: #c4a1ff;
+        --green: #4ade80;
+        --blue: #60a5fa;
+        --orange: #fb923c;
+        --pink: #f472b6;
+        --font-body: "Space Grotesk", system-ui, sans-serif;
+        --font-mono: "JetBrains Mono", "Fira Code", monospace;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ── NOISE OVERLAY ── */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      /* ── GRID BACKGROUND ── */
+      .grid-bg {
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(var(--border) 1px, transparent 1px),
+          linear-gradient(90deg, var(--border) 1px, transparent 1px);
+        background-size: 80px 80px;
+        opacity: 0.15;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .grid-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 60% 50% at 50% 0%,
+          var(--accent-glow),
+          transparent
+        );
+      }
+
+      /* ── CONTAINER ── */
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 16px 0;
+        backdrop-filter: blur(20px) saturate(1.4);
+        -webkit-backdrop-filter: blur(20px) saturate(1.4);
+        background: rgba(6, 6, 11, 0.7);
+        border-bottom: 1px solid var(--border);
+        transition: all 0.3s ease;
+      }
+
+      nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-logo {
+        font-family: var(--font-mono);
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--accent);
+        text-decoration: none;
+        letter-spacing: -0.5px;
+      }
+
+      .nav-logo span {
+        color: var(--text-dim);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-dim);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        transition: color 0.25s;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 140px 0 80px;
+        position: relative;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--accent);
+        background: var(--accent-glow);
+        border: 1px solid var(--border-glow);
+        padding: 6px 16px;
+        border-radius: 100px;
+        margin-bottom: 32px;
+        width: fit-content;
+        animation: fadeSlideUp 0.8s ease both;
+      }
+
+      .hero-badge .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--green);
+        animation: pulse 2s infinite;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 7vw, 5.5rem);
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -2px;
+        margin-bottom: 24px;
+        animation: fadeSlideUp 0.8s ease 0.1s both;
+      }
+
+      .hero h1 .gradient {
+        background: linear-gradient(
+          135deg,
+          var(--accent) 0%,
+          var(--accent3) 50%,
+          var(--pink) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-sub {
+        font-size: 1.2rem;
+        color: var(--text-dim);
+        max-width: 560px;
+        line-height: 1.7;
+        margin-bottom: 40px;
+        animation: fadeSlideUp 0.8s ease 0.2s both;
+      }
+
+      .hero-sub strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        animation: fadeSlideUp 0.8s ease 0.3s both;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 28px;
+        border-radius: 10px;
+        font-family: var(--font-body);
+        font-size: 0.92rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+        box-shadow:
+          0 0 30px var(--accent-glow),
+          inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      }
+
+      .btn-primary:hover {
+        background: var(--accent3);
+        transform: translateY(-2px);
+        box-shadow: 0 0 50px var(--accent-glow);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--text-dim);
+        border: 1px solid var(--border);
+      }
+
+      .btn-ghost:hover {
+        color: var(--text);
+        border-color: var(--accent);
+        background: var(--accent-glow);
+        transform: translateY(-2px);
+      }
+
+      /* ── FLOATING ORB ── */
+      .orb {
+        position: absolute;
+        right: -5%;
+        top: 20%;
+        width: 420px;
+        height: 420px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 30% 30%,
+          var(--accent) 0%,
+          var(--accent2) 40%,
+          transparent 70%
+        );
+        opacity: 0.12;
+        filter: blur(80px);
+        animation: float 8s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      /* ── SECTION ── */
+      section {
+        padding: 100px 0;
+      }
+
+      .section-label {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .section-label::before {
+        content: "";
+        width: 24px;
+        height: 1px;
+        background: var(--accent);
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 700;
+        letter-spacing: -1px;
+        margin-bottom: 16px;
+      }
+
+      .section-desc {
+        color: var(--text-dim);
+        max-width: 500px;
+        margin-bottom: 56px;
+        font-size: 1.05rem;
+      }
+
+      /* ── PROJECT CARDS ── */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+      }
+
+      .project-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 32px;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--card-accent, var(--accent)),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .project-card:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--border-glow);
+        transform: translateY(-4px);
+        box-shadow: 0 20px 60px -20px rgba(161, 119, 254, 0.15);
+      }
+
+      .project-card:hover::before {
+        opacity: 1;
+      }
+
+      .project-icon {
+        font-size: 1.6rem;
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .project-card h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        letter-spacing: -0.3px;
+      }
+
+      .project-card h3 a {
+        color: var(--text);
+        text-decoration: none;
+        transition: color 0.25s;
+      }
+
+      .project-card h3 a:hover {
+        color: var(--accent);
+      }
+
+      .project-card p {
+        color: var(--text-dim);
+        font-size: 0.92rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        background: var(--surface);
+        padding: 4px 10px;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+      }
+
+      /* Per-card accent colors */
+      .project-card:nth-child(1) {
+        --card-accent: #a177fe;
+      }
+      .project-card:nth-child(2) {
+        --card-accent: #60a5fa;
+      }
+      .project-card:nth-child(3) {
+        --card-accent: #4ade80;
+      }
+      .project-card:nth-child(4) {
+        --card-accent: #fb923c;
+      }
+      .project-card:nth-child(5) {
+        --card-accent: #f472b6;
+      }
+      .project-card:nth-child(6) {
+        --card-accent: #38bdf8;
+      }
+
+      /* ── TECH STACK ── */
+      .stack-section {
+        border-top: 1px solid var(--border);
+      }
+
+      .stack-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 24px;
+      }
+
+      .stack-group h4 {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 16px;
+      }
+
+      .stack-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .stack-item {
+        font-size: 0.88rem;
+        color: var(--text);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        padding: 8px 16px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .stack-item:hover {
+        border-color: var(--accent);
+        background: var(--accent-glow);
+        transform: translateY(-2px);
+      }
+
+      /* ── ABOUT / TERMINAL ── */
+      .about-section {
+        border-top: 1px solid var(--border);
+      }
+
+      .terminal {
+        background: #0c0c14;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        max-width: 680px;
+        font-family: var(--font-mono);
+      }
+
+      .terminal-bar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 18px;
+        background: #0f0f1a;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .terminal-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .terminal-dot:nth-child(1) {
+        background: #ff5f57;
+      }
+      .terminal-dot:nth-child(2) {
+        background: #febc2e;
+      }
+      .terminal-dot:nth-child(3) {
+        background: #28c840;
+      }
+
+      .terminal-title {
+        margin-left: 12px;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      .terminal-body {
+        padding: 24px;
+        font-size: 0.85rem;
+        line-height: 1.9;
+      }
+
+      .terminal-body .key {
+        color: var(--accent3);
+      }
+      .terminal-body .val {
+        color: var(--green);
+      }
+      .terminal-body .str {
+        color: var(--orange);
+      }
+      .terminal-body .comment {
+        color: var(--text-muted);
+        font-style: italic;
+      }
+      .terminal-body .prompt {
+        color: var(--accent);
+      }
+      .terminal-body .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 16px;
+        background: var(--accent);
+        animation: blink 1s step-end infinite;
+        vertical-align: text-bottom;
+        margin-left: 2px;
+      }
+
+      /* ── STATS ── */
+      .stats-section {
+        border-top: 1px solid var(--border);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 16px;
+        margin-bottom: 48px;
+      }
+
+      .stat-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 28px 24px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .stat-card:hover {
+        border-color: var(--border-glow);
+        transform: translateY(-3px);
+      }
+
+      .stat-number {
+        font-family: var(--font-mono);
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: var(--accent);
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .stat-label {
+        font-size: 0.82rem;
+        color: var(--text-dim);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 48px 0;
+        text-align: center;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        margin-bottom: 24px;
+      }
+
+      .footer-links a {
+        color: var(--text-dim);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.25s;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      .footer-quote {
+        color: var(--text-muted);
+        font-size: 0.88rem;
+        font-style: italic;
+      }
+
+      .footer-quote span {
+        color: var(--accent);
+      }
+
+      /* ── SCROLL REVEAL ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(-20px, -30px) scale(1.05);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .hero {
+          padding: 120px 0 60px;
+        }
+        .hero h1 {
+          letter-spacing: -1px;
+        }
+        section {
+          padding: 64px 0;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .orb {
+          width: 250px;
+          height: 250px;
+          right: -15%;
+          top: 10%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 16px;
+        }
+        .hero-actions {
+          flex-direction: column;
+        }
+        .btn {
+          justify-content: center;
+        }
+        .stats-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* ── MOBILE NAV ── */
+      .nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+      }
+
+      .nav-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--text-dim);
+        margin: 5px 0;
+        transition: all 0.3s;
+      }
+
+      @media (max-width: 768px) {
+        .nav-toggle {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-bg"></div>
+
+    <!-- NAV -->
+    <nav>
+      <div class="container">
+        <a href="#" class="nav-logo">ahmed<span>.taha</span></a>
+        <ul class="nav-links">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#stack">Stack</a></li>
+          <li><a href="#about">About</a></li>
+          <li>
+            <a href="https://github.com/SufficientDaikon" target="_blank"
+              >GitHub</a
+            >
+          </li>
+        </ul>
+        <button class="nav-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Building the agentic future
+        </div>
+        <h1>
+          I build <span class="gradient">AI agents</span><br />
+          that build software.
+        </h1>
+        <p class="hero-sub">
+          <strong>Ahmed Taha</strong> — Full-stack engineer from Egypt crafting
+          <strong>autonomous agent systems</strong>, cross-platform dev tools,
+          and AI-powered pipelines.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+            View Projects
+          </a>
+          <a
+            href="https://github.com/SufficientDaikon"
+            target="_blank"
+            class="btn btn-ghost"
+          >
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+              />
+            </svg>
+            GitHub Profile
+          </a>
+        </div>
+        <div class="orb"></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Featured Work</div>
+          <h2 class="section-title">Projects</h2>
+          <p class="section-desc">
+            Open-source tools and frameworks powering the next generation of
+            AI-driven development.
+          </p>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card reveal">
+            <span class="project-icon">⚡</span>
+            <h3>
+              <a
+                href="https://github.com/SufficientDaikon/aether"
+                target="_blank"
+                >Aether</a
+              >
+            </h3>
+            <p>
+              Autonomous Agent Orchestration Framework — multi-agent LLM
+              coordination with 28 subsystems, built on Bun.
+            </p>
+            <div class="project-tags">
+              <span class="tag">TypeScript</span>
+              <span class="tag">Bun</span>
+              <span class="tag">LLM</span>
+              <span class="tag">Multi-Agent</span>
+            </div>
+          </div>
+          <div class="project-card reveal">
+            <span class="project-icon">🧩</span>
+            <h3>
+              <a
+                href="https://github.com/SufficientDaikon/omniskill"
+                target="_blank"
+                >OMNISKILL</a
+              >
+            </h3>
+            <p>
+              Universal AI Agent & Skills Framework — 48 skills, 8 bundles, 7
+              agents, 5 pipelines. One repo, every platform.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Claude Code</span>
+              <span class="tag">Copilot CLI</span>
+              <span class="tag">Cursor</span>
+            </div>
+          </div>
+          <div class="project-card reveal">
+            <span class="project-icon">🔧</span>
+            <h3>
+              <a
+                href="https://github.com/SufficientDaikon/sdd-vscode-agents"
+                target="_blank"
+                >SDD VS Code Agents</a
+              >
+            </h3>
+            <p>
+              13 Copilot Chat agents for Spec-Driven Development & UI/UX Design
+              Lifecycle — idea to production with quality gates.
+            </p>
+            <div class="project-tags">
+              <span class="tag">VS Code</span>
+              <span class="tag">Copilot</span>
+              <span class="tag">Spec-Driven Dev</span>
+            </div>
+          </div>
+          <div class="project-card reveal">
+            <span class="project-icon">🌾</span>
+            <h3>
+              <a
+                href="https://github.com/SufficientDaikon/harvesthub"
+                target="_blank"
+                >HarvestHub</a
+              >
+            </h3>
+            <p>
+              Adaptive product scraping platform — extract data from any
+              e-commerce site with confidence scoring and scheduling.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Web Scraping</span>
+              <span class="tag">Dashboard</span>
+            </div>
+          </div>
+          <div class="project-card reveal">
+            <span class="project-icon">🤗</span>
+            <h3>
+              <a
+                href="https://github.com/SufficientDaikon/hugbrowse"
+                target="_blank"
+                >HugBrowse</a
+              >
+            </h3>
+            <p>
+              Local AI Platform — browse, download, and run Hugging Face models
+              on your machine. Privacy-first desktop app.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Tauri v2</span>
+              <span class="tag">React</span>
+              <span class="tag">Rust</span>
+              <span class="tag">TypeScript</span>
+            </div>
+          </div>
+          <div class="project-card reveal">
+            <span class="project-icon">🔗</span>
+            <h3>
+              <a
+                href="https://github.com/SufficientDaikon/sdd-copilot-agents"
+                target="_blank"
+                >SDD Copilot Agents</a
+              >
+            </h3>
+            <p>
+              4-agent Spec-Driven Development pipeline for GitHub Copilot CLI —
+              spec-writer, implementer, reviewer, packager.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Copilot CLI</span>
+              <span class="tag">Pipeline</span>
+              <span class="tag">Code Quality</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section id="stack" class="stack-section">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Toolkit</div>
+          <h2 class="section-title">Tech Stack</h2>
+          <p class="section-desc">
+            The languages, frameworks, and tools I reach for daily.
+          </p>
+        </div>
+        <div class="stack-grid reveal">
+          <div class="stack-group">
+            <h4>Languages</h4>
+            <div class="stack-items">
+              <span class="stack-item">Python</span>
+              <span class="stack-item">TypeScript</span>
+              <span class="stack-item">JavaScript</span>
+              <span class="stack-item">Rust</span>
+              <span class="stack-item">Go</span>
+              <span class="stack-item">C / C++</span>
+              <span class="stack-item">Bash</span>
+            </div>
+          </div>
+          <div class="stack-group">
+            <h4>Frameworks</h4>
+            <div class="stack-items">
+              <span class="stack-item">Django</span>
+              <span class="stack-item">Flask</span>
+              <span class="stack-item">React</span>
+              <span class="stack-item">Node.js</span>
+              <span class="stack-item">Bun</span>
+              <span class="stack-item">Tauri</span>
+            </div>
+          </div>
+          <div class="stack-group">
+            <h4>Infrastructure</h4>
+            <div class="stack-items">
+              <span class="stack-item">Docker</span>
+              <span class="stack-item">Azure</span>
+              <span class="stack-item">Git</span>
+              <span class="stack-item">Linux</span>
+              <span class="stack-item">MySQL</span>
+              <span class="stack-item">SQLite</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Who I Am</div>
+          <h2 class="section-title">About</h2>
+        </div>
+        <div class="terminal reveal">
+          <div class="terminal-bar">
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-title">~/ahmed-taha</span>
+          </div>
+          <div class="terminal-body">
+            <span class="prompt">❯</span> cat about.yaml<br /><br />
+            <span class="key">name:</span> <span class="str">"Ahmed Taha"</span
+            ><br />
+            <span class="key">location:</span> <span class="str">"Egypt"</span
+            ><br />
+            <span class="key">focus:</span><br />
+            &nbsp;&nbsp;- <span class="val">AI Agent Systems</span><br />
+            &nbsp;&nbsp;- <span class="val">Full-Stack Development</span><br />
+            &nbsp;&nbsp;- <span class="val">Developer Tooling</span><br />
+            <span class="key">currently_building:</span><br />
+            &nbsp;&nbsp;-
+            <span class="val">Autonomous agent orchestration frameworks</span
+            ><br />
+            &nbsp;&nbsp;-
+            <span class="val">Cross-platform AI skills & pipelines</span><br />
+            &nbsp;&nbsp;- <span class="val">Desktop apps with Tauri + Rust</span
+            ><br />
+            &nbsp;&nbsp;-
+            <span class="val">Web scraping with confidence scoring</span><br />
+            <span class="key">philosophy:</span>
+            <span class="str"
+              >"If it can be automated, it should be orchestrated by
+              agents."</span
+            ><br /><br />
+            <span class="prompt">❯</span> <span class="cursor"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">By the Numbers</div>
+          <h2 class="section-title">Impact</h2>
+        </div>
+        <div class="stats-grid reveal">
+          <div class="stat-card">
+            <div class="stat-number">48</div>
+            <div class="stat-label">AI Skills</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">28</div>
+            <div class="stat-label">Agent Subsystems</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">13</div>
+            <div class="stat-label">VS Code Agents</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Platforms</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-links">
+          <a href="https://github.com/SufficientDaikon" target="_blank">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+              />
+            </svg>
+            GitHub
+          </a>
+          <a
+            href="https://github.com/SufficientDaikon/omniskill"
+            target="_blank"
+          >
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              />
+            </svg>
+            OMNISKILL
+          </a>
+          <a href="https://github.com/SufficientDaikon/aether" target="_blank">
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
+            Aether
+          </a>
+        </div>
+        <p class="footer-quote">
+          <span>"</span>The future is agentic.<span>"</span> ✨
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Scroll reveal
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => entry.target.classList.add("visible"), i * 80);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+      );
+      reveals.forEach((el) => observer.observe(el));
+
+      // Smooth nav hide/show
+      let lastScroll = 0;
+      const nav = document.querySelector("nav");
+      window.addEventListener(
+        "scroll",
+        () => {
+          const current = window.scrollY;
+          if (current > lastScroll && current > 100) {
+            nav.style.transform = "translateY(-100%)";
+          } else {
+            nav.style.transform = "translateY(0)";
+          }
+          lastScroll = current;
+        },
+        { passive: true },
+      );
+    </script>
+  </body>
+</html>
