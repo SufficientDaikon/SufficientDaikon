@@ -104,11 +104,11 @@ Local AI Platform — Browse, download, and run Hugging Face models on your mach
 </td>
 <td width="50%" valign="top">
 
-#### 🔗 [SDD Copilot Agents](https://github.com/SufficientDaikon/sdd-copilot-agents)
+#### 🧬 [Axon](https://github.com/SufficientDaikon/Axon)
 
-4-agent Spec-Driven Development pipeline for GitHub Copilot CLI — spec-writer, implementer, reviewer, packager.
+ML/AI-first systems programming language — custom compiler with lexer, parser, type checker & borrow checker, built in Rust.
 <br/><br/>
-`Copilot CLI` `Pipeline` `Code Quality`
+`Rust` `Compiler` `Programming Language` `ML/AI`
 
 </td>
 </tr>
