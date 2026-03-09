@@ -149,7 +149,7 @@ ML/AI-first systems programming language — custom compiler with lexer, parser,
 
 <div align="center">
   <img width="49%" src="https://grs-deploy.vercel.app/api/top-langs/?username=SufficientDaikon&layout=donut&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&text_color=FFFFFF&langs_count=8" alt="SufficientDaikon's most used programming languages" />
-  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=SufficientDaikon&theme=tokyonight" alt="SufficientDaikon's most committed languages" />
+  <img width="49%" src="https://grs-deploy.vercel.app/api/top-langs/?username=SufficientDaikon&layout=normal&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&text_color=FFFFFF&langs_count=8&card_width=350" alt="SufficientDaikon's languages by lines of code" />
 </div>
 
 ---
