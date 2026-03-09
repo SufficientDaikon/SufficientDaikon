@@ -9,16 +9,19 @@
 
 <br/>
 
+<img src="https://img.shields.io/badge/Lines%20of%20Code-167K%2B-A177FE?style=for-the-badge&logo=codepen&logoColor=white" alt="167K+ Lines of Code" />
+<img src="https://img.shields.io/badge/Commits-1%2C843-A177FE?style=for-the-badge&logo=git&logoColor=white" alt="1,843 Commits" />
+<img src="https://img.shields.io/badge/AI%20Skills-48-A177FE?style=for-the-badge&logo=robot&logoColor=white" alt="48 AI Skills" />
+<img src="https://img.shields.io/badge/Agents-7-A177FE?style=for-the-badge&logo=dependabot&logoColor=white" alt="7 Agents" />
+<img src="https://img.shields.io/badge/Projects-6-A177FE?style=for-the-badge&logo=github&logoColor=white" alt="6 Projects" />
+
+<br/>
+
 <img src="https://komarev.com/ghpvc/?username=SufficientDaikon&style=for-the-badge&color=A177FE" alt="Profile views counter for SufficientDaikon" />
 
-<!-- 🔗 SOCIAL BADGES — Uncomment & replace # with your URLs -->
-<!--
 <br/><br/>
-<a href="#"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-<a href="#"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X (Twitter)" /></a>
-<a href="#"><img src="https://img.shields.io/badge/Portfolio-A177FE?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio Website" /></a>
-<a href="mailto:your@email.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
--->
+<a href="https://www.linkedin.com/in/ahmed-taha225/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="Ahmed Taha on LinkedIn" /></a>
+<a href="mailto:tahaa755@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Ahmed Taha" /></a>
 
 </div>
 
@@ -26,93 +29,47 @@
 
 ### 🧠 About Me
 
-```yaml
-name: Ahmed Taha
-location: Egypt
-focus: AI Agent Systems · Full-Stack Development · Developer Tooling
-domains:
-  - LLM Orchestration & Multi-Agent Systems
-  - Spec-Driven Development (SDD)
-  - Cross-Platform AI Skill Frameworks
-  - Desktop Apps (Tauri + Rust)
-  - Web Scraping & Data Pipelines
-currently_building:
-  - Autonomous agent orchestration frameworks
-  - Cross-platform AI skills & pipelines (Claude Code, Copilot CLI, Cursor, Windsurf)
-  - Desktop apps with Tauri + Rust
-  - Web scraping platforms with confidence scoring
-languages: [Python, TypeScript, JavaScript, Rust, Go, C, C++, Bash]
-tools:
-  [Docker, Azure, Git, GitHub Actions, Linux, MySQL, SQLite, Figma, VS Code]
-philosophy: "If it can be automated, it should be orchestrated by agents."
-```
+**AI Agent Architect** from Egypt — I build autonomous systems that build software.
+
+- 🤖 LLM orchestration & multi-agent frameworks (48 skills, 7 agents, 5 pipelines)
+- 🦀 Systems programming — built a compiler with lexer, parser & borrow checker in Rust
+- 🖥️ Full-stack apps with Tauri, React, Django, and Bun
+- 🕷️ Data pipelines & web scraping with confidence scoring
+
+> _"If it can be automated, it should be orchestrated by agents."_
+
+---
+
+### 🔭 Currently Working On
+
+- 🌀 **[Aether](https://github.com/SufficientDaikon/aether)** — Scaling to 28+ subsystems for autonomous agent orchestration
+- 🧩 **[OMNISKILL](https://github.com/SufficientDaikon/omniskill)** — Expanding cross-platform AI skills to 48+ across 5 editors
+- 🧬 **[Axon](https://github.com/SufficientDaikon/Axon)** — Building a complete ML/AI-first language compiler in Rust
 
 ---
 
 ### 🚀 Featured Projects
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-#### ⚡ [Aether](https://github.com/SufficientDaikon/aether)
-
-Autonomous Agent Orchestration Framework — multi-agent LLM coordination with **28 subsystems**, built on Bun.
-<br/><br/>
-`TypeScript` `Bun` `LLM` `Multi-Agent`
-
-</td>
-<td width="50%" valign="top">
-
-#### 🧩 [OMNISKILL](https://github.com/SufficientDaikon/omniskill)
-
-Universal AI Agent & Skills Framework — **48 skills, 8 bundles, 7 agents, 5 pipelines**. One repo, one format, every platform.
-<br/><br/>
-`Python` `Claude Code` `Copilot CLI` `Cursor` `Windsurf`
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-#### 🔧 [SDD VS Code Agents](https://github.com/SufficientDaikon/sdd-vscode-agents)
-
-**13 Copilot Chat agents** for Spec-Driven Development & UI/UX Design Lifecycle — from idea to production code with quality gates.
-<br/><br/>
-`VS Code` `Copilot` `Spec-Driven Dev` `UI/UX Pipeline`
-
-</td>
-<td width="50%" valign="top">
-
-#### 🌾 [HarvestHub](https://github.com/SufficientDaikon/harvesthub)
-
-Adaptive product scraping platform — extract data from any e-commerce site with confidence scoring. Premium exports, cron scheduling, price tracking.
-<br/><br/>
-`Python` `Web Scraping` `Dashboard` `XLSX/CSV/JSON`
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-#### 🤗 [HugBrowse](https://github.com/SufficientDaikon/hugbrowse)
-
-Local AI Platform — Browse, download, and run Hugging Face models on your machine. Privacy-first.
-<br/><br/>
-`Tauri v2` `React` `Rust` `TypeScript`
-
-</td>
-<td width="50%" valign="top">
-
-#### 🧬 [Axon](https://github.com/SufficientDaikon/Axon)
-
-ML/AI-first systems programming language — custom compiler with lexer, parser, type checker & borrow checker, built in Rust.
-<br/><br/>
-`Rust` `Compiler` `Programming Language` `ML/AI`
-
-</td>
-</tr>
-</table>
+<div align="center">
+  <a href="https://github.com/SufficientDaikon/aether">
+    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=aether&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="Aether — Autonomous Agent Orchestration Framework" />
+  </a>
+  <a href="https://github.com/SufficientDaikon/omniskill">
+    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=omniskill&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="OMNISKILL — Universal AI Agent & Skills Framework" />
+  </a>
+  <a href="https://github.com/SufficientDaikon/sdd-vscode-agents">
+    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=sdd-vscode-agents&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="SDD VS Code Agents — Copilot Chat agents for Spec-Driven Development" />
+  </a>
+  <a href="https://github.com/SufficientDaikon/harvesthub">
+    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=harvesthub&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="HarvestHub — Adaptive product scraping platform" />
+  </a>
+  <a href="https://github.com/SufficientDaikon/hugbrowse">
+    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=hugbrowse&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="HugBrowse — Local AI Platform for Hugging Face models" />
+  </a>
+  <a href="https://github.com/SufficientDaikon/Axon">
+    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=Axon&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="Axon — ML/AI-first systems programming language" />
+  </a>
+</div>
 
 ---
 
@@ -164,27 +121,17 @@ ML/AI-first systems programming language — custom compiler with lexer, parser,
 
 ---
 
-### 🏆 Trophies
-
+<details>
+<summary>🐍 Watch the contribution snake eat my graph</summary>
+<br/>
 <div align="center">
-
-[![trophy](https://github-trophies.vercel.app/?username=SufficientDaikon&theme=discord&no-frame=true&no-bg=true&column=7)](https://github.com/ryo-ma/github-profile-trophy)
-
-</div>
-
----
-
-### 🐍 Contribution Snake
-
-<div align="center">
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/github-contribution-grid-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/github-contribution-grid-snake.svg" />
   <img alt="Snake animation of SufficientDaikon's GitHub contribution graph" src="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/github-contribution-grid-snake.svg" />
 </picture>
-
 </div>
+</details>
 
 ---
 
