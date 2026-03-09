@@ -97,7 +97,7 @@
 
 <div align="center">
   <img width="49%" src="https://streak-stats.demolab.com?user=SufficientDaikon&theme=tokyonight&hide_border=true&background=0D1117&ring=A177FE&fire=A177FE&currStreakLabel=A177FE&sideLabels=A177FE&dates=FFFFFF99" alt="SufficientDaikon's GitHub streak — current streak, longest streak, and total contributions" />
-  <img width="49%" src="https://sufficientdaikon.vercel.app/api/productive-time" alt="SufficientDaikon's commits by hour of day — adapts to your timezone" />
+  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=SufficientDaikon&theme=tokyonight&utcOffset=2" alt="SufficientDaikon's commits by hour of day — visit sufficientdaikon.github.io/SufficientDaikon for your timezone" />
 </div>
 
 ---

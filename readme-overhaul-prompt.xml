@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prompt version="1.0" model="any" task="github-profile-readme-overhaul">
+
+  <meta>
+    <title>GitHub Profile README — "Wow Factor" Overhaul</title>
+    <author>Ahmed Taha (SufficientDaikon)</author>
+    <created>2026-03-09</created>
+    <objective>Transform an existing GitHub profile README into a state-of-the-art, high-impact developer portfolio that makes visitors go "wow" within 3 seconds of landing.</objective>
+    <design_system>
+      <accent_color>#A177FE</accent_color>
+      <bg_color>#0D1117</bg_color>
+      <text_color>#FFFFFF</text_color>
+      <muted_color>#8B949E</muted_color>
+      <theme>tokyonight</theme>
+      <font>Fira Code</font>
+    </design_system>
+  </meta>
+
+  <context>
+    <repository>SufficientDaikon/SufficientDaikon</repository>
+    <branch>main</branch>
+    <self_hosted_stats>grs-deploy.vercel.app</self_hosted_stats>
+    <github_username>SufficientDaikon</github_username>
+    <real_name>Ahmed Taha</real_name>
+    <location>Egypt</location>
+    <linkedin>https://www.linkedin.com/in/ahmed-taha225/</linkedin>
+    <email>tahaa755@gmail.com</email>
+    <existing_assets>
+      <asset path="assets/loc-chart.svg">Custom SVG — 167,471 lines of code bar chart with gradient bars per language</asset>
+      <asset path=".github/workflows/snake.yml">GitHub Action generating snake animation daily to output branch</asset>
+    </existing_assets>
+    <stats>
+      <stat key="total_loc">167,471</stat>
+      <stat key="total_commits">1,843</stat>
+      <stat key="ai_skills">48</stat>
+      <stat key="agents">7</stat>
+      <stat key="pipelines">5</stat>
+      <stat key="projects">6</stat>
+      <stat key="subsystems_aether">28</stat>
+    </stats>
+    <repos>
+      <repo name="aether" lang="TypeScript" desc="Autonomous Agent Orchestration Framework — multi-agent LLM coordination with 28 subsystems, built on Bun" />
+      <repo name="omniskill" lang="Python" desc="Universal AI Agent &amp; Skills Framework — 48 skills, 8 bundles, 7 agents, 5 pipelines. One repo, one format, every platform." />
+      <repo name="sdd-vscode-agents" lang="Markdown" desc="13 Copilot Chat agents for Spec-Driven Development &amp; UI/UX Design Lifecycle" />
+      <repo name="harvesthub" lang="TypeScript" desc="Adaptive product scraping platform — confidence scoring, premium exports, cron scheduling" />
+      <repo name="hugbrowse" lang="TypeScript" desc="Local AI Platform — Browse, download, run Hugging Face models. Privacy-first. Tauri v2 + React + Rust" />
+      <repo name="Axon" lang="Rust" desc="ML/AI-first systems programming language — custom compiler with lexer, parser, type checker &amp; borrow checker" />
+    </repos>
+  </context>
+
+  <principles>
+    <principle id="P1" name="3-Second Rule">A visitor must understand who you are, what you build, and be impressed — all within 3 seconds of landing.</principle>
+    <principle id="P2" name="Show Don't Tell">Prefer visual proof (numbers, charts, cards) over prose. Every claim should have a visible metric backing it.</principle>
+    <principle id="P3" name="Earned Scroll">Every section must justify its screen real estate. If it doesn't make the visitor more impressed, it's noise — collapse or remove it.</principle>
+    <principle id="P4" name="Lead With Strength">Order sections by impressiveness. Your strongest metrics and best projects come first. Weak stats are hidden or removed.</principle>
+    <principle id="P5" name="Professional Polish">Social links, alt text, consistent theming, no broken images. This is a portfolio, not a playground.</principle>
+    <principle id="P6" name="Contactable">A profile without contact links looks like a throwaway. LinkedIn + Email minimum.</principle>
+  </principles>
+
+  <steps>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- STEP 1: HERO HEADER (keep + enhance)       -->
+    <!-- ═══════════════════════════════════════════ -->
+    <step id="1" phase="header" action="keep-and-enhance">
+      <title>Hero Header — Wave + Typing SVG</title>
+      <description>Keep the existing capsule-render waving header and typing SVG. They work well. No changes needed to these elements.</description>
+      <keep>
+        <element>capsule-render waving gradient header (customColorList=12,9,5)</element>
+        <element>readme-typing-svg cycling through achievements</element>
+      </keep>
+    </step>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- STEP 2: HERO STAT STRIP (new)              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <step id="2" phase="header" action="create">
+      <title>Hero Stat Strip — Shields.io Badge Row</title>
+      <description>
+        Add a row of custom shields.io badges immediately after the typing SVG, before the profile views counter. 
+        These are the first hard numbers anyone sees. Use flat-square style with #A177FE background for consistency.
+      </description>
+      <placement>After typing SVG &lt;/a&gt; tag, before &lt;br/&gt; and profile views counter</placement>
+      <badges>
+        <badge label="Lines of Code" value="167K+" color="A177FE" logo="codepen" logoColor="white" style="for-the-badge" />
+        <badge label="Commits" value="1,843" color="A177FE" logo="git" logoColor="white" style="for-the-badge" />
+        <badge label="AI Skills" value="48" color="A177FE" logo="robot" logoColor="white" style="for-the-badge" />
+        <badge label="Agents" value="7" color="A177FE" logo="dependabot" logoColor="white" style="for-the-badge" />
+        <badge label="Projects" value="6" color="A177FE" logo="github" logoColor="white" style="for-the-badge" />
+      </badges>
+      <format>
+        All badges in a single centered div, separated by single spaces.
+        Use shields.io static badge format: https://img.shields.io/badge/{label}-{value}-{color}?style=for-the-badge&amp;logo={logo}&amp;logoColor=white
+        Encode spaces in label as %20, plus signs as %2B.
+      </format>
+      <principle_ref>P1, P2, P4</principle_ref>
+    </step>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- STEP 3: SOCIAL BADGES (fix)                -->
+    <!-- ═══════════════════════════════════════════ -->
+    <step id="3" phase="header" action="fix">
+      <title>Activate Social Badges — LinkedIn + Email</title>
+      <description>
+        Replace the commented-out social badge block with active LinkedIn and Email badges.
+        Remove the X/Twitter and Portfolio placeholders (no URLs for those).
+        Keep profile views counter on a separate line above the social links.
+      </description>
+      <placement>After profile views counter, still inside the centered header div</placement>
+      <badges>
+        <badge type="linkedin" url="https://www.linkedin.com/in/ahmed-taha225/" color="0A66C2" />
+        <badge type="email" url="mailto:tahaa755@gmail.com" color="D14836" logo="gmail" />
+      </badges>
+      <remove>Entire commented-out social badge HTML block (lines 14-21 of current file)</remove>
+      <principle_ref>P5, P6</principle_ref>
+    </step>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- STEP 4: ABOUT ME (compress)                -->
+    <!-- ═══════════════════════════════════════════ -->
+    <step id="4" phase="body" action="rewrite">
+      <title>Compress About Me — Kill the YAML Wall</title>
+      <description>
+        Replace the 20-line YAML code block with a tight, scannable format:
+        - 1 punchy intro sentence (who you are + what you do)
+        - 4 emoji bullet points (domains, not lists)
+        - 1 philosophy quote (keep — it's a great line)
+        Total: ~8 lines max. Readable in 3 seconds.
+      </description>
+      <output_format>
+        ```
+        ### 🧠 About Me
+
+        **AI Agent Architect** from Egypt — I build autonomous systems that build software.
+        
+        - 🤖 LLM orchestration &amp; multi-agent frameworks (48 skills, 7 agents, 5 pipelines)
+        - 🦀 Systems programming — built a compiler with lexer, parser &amp; borrow checker in Rust
+        - 🖥️ Full-stack apps with Tauri, React, Django, and Bun
+        - 🕷️ Data pipelines &amp; web scraping with confidence scoring
+        
+        > _"If it can be automated, it should be orchestrated by agents."_
+        ```
+      </output_format>
+      <principle_ref>P1, P3</principle_ref>
+    </step>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- STEP 5: CURRENTLY WORKING ON (new)         -->
+    <!-- ═══════════════════════════════════════════ -->
+    <step id="5" phase="body" action="create">
+      <title>Add "Currently Working On" Section</title>
+      <description>
+        Short section showing active work. 3 items max. Uses emoji + bold project name + one-line context.
+        Goes immediately after About Me. Shows the profile is alive, not abandoned.
+      </description>
+      <placement>After About Me, before Featured Projects</placement>
+      <output_format>
+        ```
+        ### 🔭 Currently Working On
+
+        - 🌀 **[Aether](https://github.com/SufficientDaikon/aether)** — Scaling to 28+ subsystems for autonomous agent orchestration
+        - 🧩 **[OMNISKILL](https://github.com/SufficientDaikon/omniskill)** — Expanding cross-platform AI skills to 48+ across 5 editors
+        - 🧬 **[Axon](https://github.com/SufficientDaikon/Axon)** — Building a complete ML/AI-first language compiler in Rust
+        ```
+      </output_format>
+      <principle_ref>P3, P5</principle_ref>
+    </step>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- STEP 6: FEATURED PROJECTS (visual upgrade)  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <step id="6" phase="body" action="rewrite">
+      <title>Replace Project Table with Visual Repo Pin Cards</title>
+      <description>
+        Replace the HTML table of projects with github-readme-stats repo pin cards.
+        These auto-render the repo name, description, language, stars, and forks as styled SVG cards.
+        Use the self-hosted instance (grs-deploy.vercel.app) for reliability.
+        Layout: 2 cards per row, 3 rows = 6 projects.
+      </description>
+      <card_url_template>
+        https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&amp;repo={repo_name}&amp;theme=tokyonight&amp;hide_border=true&amp;bg_color=0D1117&amp;title_color=A177FE&amp;icon_color=A177FE&amp;text_color=FFFFFF
+      </card_url_template>
+      <layout>
+        Each card wrapped in an &lt;a&gt; tag linking to the repo.
+        Two cards per &lt;div align="center"&gt; row, each with width="49%".
+        Three rows total.
+        Row 1: aether, omniskill
+        Row 2: sdd-vscode-agents, harvesthub
+        Row 3: hugbrowse, Axon
+      </layout>
+      <principle_ref>P2, P4</principle_ref>
+    </step>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- STEP 7: TECH STACK (keep)                  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <step id="7" phase="body" action="keep">
+      <title>Tech Stack — No Changes</title>
+      <description>Keep the skillicons.dev icon rows exactly as they are. They're visually clean and render reliably.</description>
+    </step>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- STEP 8: STREAK &amp; ACTIVITY (keep)            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <step id="8" phase="stats" action="keep">
+      <title>Streak &amp; Activity — No Changes</title>
+      <description>Keep the side-by-side streak + productive-time cards. They show impressive commit volume and coding hours.</description>
+    </step>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- STEP 9: LANGUAGES &amp; LOC (keep)              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <step id="9" phase="stats" action="keep">
+      <title>Languages &amp; Lines of Code — No Changes</title>
+      <description>Keep the donut chart + custom LOC SVG side-by-side. The LOC chart is a unique differentiator.</description>
+    </step>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- STEP 10: CONTRIBUTION GRAPH (keep)          -->
+    <!-- ═══════════════════════════════════════════ -->
+    <step id="10" phase="stats" action="keep">
+      <title>Contribution Graph — No Changes</title>
+      <description>Keep the full-width activity graph. It shows consistent daily activity and is visually impressive.</description>
+    </step>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- STEP 11: REMOVE TROPHIES                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <step id="11" phase="cleanup" action="remove">
+      <title>Remove Trophies Section</title>
+      <description>
+        Delete the entire Trophies section (### 🏆 Trophies through closing &lt;/div&gt; and trailing ---).
+        Reason: Current ranks are C/B which undermine the narrative of being prolific. 
+        Can be re-added later when rank improves through stars and PRs.
+      </description>
+      <principle_ref>P3, P4</principle_ref>
+    </step>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- STEP 12: COLLAPSE SNAKE                     -->
+    <!-- ═══════════════════════════════════════════ -->
+    <step id="12" phase="cleanup" action="modify">
+      <title>Collapse Snake into Details/Summary</title>
+      <description>
+        Wrap the snake animation section in a &lt;details&gt; tag so it's collapsible.
+        Use a fun summary line to entice clicks. The snake is cool but doesn't justify forcing a full scroll.
+      </description>
+      <output_format>
+        ```html
+        &lt;details&gt;
+        &lt;summary&gt;🐍 Watch the contribution snake eat my graph&lt;/summary&gt;
+        &lt;br/&gt;
+        &lt;div align="center"&gt;
+        &lt;picture&gt;
+          &lt;source media="(prefers-color-scheme: dark)" srcset="..." /&gt;
+          &lt;source media="(prefers-color-scheme: light)" srcset="..." /&gt;
+          &lt;img alt="Snake animation" src="..." /&gt;
+        &lt;/picture&gt;
+        &lt;/div&gt;
+        &lt;/details&gt;
+        ```
+      </output_format>
+      <principle_ref>P3</principle_ref>
+    </step>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- STEP 13: FOOTER (keep)                      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <step id="13" phase="footer" action="keep">
+      <title>Footer — No Changes</title>
+      <description>Keep the tagline ("I build AI agents that build software") and the capsule-render footer wave. Clean closer.</description>
+    </step>
+
+  </steps>
+
+  <final_section_order>
+    <section order="1">Header wave (capsule-render)</section>
+    <section order="2">Typing SVG (achievement cycler)</section>
+    <section order="3">Hero stat badges (167K+ LOC, 1,843 Commits, 48 Skills, 7 Agents, 6 Projects) [NEW]</section>
+    <section order="4">Profile views counter</section>
+    <section order="5">Social links — LinkedIn + Email [FIXED]</section>
+    <section order="6">About Me [COMPRESSED — paragraph + 4 bullets + quote]</section>
+    <section order="7">Currently Working On [NEW — 3 bullet points]</section>
+    <section order="8">Featured Projects [UPGRADED — visual repo pin cards]</section>
+    <section order="9">Tech Stack [UNCHANGED]</section>
+    <section order="10">Streak &amp; Activity [UNCHANGED]</section>
+    <section order="11">Languages &amp; Lines of Code [UNCHANGED]</section>
+    <section order="12">Contribution Graph [UNCHANGED]</section>
+    <section order="13">Snake [COLLAPSED into details/summary]</section>
+    <section order="14">Footer tagline + wave [UNCHANGED]</section>
+  </final_section_order>
+
+  <quality_gates>
+    <gate id="QG1">All images must have descriptive alt text for accessibility and SEO.</gate>
+    <gate id="QG2">All external service URLs must be verified reachable (no 404/503) before committing.</gate>
+    <gate id="QG3">Color theme must be consistent — #A177FE accent, #0D1117 bg, tokyonight variant across all cards.</gate>
+    <gate id="QG4">No commented-out code or placeholder URLs in the final output.</gate>
+    <gate id="QG5">The full README must render correctly on GitHub (test by viewing the deployed profile page).</gate>
+    <gate id="QG6">Total vertical scroll on desktop should be reduced compared to the current version.</gate>
+    <gate id="QG7">The "3-second test" — a new visitor should see: name, title, impressive numbers, and social links without scrolling.</gate>
+  </quality_gates>
+
+  <anti_patterns>
+    <avoid>Showing stats where the numbers are zero or low (stars: 0, PRs: 0, issues: 0)</avoid>
+    <avoid>Multiple sections showing the same data in different formats (redundant language charts)</avoid>
+    <avoid>Commented-out placeholder sections that signal incompleteness</avoid>
+    <avoid>Trophy/rank sections where ranks are below A tier</avoid>
+    <avoid>Walls of monospace text (YAML/JSON "about me" blocks longer than 8 lines)</avoid>
+    <avoid>Using shared public Vercel instances that frequently 503 (use self-hosted or verified mirrors)</avoid>
+  </anti_patterns>
+
+</prompt>
