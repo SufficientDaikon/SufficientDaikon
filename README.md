@@ -136,18 +136,30 @@ ML/AI-first systems programming language — custom compiler with lexer, parser,
 
 ---
 
-### 📊 GitHub Stats
-
-<div align="center">
-  <img height="220em" src="https://grs-deploy.vercel.app/api?username=SufficientDaikon&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF&count_private=true&rank_icon=github&show=reviews,prs_merged,prs_merged_percentage&card_width=490" alt="SufficientDaikon's GitHub stats — stars, commits, PRs, issues, and contributions" />
-  <img height="220em" src="https://grs-deploy.vercel.app/api/top-langs/?username=SufficientDaikon&layout=donut&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&text_color=FFFFFF&langs_count=8" alt="SufficientDaikon's most used programming languages — Python, TypeScript, JavaScript, Rust, and more" />
-</div>
-
-<br/>
+### 🔥 Streak & Activity
 
 <div align="center">
   <img width="49%" src="https://streak-stats.demolab.com?user=SufficientDaikon&theme=tokyonight&hide_border=true&background=0D1117&ring=A177FE&fire=A177FE&currStreakLabel=A177FE&sideLabels=A177FE&dates=FFFFFF99" alt="SufficientDaikon's GitHub streak — current streak, longest streak, and total contributions" />
   <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=SufficientDaikon&theme=tokyonight&utcOffset=2" alt="SufficientDaikon's commits by hour of day" />
+</div>
+
+---
+
+### 💻 Languages & Commits
+
+<div align="center">
+  <img width="49%" src="https://grs-deploy.vercel.app/api/top-langs/?username=SufficientDaikon&layout=donut&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&text_color=FFFFFF&langs_count=8" alt="SufficientDaikon's most used programming languages" />
+  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=SufficientDaikon&theme=tokyonight" alt="SufficientDaikon's most committed languages" />
+</div>
+
+---
+
+### 📈 Contribution Graph
+
+<div align="center">
+
+[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=SufficientDaikon&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=A177FE&line=A177FE&point=FFFFFF)](https://github.com/ashutosh00710/github-readme-activity-graph)
+
 </div>
 
 ---
@@ -159,12 +171,6 @@ ML/AI-first systems programming language — custom compiler with lexer, parser,
 [![trophy](https://github-trophies.vercel.app/?username=SufficientDaikon&theme=discord&no-frame=true&no-bg=true&column=7)](https://github.com/ryo-ma/github-profile-trophy)
 
 </div>
-
----
-
-### 📈 Contribution Graph
-
-[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=SufficientDaikon&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=A177FE&line=A177FE&point=FFFFFF)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
 ---
 
