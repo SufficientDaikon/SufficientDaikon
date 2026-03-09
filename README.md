@@ -139,12 +139,14 @@ ML/AI-first systems programming language — custom compiler with lexer, parser,
 ### 📊 GitHub Stats
 
 <div align="center">
-  <img height="180em" src="https://grs-deploy.vercel.app/api?username=SufficientDaikon&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF&count_private=true" alt="SufficientDaikon's GitHub stats — stars, commits, PRs, issues, and contributions" />
-  <img height="180em" src="https://streak-stats.demolab.com?user=SufficientDaikon&theme=tokyonight&hide_border=true&background=0D1117&ring=A177FE&fire=A177FE&currStreakLabel=A177FE" alt="SufficientDaikon's GitHub streak — current streak, longest streak, and total contributions" />
+  <img height="200em" src="https://grs-deploy.vercel.app/api?username=SufficientDaikon&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF&count_private=true&rank_icon=github&show=reviews,prs_merged,prs_merged_percentage&card_width=450" alt="SufficientDaikon's GitHub stats — stars, commits, PRs, issues, and contributions" />
+  <img height="200em" src="https://grs-deploy.vercel.app/api/top-langs/?username=SufficientDaikon&layout=donut&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&text_color=FFFFFF&langs_count=8" alt="SufficientDaikon's most used programming languages — Python, TypeScript, JavaScript, Rust, and more" />
 </div>
 
+<br/>
+
 <div align="center">
-  <img height="180em" src="https://grs-deploy.vercel.app/api/top-langs/?username=SufficientDaikon&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&text_color=FFFFFF&langs_count=10" alt="SufficientDaikon's most used programming languages — Python, TypeScript, JavaScript, Rust, and more" />
+  <img src="https://streak-stats.demolab.com?user=SufficientDaikon&theme=tokyonight&hide_border=true&background=0D1117&ring=A177FE&fire=A177FE&currStreakLabel=A177FE&sideLabels=A177FE&dates=FFFFFF99" alt="SufficientDaikon's GitHub streak — current streak, longest streak, and total contributions" />
 </div>
 
 ---
