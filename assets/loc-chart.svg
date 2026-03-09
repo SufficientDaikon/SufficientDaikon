@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="340" viewBox="0 0 420 340">
+  <defs>
+    <linearGradient id="bar-ts" x1="0" x2="1"><stop offset="0%" stop-color="#3178C6"/><stop offset="100%" stop-color="#5A9FD4"/></linearGradient>
+    <linearGradient id="bar-html" x1="0" x2="1"><stop offset="0%" stop-color="#E34C26"/><stop offset="100%" stop-color="#F06529"/></linearGradient>
+    <linearGradient id="bar-rust" x1="0" x2="1"><stop offset="0%" stop-color="#DEA584"/><stop offset="100%" stop-color="#F0C8A0"/></linearGradient>
+    <linearGradient id="bar-py" x1="0" x2="1"><stop offset="0%" stop-color="#3572A5"/><stop offset="100%" stop-color="#4B8BBE"/></linearGradient>
+    <linearGradient id="bar-yaml" x1="0" x2="1"><stop offset="0%" stop-color="#CB171E"/><stop offset="100%" stop-color="#E74C3C"/></linearGradient>
+    <linearGradient id="bar-shell" x1="0" x2="1"><stop offset="0%" stop-color="#89E051"/><stop offset="100%" stop-color="#A8E87C"/></linearGradient>
+    <linearGradient id="bar-css" x1="0" x2="1"><stop offset="0%" stop-color="#663399"/><stop offset="100%" stop-color="#9B59B6"/></linearGradient>
+    <linearGradient id="bar-js" x1="0" x2="1"><stop offset="0%" stop-color="#F1E05A"/><stop offset="100%" stop-color="#F5E98A"/></linearGradient>
+  </defs>
+  <style>
+    .bg { fill: #0D1117; }
+    .title { font: 700 18px 'Segoe UI', Ubuntu, sans-serif; fill: #A177FE; }
+    .total { font: 700 28px 'Segoe UI', Ubuntu, sans-serif; fill: #FFFFFF; }
+    .total-label { font: 400 13px 'Segoe UI', Ubuntu, sans-serif; fill: #8B949E; }
+    .lang { font: 600 13px 'Segoe UI', Ubuntu, sans-serif; fill: #C9D1D9; }
+    .loc { font: 600 13px 'Segoe UI', Ubuntu, sans-serif; fill: #8B949E; }
+    .bar-bg { fill: #161B22; rx: 4; }
+    .bar { rx: 4; opacity: 0.9; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes growBar { from { width: 0; } }
+    .row { animation: fadeIn 0.6s ease-out forwards; }
+    .bar { animation: growBar 1s ease-out forwards; }
+  </style>
+
+  <rect class="bg" width="420" height="340" rx="6"/>
+
+  <!-- Title -->
+  <text class="title" x="20" y="32">Lines of Code</text>
+
+  <!-- Total -->
+  <text class="total" x="20" y="68">167,471</text>
+  <text class="total-label" x="150" y="68">total lines across 6 repos</text>
+
+  <!-- TypeScript — 79,997 -->
+  <g class="row" style="animation-delay: 0.1s" transform="translate(20, 88)">
+    <text class="lang" y="14">TypeScript</text>
+    <text class="loc" x="400" y="14" text-anchor="end">79,997</text>
+    <rect class="bar-bg" y="20" width="380" height="8"/>
+    <rect class="bar" y="20" width="362" height="8" fill="url(#bar-ts)" style="animation-delay: 0.1s"/>
+  </g>
+
+  <!-- HTML — 46,462 -->
+  <g class="row" style="animation-delay: 0.2s" transform="translate(20, 124)">
+    <text class="lang" y="14">HTML</text>
+    <text class="loc" x="400" y="14" text-anchor="end">46,462</text>
+    <rect class="bar-bg" y="20" width="380" height="8"/>
+    <rect class="bar" y="20" width="221" height="8" fill="url(#bar-html)" style="animation-delay: 0.2s"/>
+  </g>
+
+  <!-- Rust — 26,638 -->
+  <g class="row" style="animation-delay: 0.3s" transform="translate(20, 160)">
+    <text class="lang" y="14">Rust</text>
+    <text class="loc" x="400" y="14" text-anchor="end">26,638</text>
+    <rect class="bar-bg" y="20" width="380" height="8"/>
+    <rect class="bar" y="20" width="127" height="8" fill="url(#bar-rust)" style="animation-delay: 0.3s"/>
+  </g>
+
+  <!-- Python — 8,153 -->
+  <g class="row" style="animation-delay: 0.4s" transform="translate(20, 196)">
+    <text class="lang" y="14">Python</text>
+    <text class="loc" x="400" y="14" text-anchor="end">8,153</text>
+    <rect class="bar-bg" y="20" width="380" height="8"/>
+    <rect class="bar" y="20" width="39" height="8" fill="url(#bar-py)" style="animation-delay: 0.4s"/>
+  </g>
+
+  <!-- YAML — 2,750 -->
+  <g class="row" style="animation-delay: 0.5s" transform="translate(20, 232)">
+    <text class="lang" y="14">YAML</text>
+    <text class="loc" x="400" y="14" text-anchor="end">2,750</text>
+    <rect class="bar-bg" y="20" width="380" height="8"/>
+    <rect class="bar" y="20" width="13" height="8" fill="url(#bar-yaml)" style="animation-delay: 0.5s"/>
+  </g>
+
+  <!-- Shell — 1,135 -->
+  <g class="row" style="animation-delay: 0.6s" transform="translate(20, 268)">
+    <text class="lang" y="14">Shell / CSS / JS</text>
+    <text class="loc" x="400" y="14" text-anchor="end">2,892</text>
+    <rect class="bar-bg" y="20" width="380" height="8"/>
+    <rect class="bar" y="20" width="14" height="8" fill="url(#bar-shell)" style="animation-delay: 0.6s"/>
+  </g>
+
+  <!-- Footer -->
+  <text class="total-label" x="20" y="320">Counted with codetabs.com · TypeScript, Rust, Python, HTML, CSS, Shell &amp; more</text>
+</svg>

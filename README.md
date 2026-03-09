@@ -145,11 +145,11 @@ ML/AI-first systems programming language — custom compiler with lexer, parser,
 
 ---
 
-### 💻 Languages & Commits
+### 💻 Languages & Lines of Code
 
 <div align="center">
   <img width="49%" src="https://grs-deploy.vercel.app/api/top-langs/?username=SufficientDaikon&layout=donut&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&text_color=FFFFFF&langs_count=8" alt="SufficientDaikon's most used programming languages" />
-  <img width="49%" src="https://grs-deploy.vercel.app/api/top-langs/?username=SufficientDaikon&layout=normal&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&text_color=FFFFFF&langs_count=8&card_width=350" alt="SufficientDaikon's languages by lines of code" />
+  <img width="49%" src="./assets/loc-chart.svg" alt="167,471 lines of code across 6 repos — TypeScript, Rust, Python, HTML and more" />
 </div>
 
 ---
