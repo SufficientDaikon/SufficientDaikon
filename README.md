@@ -139,12 +139,12 @@ ML/AI-first systems programming language — custom compiler with lexer, parser,
 ### 📊 GitHub Stats
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=SufficientDaikon&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF&count_private=true" alt="SufficientDaikon's GitHub stats — stars, commits, PRs, issues, and contributions" />
+  <img height="180em" src="https://grs-deploy.vercel.app/api?username=SufficientDaikon&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF&count_private=true" alt="SufficientDaikon's GitHub stats — stars, commits, PRs, issues, and contributions" />
   <img height="180em" src="https://streak-stats.demolab.com?user=SufficientDaikon&theme=tokyonight&hide_border=true&background=0D1117&ring=A177FE&fire=A177FE&currStreakLabel=A177FE" alt="SufficientDaikon's GitHub streak — current streak, longest streak, and total contributions" />
 </div>
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SufficientDaikon&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&text_color=FFFFFF&langs_count=10" alt="SufficientDaikon's most used programming languages — Python, TypeScript, JavaScript, Rust, and more" />
+  <img height="180em" src="https://grs-deploy.vercel.app/api/top-langs/?username=SufficientDaikon&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&text_color=FFFFFF&langs_count=10" alt="SufficientDaikon's most used programming languages — Python, TypeScript, JavaScript, Rust, and more" />
 </div>
 
 ---
@@ -153,7 +153,7 @@ ML/AI-first systems programming language — custom compiler with lexer, parser,
 
 <div align="center">
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=SufficientDaikon&theme=discord&no-frame=true&no-bg=true&column=7)](https://github.com/ryo-ma/github-profile-trophy)
+[![trophy](https://github-trophies.vercel.app/?username=SufficientDaikon&theme=discord&no-frame=true&no-bg=true&column=7)](https://github.com/ryo-ma/github-profile-trophy)
 
 </div>
 
@@ -165,45 +165,19 @@ ML/AI-first systems programming language — custom compiler with lexer, parser,
 
 ---
 
-<!-- 🐍 SNAKE ANIMATION — Uncomment after setting up the GitHub Action below -->
-<!--
 ### 🐍 Contribution Snake
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/github-snake-dark.svg" alt="Snake animation of SufficientDaikon's GitHub contribution graph" />
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/github-contribution-grid-snake.svg" />
+  <img alt="Snake animation of SufficientDaikon's GitHub contribution graph" src="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/github-contribution-grid-snake.svg" />
+</picture>
+
 </div>
 
 ---
--->
-
-<!--
-📋 SNAKE GITHUB ACTION — Save this as .github/workflows/snake.yml in your profile repo:
-
-name: Generate Snake Animation
-
-on:
-  schedule:
-    - cron: "0 0 * * *"   # runs daily at midnight UTC
-  workflow_dispatch:        # allows manual trigger
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: Platane/snk@v3
-        with:
-          github_user_name: SufficientDaikon
-          outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
-
-      - uses: crazy-max/ghaction-github-pages@v3
-        with:
-          target_branch: output
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
--->
 
 <div align="center">
 
