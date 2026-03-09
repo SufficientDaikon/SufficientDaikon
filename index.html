@@ -709,6 +709,44 @@
         }
       }
 
+      /* ── ACTIVITY SECTION ── */
+      .activity-section {
+        padding: 80px 0;
+      }
+
+      .activity-greeting {
+        color: var(--accent3);
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        margin-top: 12px;
+        opacity: 0.9;
+      }
+
+      .activity-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-top: 40px;
+      }
+
+      .activity-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 16px;
+        overflow: hidden;
+        transition: border-color 0.3s;
+      }
+
+      .activity-card:hover {
+        border-color: var(--accent);
+      }
+
+      .activity-card img {
+        border-radius: 8px;
+        display: block;
+      }
+
       /* ── RESPONSIVE ── */
       @media (max-width: 768px) {
         .nav-links {
@@ -728,6 +766,9 @@
         }
         .stats-grid {
           grid-template-columns: repeat(2, 1fr);
+        }
+        .activity-grid {
+          grid-template-columns: 1fr;
         }
         .orb {
           width: 250px;
@@ -1102,6 +1143,25 @@
       </div>
     </section>
 
+    <!-- ACTIVITY — Timezone-Adaptive -->
+    <section class="activity-section">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">GitHub Activity</div>
+          <h2 class="section-title">Streak & Activity</h2>
+          <p class="activity-greeting" id="tz-greeting"></p>
+        </div>
+        <div class="activity-grid reveal">
+          <div class="activity-card">
+            <img id="streak-card" width="100%" src="https://streak-stats.demolab.com?user=SufficientDaikon&theme=tokyonight&hide_border=true&background=0D1117&ring=A177FE&fire=A177FE&currStreakLabel=A177FE&sideLabels=A177FE&dates=FFFFFF99" alt="GitHub streak — current streak, longest streak, and total contributions" />
+          </div>
+          <div class="activity-card">
+            <img id="productive-time-card" width="100%" src="" alt="Commits by hour of day — adapted to your timezone" />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FOOTER -->
     <footer>
       <div class="container">
@@ -1184,6 +1244,47 @@
         },
         { passive: true },
       );
+
+      // Timezone-adaptive productive time chart
+      (function () {
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const now = new Date();
+        const offsetMin = -now.getTimezoneOffset();
+        const offsetHours = Math.round(offsetMin / 60);
+
+        // Set chart image with detected offset
+        const card = document.getElementById("productive-time-card");
+        if (card) {
+          card.src =
+            "https://github-profile-summary-cards.vercel.app/api/cards/productive-time" +
+            "?username=SufficientDaikon&theme=tokyonight&utcOffset=" +
+            offsetHours;
+        }
+
+        // Time-aware greeting
+        const greetEl = document.getElementById("tz-greeting");
+        if (greetEl) {
+          const hour = now.getHours();
+          let greeting;
+          if (hour >= 5 && hour < 12) greeting = "Good morning";
+          else if (hour >= 12 && hour < 17) greeting = "Good afternoon";
+          else if (hour >= 17 && hour < 21) greeting = "Good evening";
+          else greeting = "Late night coding?";
+
+          const timeStr = now.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+          const tzShort = tz.replace(/_/g, " ");
+          greetEl.textContent =
+            greeting +
+            " — it's " +
+            timeStr +
+            " in " +
+            tzShort +
+            ". Chart adapted to your timezone.";
+        }
+      })();
     </script>
   </body>
 </html>

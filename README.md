@@ -11,7 +11,7 @@
 
 <img src="https://img.shields.io/badge/Lines%20of%20Code-167K%2B-A177FE?style=for-the-badge&logo=codepen&logoColor=white" alt="167K+ Lines of Code" />
 <img src="https://img.shields.io/badge/Commits-1%2C843-A177FE?style=for-the-badge&logo=git&logoColor=white" alt="1,843 Commits" />
-<img src="https://img.shields.io/badge/AI%20Skills-48-A177FE?style=for-the-badge&logo=robot&logoColor=white" alt="48 AI Skills" />
+<img src="https://img.shields.io/badge/AI%20Skills-48-A177FE?style=for-the-badge&logo=probot&logoColor=white" alt="48 AI Skills" />
 <img src="https://img.shields.io/badge/Agents-7-A177FE?style=for-the-badge&logo=dependabot&logoColor=white" alt="7 Agents" />
 <img src="https://img.shields.io/badge/Projects-6-A177FE?style=for-the-badge&logo=github&logoColor=white" alt="6 Projects" />
 
@@ -52,22 +52,22 @@
 
 <div align="center">
   <a href="https://github.com/SufficientDaikon/aether">
-    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=aether&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="Aether — Autonomous Agent Orchestration Framework" />
+    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=aether&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF&cache_seconds=7200" alt="Aether — Autonomous Agent Orchestration Framework" />
   </a>
   <a href="https://github.com/SufficientDaikon/omniskill">
-    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=omniskill&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="OMNISKILL — Universal AI Agent & Skills Framework" />
+    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=omniskill&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF&cache_seconds=7200" alt="OMNISKILL — Universal AI Agent & Skills Framework" />
   </a>
   <a href="https://github.com/SufficientDaikon/sdd-vscode-agents">
-    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=sdd-vscode-agents&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="SDD VS Code Agents — Copilot Chat agents for Spec-Driven Development" />
+    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=sdd-vscode-agents&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF&cache_seconds=7200" alt="SDD VS Code Agents — Copilot Chat agents for Spec-Driven Development" />
   </a>
   <a href="https://github.com/SufficientDaikon/harvesthub">
-    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=harvesthub&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="HarvestHub — Adaptive product scraping platform" />
+    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=harvesthub&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF&cache_seconds=7200" alt="HarvestHub — Adaptive product scraping platform" />
   </a>
   <a href="https://github.com/SufficientDaikon/hugbrowse">
-    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=hugbrowse&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="HugBrowse — Local AI Platform for Hugging Face models" />
+    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=hugbrowse&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF&cache_seconds=7200" alt="HugBrowse — Local AI Platform for Hugging Face models" />
   </a>
   <a href="https://github.com/SufficientDaikon/Axon">
-    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=Axon&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="Axon — ML/AI-first systems programming language" />
+    <img width="49%" src="https://grs-deploy.vercel.app/api/pin/?username=SufficientDaikon&repo=Axon&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF&cache_seconds=7200" alt="Axon — ML/AI-first systems programming language" />
   </a>
 </div>
 
@@ -97,7 +97,7 @@
 
 <div align="center">
   <img width="49%" src="https://streak-stats.demolab.com?user=SufficientDaikon&theme=tokyonight&hide_border=true&background=0D1117&ring=A177FE&fire=A177FE&currStreakLabel=A177FE&sideLabels=A177FE&dates=FFFFFF99" alt="SufficientDaikon's GitHub streak — current streak, longest streak, and total contributions" />
-  <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=SufficientDaikon&theme=tokyonight&utcOffset=2" alt="SufficientDaikon's commits by hour of day" />
+  <img width="49%" src="https://sufficientdaikon.vercel.app/api/productive-time" alt="SufficientDaikon's commits by hour of day — adapts to your timezone" />
 </div>
 
 ---
@@ -105,7 +105,7 @@
 ### 💻 Languages & Lines of Code
 
 <div align="center">
-  <img width="49%" src="https://grs-deploy.vercel.app/api/top-langs/?username=SufficientDaikon&layout=donut&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&text_color=FFFFFF&langs_count=8" alt="SufficientDaikon's most used programming languages" />
+  <img width="49%" src="https://grs-deploy.vercel.app/api/top-langs/?username=SufficientDaikon&layout=donut&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&text_color=FFFFFF&langs_count=8&cache_seconds=7200" alt="SufficientDaikon's most used programming languages" />
   <img width="49%" src="./assets/loc-chart.svg" alt="167,471 lines of code across 6 repos — TypeScript, Rust, Python, HTML and more" />
 </div>
 
