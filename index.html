@@ -8,8 +8,20 @@
       name="description"
       content="I build AI agents that build software. Portfolio of Ahmed Taha — autonomous agent systems, full-stack apps, and developer tooling."
     />
+    <meta property="og:title" content="Ahmed Taha — AI Agent Architect" />
+    <meta property="og:description" content="I build AI agents that build software. Portfolio of Ahmed Taha — autonomous agent systems, full-stack apps, and developer tooling." />
+    <meta property="og:image" content="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,9,5&height=220&section=header&text=Ahmed%20Taha&fontSize=50&fontColor=FFFFFF&fontAlignY=35" />
+    <meta property="og:url" content="https://sufficientdaikon.github.io/SufficientDaikon/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ahmed Taha — AI Agent Architect" />
+    <meta name="twitter:description" content="I build AI agents that build software. Autonomous agent systems, full-stack apps, and developer tooling." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://skillicons.dev" />
+    <link rel="preconnect" href="https://img.shields.io" />
+    <link rel="preconnect" href="https://grs-deploy.vercel.app" />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -709,6 +721,60 @@
         }
       }
 
+      /* ── CONTACT SECTION ── */
+      .contact-section {
+        padding: 80px 0;
+        border-top: 1px solid var(--border);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 40px;
+      }
+
+      .contact-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 32px 24px;
+        text-align: center;
+        text-decoration: none;
+        color: var(--text);
+        transition: border-color 0.3s, transform 0.3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .contact-card:hover {
+        border-color: var(--border-glow);
+        transform: translateY(-3px);
+      }
+
+      .contact-icon {
+        font-size: 2rem;
+      }
+
+      .contact-card h4 {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .contact-card p {
+        font-size: 0.85rem;
+        color: var(--text-dim);
+        font-family: var(--font-mono);
+      }
+
+      @media (max-width: 768px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
       /* ── ACTIVITY SECTION ── */
       .activity-section {
         padding: 80px 0;
@@ -1017,6 +1083,25 @@
               <span class="tag">Code Quality</span>
             </div>
           </div>
+          <div class="project-card reveal">
+            <span class="project-icon">🧬</span>
+            <h3>
+              <a
+                href="https://github.com/SufficientDaikon/Axon"
+                target="_blank"
+                >Axon</a
+              >
+            </h3>
+            <p>
+              ML/AI-first systems programming language — compile-time tensor
+              shapes, ownership-based safety, native GPU execution.
+            </p>
+            <div class="project-tags">
+              <span class="tag" style="border-color: var(--orange); color: var(--orange)">Rust</span>
+              <span class="tag" style="border-color: var(--orange); color: var(--orange)">LLVM</span>
+              <span class="tag" style="border-color: var(--orange); color: var(--orange)">GPU</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1143,6 +1228,33 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="reveal">
+          <div class="section-label">Say Hello</div>
+          <h2 class="section-title">Get in Touch</h2>
+        </div>
+        <div class="contact-grid reveal">
+          <a href="mailto:tahaa755@gmail.com" class="contact-card">
+            <span class="contact-icon">📧</span>
+            <h4>Email</h4>
+            <p>tahaa755@gmail.com</p>
+          </a>
+          <a href="https://www.linkedin.com/in/ahmed-taha225/" target="_blank" class="contact-card">
+            <span class="contact-icon">💼</span>
+            <h4>LinkedIn</h4>
+            <p>ahmed-taha225</p>
+          </a>
+          <a href="https://github.com/SufficientDaikon" target="_blank" class="contact-card">
+            <span class="contact-icon">🐙</span>
+            <h4>GitHub</h4>
+            <p>SufficientDaikon</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ACTIVITY — Timezone-Adaptive -->
     <section class="activity-section">
       <div class="container">
@@ -1153,10 +1265,10 @@
         </div>
         <div class="activity-grid reveal">
           <div class="activity-card">
-            <img id="streak-card" width="100%" src="https://streak-stats.demolab.com?user=SufficientDaikon&theme=tokyonight&hide_border=true&background=0D1117&ring=A177FE&fire=A177FE&currStreakLabel=A177FE&sideLabels=A177FE&dates=FFFFFF99" alt="GitHub streak — current streak, longest streak, and total contributions" />
+            <img id="streak-card" loading="lazy" width="100%" src="https://streak-stats.demolab.com?user=SufficientDaikon&theme=tokyonight&hide_border=true&background=0D1117&ring=A177FE&fire=A177FE&currStreakLabel=A177FE&sideLabels=A177FE&dates=FFFFFF99" alt="GitHub streak — current streak, longest streak, and total contributions" />
           </div>
           <div class="activity-card">
-            <img id="productive-time-card" width="100%" src="" alt="Commits by hour of day — adapted to your timezone" />
+            <img id="productive-time-card" loading="lazy" width="100%" src="" alt="Commits by hour of day — adapted to your timezone" />
           </div>
         </div>
       </div>
