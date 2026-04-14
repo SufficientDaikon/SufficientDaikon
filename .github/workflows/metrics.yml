@@ -83,11 +83,11 @@ jobs:
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           filename: assets/metrics/lines.svg
-          base: repositories
+          base: ""
           plugin_lines: yes
           plugin_lines_history_limit: 3
-          plugin_lines_repositories_limit: 20
-          plugin_lines_sections: repositories, history
+          plugin_lines_repositories_limit: 15
+          plugin_lines_sections: history
           config_output: svg
 
       # ── Follow-up of Issues and PRs ──
