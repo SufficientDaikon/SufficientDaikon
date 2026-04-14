@@ -1,254 +1,192 @@
 <div align="center">
-
-<!-- HEADER — capsule-render venom drip -->
-<img src="https://capsule-render.vercel.app/api?type=venom&color=gradient&customColorList=12,9,5,30&height=200&section=header&text=Ahmed%20Taha&fontSize=60&fontColor=FFFFFF&fontAlignY=40&animation=fadeIn&stroke=A177FE&strokeWidth=2" alt="Ahmed Taha" width="100%" />
-
-<!-- Typing SVG — animated subtitle -->
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=24&duration=3000&pause=1200&color=A177FE&center=true&vCenter=true&multiline=false&repeat=true&width=800&height=45&lines=AI+Agent+Architect+%E2%80%A2+Systems+Engineer+%E2%80%A2+Open+Source+Builder;83+Skills+%7C+10+Agents+%7C+5+Cognitive+Synapses;Building+AI+that+builds+software;Rust+%E2%80%A2+TypeScript+%E2%80%A2+Python+%E2%80%A2+PowerShell" alt="Typing SVG" /></a>
+  <img src="./assets/header.svg" width="100%" alt="Ahmed Taha — AI Agent Architect" />
+</div>
 
 <br/>
 
-<!-- Quick stats badges -->
-<img src="https://img.shields.io/badge/Repos-44+-A177FE?style=for-the-badge&logo=github&logoColor=white" alt="44+ Repos" />
-<img src="https://img.shields.io/badge/AI%20Skills-83-A177FE?style=for-the-badge&logo=probot&logoColor=white" alt="83 AI Skills" />
-<img src="https://img.shields.io/badge/Agents-10-A177FE?style=for-the-badge&logo=dependabot&logoColor=white" alt="10 Agents" />
-<img src="https://img.shields.io/badge/Lines%20of%20Code-267K+-A177FE?style=for-the-badge&logo=codepen&logoColor=white" alt="267K+ LoC" />
-<img src="https://img.shields.io/badge/Since-2020-A177FE?style=for-the-badge&logo=calendar&logoColor=white" alt="Since 2020" />
+I build autonomous systems that build software. Not wrappers around ChatGPT — actual multi-agent orchestration with cognitive architectures, skill routing, and self-improving feedback loops.
 
-<br/><br/>
+Currently shipping production code to [**PowerShell/PowerShell**](https://github.com/PowerShell/PowerShell) (52K stars) — not just issues, actual engine-level PRs that fix 8-year-old bugs and add new timeout APIs.
 
-<!-- Social links -->
-<a href="https://www.linkedin.com/in/ahmed-taha225/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-<a href="mailto:tahaa755@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
-<a href="https://github.com/SufficientDaikon"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
-<img src="https://komarev.com/ghpvc/?username=SufficientDaikon&style=for-the-badge&color=A177FE&label=Profile+Views" alt="Profile Views" />
-
+<div align="center">
+  <a href="https://www.linkedin.com/in/ahmed-taha225/"><kbd>LinkedIn</kbd></a>&nbsp;&nbsp;
+  <a href="mailto:tahaa755@gmail.com"><kbd>Email</kbd></a>&nbsp;&nbsp;
+  <a href="https://github.com/SufficientDaikon"><kbd>GitHub</kbd></a>
 </div>
 
-<!-- Wave divider -->
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0D1117&height=1" width="100%" />
+<br/>
 
-## `> whoami`
+<img src="./assets/divider.svg" width="100%" alt="" />
 
-**AI Agent Architect** from Cairo, Egypt. I build autonomous systems that build software.
+<br/>
 
-```text
- Role      :  AI/Systems Developer & Framework Builder
- Focus     :  Multi-agent orchestration, AI skills platforms, systems languages
- Stack     :  Rust · TypeScript · Python · PowerShell · C/C++
- Building  :  Archon (83 skills) · Aether (28 subsystems) · Axon (ML compiler)
- Philosophy:  "If it can be automated, it should be orchestrated by agents."
-```
+## What I Actually Build
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### What I Do
+### Archon — AI Skills Engine
 
-- Design & build **multi-agent orchestration** frameworks
-- Create **cross-platform AI skills** that deploy on 5 editors
-- Build **systems-level tools** — compilers, debuggers, scanners
-- Contribute to **PowerShell/PowerShell** (bounded-wait timeouts, window flash fix)
-- Ship **full-stack apps** with Tauri, React, Astro, Django, Bun
+The core of everything I ship. 83 skills, 10 agents, 5 cognitive synapses. Write a skill once, deploy it on Claude Code, VS Code Copilot, Antigravity, and 2 more platforms.
+
+Not a chatbot framework. A **cognitive architecture** with enforced guardrails, complexity routing (TRIVIAL→EXPERT), and a virtuoso execution loop that prevents hallucination cascades.
+
+**[`archon`](https://github.com/SufficientDaikon/archon)** — Python · 83 skills · MIT
 
 </td>
 <td width="50%" valign="top">
 
-### Numbers
+### Axon — ML-First Systems Language
 
-- **83** AI skills across **10** agents
-- **44+** public repositories
-- **13** VS Code Copilot agents
-- **5** MCP servers built & running
-- **267K+** lines of code shipped
+A programming language designed from scratch for machine learning. Compile-time tensor shape verification, ownership-based memory safety (like Rust), native GPU execution.
+
+If Python + Rust had a child raised by CUDA engineers, this is what you'd get.
+
+**[`Axon`](https://github.com/SufficientDaikon/Axon)** — Rust · Compiler + Runtime
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### HugBrowse — Local AI Platform
+
+Browse, download, and run Hugging Face models locally. Privacy-first — nothing leaves your machine. Built with Tauri v2 (Rust backend) + React frontend. GGUF quantized model support.
+
+**[`hugbrowse`](https://github.com/SufficientDaikon/hugbrowse)** — TypeScript + Rust · Tauri v2
+
+</td>
+<td width="50%" valign="top">
+
+### Aether — Agent Orchestration
+
+Multi-agent LLM coordination with 28 subsystems. Agents negotiate, delegate, and self-correct. Built on Bun for raw speed.
+
+Currently paused — the architecture is solid but waiting for the right moment to ship.
+
+**[`aether`](https://github.com/SufficientDaikon/aether)** — TypeScript · Bun · 28 subsystems
 
 </td>
 </tr>
 </table>
 
----
-
-## Flagship Projects
-
-<div align="center">
-  <a href="https://github.com/SufficientDaikon/archon">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=SufficientDaikon&repo=archon&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="Archon" />
-  </a>
-  <a href="https://github.com/SufficientDaikon/aether">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=SufficientDaikon&repo=aether&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="Aether" />
-  </a>
-  <a href="https://github.com/SufficientDaikon/Axon">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=SufficientDaikon&repo=Axon&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="Axon" />
-  </a>
-  <a href="https://github.com/SufficientDaikon/sdd-vscode-agents">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=SufficientDaikon&repo=sdd-vscode-agents&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="SDD VS Code Agents" />
-  </a>
-  <a href="https://github.com/SufficientDaikon/hugbrowse">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=SufficientDaikon&repo=hugbrowse&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="HugBrowse" />
-  </a>
-  <a href="https://github.com/SufficientDaikon/harvesthub">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=SufficientDaikon&repo=harvesthub&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="HarvestHub" />
-  </a>
-</div>
-
 <details>
-<summary><strong>More Projects</strong></summary>
-<br/>
-<div align="center">
-  <a href="https://github.com/SufficientDaikon/antigravity-guide">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=SufficientDaikon&repo=antigravity-guide&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="Antigravity Guide" />
-  </a>
-  <a href="https://github.com/SufficientDaikon/daedalus-debugger">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=SufficientDaikon&repo=daedalus-debugger&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="Daedalus Debugger" />
-  </a>
-  <a href="https://github.com/SufficientDaikon/axios-scanner">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=SufficientDaikon&repo=axios-scanner&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="Axios Scanner" />
-  </a>
-  <a href="https://github.com/SufficientDaikon/godot-kit">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=SufficientDaikon&repo=godot-kit&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="Godot Kit" />
-  </a>
-  <a href="https://github.com/SufficientDaikon/feinix-os">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=SufficientDaikon&repo=feinix-os&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="Feinix OS" />
-  </a>
-  <a href="https://github.com/SufficientDaikon/adaptive-teacher">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=SufficientDaikon&repo=adaptive-teacher&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF" alt="Adaptive Teacher" />
-  </a>
-</div>
-</details>
-
----
-
-## Tech Stack
-
-<div align="center">
-
-**Languages**
-
-<a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=rust,ts,py,powershell,js,go,c,cpp,html,css,bash,php,java&theme=dark" alt="Languages" /></a>
-
-**Frameworks & Runtime**
-
-<a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=react,astro,django,flask,nodejs,bun,tauri,svelte,vue,tailwind&theme=dark" alt="Frameworks" /></a>
-
-**Tools & Infrastructure**
-
-<a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=docker,azure,vercel,cloudflare,git,github,githubactions,linux,mysql,sqlite,figma,vscode&theme=dark" alt="Tools" /></a>
-
-**AI & ML**
-
-<a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=pytorch,tensorflow&theme=dark" alt="AI/ML" /></a>
-
-</div>
-
----
-
-## GitHub Stats
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=SufficientDaikon&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF&ring_color=A177FE&include_all_commits=true&count_private=true" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=SufficientDaikon&show_icons=true&theme=default&hide_border=true&include_all_commits=true&count_private=true" />
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=SufficientDaikon&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&icon_color=A177FE&text_color=FFFFFF&ring_color=A177FE&include_all_commits=true&count_private=true" alt="GitHub Stats" />
-</picture>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=SufficientDaikon&theme=tokyonight&hide_border=true&background=0D1117&ring=A177FE&fire=A177FE&currStreakLabel=A177FE&sideLabels=A177FE&dates=FFFFFF99" />
-  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=SufficientDaikon&theme=default&hide_border=true" />
-  <img width="49%" src="https://streak-stats.demolab.com?user=SufficientDaikon&theme=tokyonight&hide_border=true&background=0D1117&ring=A177FE&fire=A177FE&currStreakLabel=A177FE&sideLabels=A177FE&dates=FFFFFF99" alt="Streak Stats" />
-</picture>
-
-</div>
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=SufficientDaikon&layout=donut-vertical&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&text_color=FFFFFF&langs_count=10" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=SufficientDaikon&layout=donut-vertical&theme=default&hide_border=true&langs_count=10" />
-  <img width="35%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SufficientDaikon&layout=donut-vertical&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=A177FE&text_color=FFFFFF&langs_count=10" alt="Top Languages" />
-</picture>
-<img width="63%" src="./assets/loc-chart.svg" alt="267K+ lines of code — TypeScript, Rust, Python, HTML and more" />
-
-</div>
-
----
-
-## Trophies
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=SufficientDaikon&theme=discord&no-frame=true&no-bg=true&column=7&margin-w=10" />
-  <source media="(prefers-color-scheme: light)" srcset="https://github-profile-trophy.vercel.app/?username=SufficientDaikon&theme=flat&no-frame=true&no-bg=true&column=7&margin-w=10" />
-  <img src="https://github-profile-trophy.vercel.app/?username=SufficientDaikon&theme=discord&no-frame=true&no-bg=true&column=7&margin-w=10" alt="GitHub Trophies" width="100%" />
-</picture>
-
-</div>
-
----
-
-## Activity
-
-<div align="center">
-
-[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=SufficientDaikon&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=A177FE&line=A177FE&point=FFFFFF&area=true&area_color=A177FE)](https://github.com/SufficientDaikon)
-
-</div>
-
----
-
-## Contribution Snake
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/github-contribution-grid-snake.svg" />
-  <img alt="Snake animation — watch contributions get eaten" src="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/github-contribution-grid-snake-dark.svg" width="100%" />
-</picture>
-
-</div>
-
----
-
-## 3D Contributions
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/profile-3d-contrib/profile-night-rainbow.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/profile-3d-contrib/profile-green-animate.svg" />
-  <img alt="3D Contribution Graph" src="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/profile-3d-contrib/profile-night-rainbow.svg" width="100%" />
-</picture>
-
-</div>
-
----
-
-<details>
-<summary><strong>Open Source Contributions</strong></summary>
+<summary><strong>More things I've shipped</strong></summary>
 <br/>
 
-| Project | What I Did |
-|---------|-----------|
-| [**PowerShell/PowerShell**](https://github.com/PowerShell/PowerShell) | Bounded-wait timeouts for hosting API — `Stop(TimeSpan)`, `PSInvocationSettings.Timeout`, runspace/pipeline/connection timeouts |
-| [**PowerShell/PowerShell**](https://github.com/PowerShell/PowerShell) | Fix `-WindowStyle Hidden` console flash — issue #3028 (160+ upvotes, 8 years open) |
+| Project | What it does |
+|---------|-------------|
+| **[sdd-vscode-agents](https://github.com/SufficientDaikon/sdd-vscode-agents)** | 13 Copilot Chat agents for spec-driven development — from research to production code with quality gates |
+| **[axios-scanner](https://github.com/SufficientDaikon/axios-scanner)** | One-click scanner for the axios npm supply chain attack (March 2026). Detects RAT artifacts, C2 connections, persistence |
+| **[daedalus-debugger](https://github.com/SufficientDaikon/daedalus-debugger)** | Autonomous AI environment debugger — probes hardware, MCP servers, model capabilities. Self-contained HTML report |
+| **[godot-kit](https://github.com/SufficientDaikon/godot-kit)** | AI-powered Godot 4.x development bundle — 9 skill packs, 4 MCP servers |
+| **[dissector-agent](https://github.com/SufficientDaikon/dissector-agent)** | Reverse-engineers any codebase into 17+ interlinked documentation files through 13 analysis phases |
+| **[adaptive-teacher](https://github.com/SufficientDaikon/adaptive-teacher)** | AI teaching skill that calibrates to learner level in real-time — Socratic questioning, reverse prompting, Egyptian Arabic support |
+| **[feinix-os](https://github.com/SufficientDaikon/feinix-os)** | Feinix — research architecture for an AI-first operating system |
+| **[pr-to-course](https://github.com/SufficientDaikon/pr-to-course)** | Transform any GitHub PR into an interactive HTML course |
+| **[copilot-sdk-dissection](https://github.com/SufficientDaikon/copilot-sdk-dissection)** | 14-phase architectural dissection of GitHub's copilot-sdk with interactive docs site |
 
 </details>
 
----
+<br/>
 
-<div align="center">
-
-```
- ╔══════════════════════════════════════════════════════╗
- ║  "The future is agentic.                            ║
- ║   I'm building the agents that build the future."   ║
- ╚══════════════════════════════════════════════════════╝
-```
+<img src="./assets/divider.svg" width="100%" alt="" />
 
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,9,5,30&height=120&section=footer&animation=fadeIn" width="100%" />
+## Open Source Impact
 
+These aren't drive-by typo fixes. Each PR modifies core engine code in a project with 52K+ stars:
+
+| PR | What I Changed | Status |
+|----|---------------|--------|
+| [**Bounded-wait timeouts**](https://github.com/PowerShell/PowerShell/pull/27027) | Added `Stop(TimeSpan)`, `PSInvocationSettings.Timeout`, runspace/pipeline/connection timeouts across 7 source files. Includes RFC. | Open |
+| [**WindowStyle Hidden fix**](https://github.com/PowerShell/PowerShell/pull/27111) | Fixed #3028 (8 years open, 160+ upvotes) — eliminated console window flash when launching with `-WindowStyle Hidden` | Open |
+| [**UUID v7 default**](https://github.com/PowerShell/PowerShell/pull/27033) | Changed `New-Guid` to generate UUID v7 by default — monotonic, sortable, timestamp-embedded | Open |
+| [**Static analysis fixes**](https://github.com/PowerShell/PowerShell/pull/27035) | Fixed 6 PVS-Studio findings across the engine | Open |
+| [**Error handling docs**](https://github.com/MicrosoftDocs/PowerShell-Docs/pull/12890) | Added `about_Error_Handling` and fixed error terminology across docs | **Merged** |
+
+<br/>
+
+<img src="./assets/divider.svg" width="100%" alt="" />
+
+<br/>
+
+## How I Work
+
+<!-- lowlighter/metrics renders these — they auto-update daily via GitHub Actions -->
+<!-- If you see broken images, the metrics workflow needs a METRICS_TOKEN secret (GitHub PAT with read:user scope) -->
+
+<div align="center">
+
+**Isometric Contribution Calendar**
+
+<img src="./assets/metrics/isocalendar.svg" width="100%" alt="Isometric contribution calendar — shows commit density across the full year in a 3D isometric view" />
+
+</div>
+
+<br/>
+
+<table>
+<tr>
+<td width="50%" align="center">
+
+**Coding Habits**
+
+<img src="./assets/metrics/habits.svg" width="100%" alt="Coding habits — when I code, how often, activity patterns" />
+
+</td>
+<td width="50%" align="center">
+
+**Languages (indepth)**
+
+<img src="./assets/metrics/languages.svg" width="100%" alt="Language breakdown — analyzed from actual repo content, not just file extensions" />
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="50%" align="center">
+
+**Lines of Code History**
+
+<img src="./assets/metrics/lines.svg" width="100%" alt="Lines of code added vs removed over time" />
+
+</td>
+<td width="50%" align="center">
+
+**Notable Contributions**
+
+<img src="./assets/metrics/notable.svg" width="100%" alt="Contributions to notable repositories — repos with significant star counts" />
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+<img src="./assets/divider.svg" width="100%" alt="" />
+
+<br/>
+
+## Commit Invaders
+
+Your contribution graph is boring. Mine fights back.
+
+<!-- Generated by Goblinlordx/commit-invaders — contributions become Space Invaders enemies, pure CSS animation -->
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/commit-invaders-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/commit-invaders.svg" />
+  <img alt="Commit Invaders — my contributions turned into a Space Invaders game" src="https://raw.githubusercontent.com/SufficientDaikon/SufficientDaikon/output/commit-invaders-dark.svg" width="100%" />
+</picture>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="./assets/footer.svg" width="100%" alt="" />
 </div>
