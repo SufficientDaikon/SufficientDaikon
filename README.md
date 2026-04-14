@@ -151,9 +151,9 @@ These aren't drive-by typo fixes. Each PR modifies core engine code in a project
 <tr>
 <td width="50%" align="center">
 
-**Lines of Code**
+**Repositories**
 
-<img src="./assets/metrics/lines.svg" width="100%" alt="Lines of code across repositories" />
+<img src="./assets/metrics/repositories.svg" width="100%" alt="Repository statistics" />
 
 </td>
 <td width="50%" align="center">
