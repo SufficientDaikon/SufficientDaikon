@@ -88,7 +88,6 @@ Not a Linux distro with a chatbot bolted on — a rethink of what an operating s
 | **[godot-kit](https://github.com/SufficientDaikon/godot-kit)** | AI-powered Godot 4.x development bundle — 9 skill packs, 4 MCP servers |
 | **[dissector-agent](https://github.com/SufficientDaikon/dissector-agent)** | Reverse-engineers any codebase into 17+ interlinked documentation files through 13 analysis phases |
 | **[adaptive-teacher](https://github.com/SufficientDaikon/adaptive-teacher)** | AI teaching skill that calibrates to learner level in real-time — Socratic questioning, reverse prompting, Egyptian Arabic support |
-| **[feinix-os](https://github.com/SufficientDaikon/feinix-os)** | Feinix — research architecture for an AI-first operating system |
 | **[aether](https://github.com/SufficientDaikon/aether)** | Multi-agent LLM coordination with 28 subsystems — agents negotiate, delegate, and self-correct. Architecture complete. |
 | **[pr-to-course](https://github.com/SufficientDaikon/pr-to-course)** | Transform any GitHub PR into an interactive HTML course |
 | **[copilot-sdk-dissection](https://github.com/SufficientDaikon/copilot-sdk-dissection)** | 14-phase architectural dissection of GitHub's copilot-sdk with interactive docs site |
