@@ -1,3 +1,5 @@
+i didn't write this claude did xD
+
 <div align="center">
   <img src="./assets/header.svg" width="100%" alt="Ahmed Taha, Building AI that builds software" />
 </div>
