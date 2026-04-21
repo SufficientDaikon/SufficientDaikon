@@ -1,0 +1,61 @@
+# Ahmed Taha — The Artifact
+
+> AI/Systems Developer | Cairo, Egypt
+> Portfolio: https://ahmed-taha-portfolio.pages.dev
+
+## Who
+
+Ahmed Taha is an AI and systems developer based in Cairo, Egypt. He builds AI agent frameworks, orchestration systems, and programming languages. Started coding in May 2020. Operates at the intersection of AI tooling, developer experience, and systems engineering.
+
+## What He Builds
+
+### Archon — Cross-Platform AI Skills Framework
+83 production skills, 10 specialized agents, 5 platform targets (Claude, Copilot, Cursor, Windsurf, Antigravity). MIT licensed. Think "npm for AI agent capabilities" — write a skill once, deploy it across every AI coding assistant.
+
+### Aether — Autonomous Multi-Agent Orchestration
+28 interconnected subsystems for planning, execution, and self-correcting workflows. Agents that coordinate other agents, recursively. Built on Bun + TypeScript. Status: paused, architecture complete.
+
+### Axon — ML-First Systems Programming Language
+A systems programming language built from scratch in Rust. Compile-time tensor shape validation, ownership-based memory safety without a GC, and native GPU execution semantics. Full lexer, parser, and borrow checker implemented.
+
+## By the Numbers
+
+- 62 GitHub repositories (51 public, 11 private)
+- 17 AI agents built
+- 83 Archon skills in production
+- 11 programming languages used
+- 5 MCP (Model Context Protocol) servers built
+- 13 VS Code Copilot agents
+- Coding since May 2020
+
+## Technical Profile
+
+Deep expertise: AI agents, LLMs, systems programming, TypeScript, Python, Rust
+Comfortable with: React, Svelte, Vue, SolidJS, Tailwind, Node.js, Bun, Astro
+Infrastructure: MCP servers, Cloudflare Pages/Workers, GSAP, Three.js
+
+## This Portfolio
+
+"The Artifact" is built with Astro 5 + Tailwind CSS 4 + TypeScript. It uses an infinite canvas architecture (Kore Canvas) with three navigable worlds:
+
+- **Engineer** (Tech World) — Full project showcase, case studies, metrics, timeline, interactive terminal
+- **Creative** (Design World) — Visual design philosophy, process, principles
+- **Operator** (Business World) — Growth metrics, track record, methodology
+
+The site features a terminal-style boot sequence, custom cursor system, GSAP-powered camera transitions between worlds, Lenis smooth scrolling, matrix code rain, particle effects, and neural network canvas animations.
+
+Design system: "The Forensic Monolith" — clinical, high-performance terminal aesthetic. Electric Cyan (#00F0FF) accent. Zero border radius. Surface depth hierarchy instead of shadows.
+
+## Tooling
+
+- Playwright browser automation for AI image generation via Google Whisk
+- Multi-viewport visual QA screenshot pipeline
+- Awwwards MCP server for design inspiration research
+- Stitch MCP for AI-powered UI design
+- Astro Docs MCP for framework reference
+
+## Contact
+
+- GitHub: https://github.com/SufficientDaikon
+- Email: tahaa755@gmail.com
+- LinkedIn: https://linkedin.com/in/ahmed-taha225

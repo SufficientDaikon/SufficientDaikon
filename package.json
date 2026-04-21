@@ -1,0 +1,56 @@
+{
+  "name": "ahmed-taha-portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "astro build && npx wrangler pages deploy dist --project-name ahmed-taha-portfolio",
+    "astro": "astro",
+    "gen": "npx tsx tools/gemini-generate.ts gen",
+    "gen:edit": "npx tsx tools/gemini-generate.ts edit",
+    "gen:batch": "npx tsx tools/gemini-generate.ts batch",
+    "gen:see": "npx tsx tools/gemini-generate.ts see",
+    "gen:preset": "npx tsx tools/gemini-generate.ts preset",
+    "gen:presets": "npx tsx tools/gemini-generate.ts presets",
+    "gen:help": "npx tsx tools/gemini-generate.ts help",
+    "art:all": "npx tsx tools/art-director/pipeline.ts all",
+    "art:gen": "npx tsx tools/art-director/pipeline.ts generate",
+    "art:eval": "npx tsx tools/art-director/pipeline.ts evaluate",
+    "art:status": "npx tsx tools/art-director/pipeline.ts status",
+    "whisk:generate": "npx tsx tools/whisk-browser.ts generate",
+    "whisk:animate": "npx tsx tools/whisk-browser.ts animate",
+    "whisk:screenshot": "npx tsx tools/whisk-browser.ts screenshot",
+    "qa": "npx tsx tools/visual-qa.ts",
+    "qa:mobile": "npx tsx tools/visual-qa.ts --viewports 375"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^3.0.48",
+    "@ai-sdk/react": "^3.0.143",
+    "@astrojs/cloudflare": "^13.1.4",
+    "@astrojs/react": "^5.0.2",
+    "@astrojs/sitemap": "^3.7.2",
+    "@google/genai": "^1.47.0",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "ai": "^6.0.141",
+    "astro": "^6.0.8",
+    "gsap": "^3.14.2",
+    "lenis": "^1.3.21",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "split-type": "^0.3.4",
+    "tailwindcss": "^4.2.2",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "canvas": "^3.2.2",
+    "playwright": "^1.58.2",
+    "wrangler": "^4.77.0"
+  }
+}

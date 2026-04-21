@@ -1,0 +1,876 @@
+---
+import '../styles/global.css'
+import ASCIIField from '../components/ASCIIField.astro'
+
+interface Props {
+  title?: string
+}
+
+const { title = 'AHMED TAHA | The Artifact' } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ahmed Taha — AI Agent Architect building autonomous systems, multi-agent frameworks, and cross-platform developer tooling." />
+    <link rel="canonical" href="https://ahmedtaha.dev/" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ahmed Taha — AI Agent Architect" />
+    <meta property="og:description" content="I build autonomous systems that build software. Archon, Aether, and the infrastructure behind multi-agent AI." />
+    <meta property="og:url" content="https://ahmedtaha.dev" />
+    <meta property="og:image" content="https://ahmedtaha.dev/og-image.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ahmed Taha — AI Agent Architect" />
+    <meta name="twitter:description" content="I build autonomous systems that build software." />
+    <meta name="twitter:image" content="https://ahmedtaha.dev/og-image.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ahmed Taha",
+        "url": "https://ahmedtaha.dev",
+        "jobTitle": "AI Agent Architect",
+        "sameAs": [
+          "https://github.com/SufficientDaikon",
+          "https://www.linkedin.com/in/ahmed-taha225/"
+        ],
+        "knowsAbout": ["AI Agents", "Multi-Agent Systems", "Full-Stack Engineering", "DevOps", "Systems Programming", "Compiler Design", "LLM Orchestration"]
+      }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,200,0..1,-25..200&display=swap" rel="stylesheet" />
+
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-surface-lowest text-on-surface antialiased">
+
+    <!-- Skip to content for keyboard users -->
+    <a href="#hero" class="skip-link">Skip to content</a>
+
+    <!-- ========== BOOT SEQUENCE ========== -->
+    <div id="boot-screen">
+      <div class="boot-scanlines"></div>
+      <div class="boot-terminal" id="boot-terminal"></div>
+      <div class="boot-title" id="boot-title">
+        AHMED<span class="cyan">_</span>TAHA
+      </div>
+      <div class="boot-progress">
+        <div class="boot-progress-fill" id="boot-progress"></div>
+      </div>
+    </div>
+
+    <!-- ========== SCROLL PROGRESS BAR ========== -->
+    <div id="scroll-progress-bar" style="position:fixed;top:0;left:0;height:2px;width:0%;z-index:9999;background:linear-gradient(90deg,#00F0FF,#00DBE9);box-shadow:0 0 8px rgba(0,240,255,0.6);transition:width 0.05s linear;pointer-events:none;" aria-hidden="true"></div>
+
+    <!-- ========== CUSTOM CURSOR (desktop only) ========== -->
+    <div class="cursor-dot hidden lg:block" id="cursor-dot"></div>
+    <div class="cursor-ring hidden lg:block" id="cursor-ring"></div>
+    <div class="cursor-glow hidden lg:block" id="cursor-glow"></div>
+
+    <!-- ========== CROSSHAIR LINES (desktop only) ========== -->
+    <div class="crosshair-line-h hidden lg:block" id="crosshair-h"></div>
+    <div class="crosshair-line-v hidden lg:block" id="crosshair-v"></div>
+
+    <!-- ========== ASCII PARTICLE FIELD ========== -->
+    <ASCIIField />
+
+    <!-- ========== PARTICLE CANVAS ========== -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- ========== CRT OVERLAY ========== -->
+    <div class="crt-overlay crt-scanlines hidden lg:block" aria-hidden="true"></div>
+    <div class="crt-vignette hidden lg:block" aria-hidden="true"></div>
+
+    <!-- ========== NOISE OVERLAY ========== -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
+    <!-- ========== WATERMARK ========== -->
+    <div class="watermark hidden lg:block" aria-hidden="true">
+      ARTIFACT ENGINE // V3.1.0 // CAIRO · 30.0444°N · 31.2357°E
+    </div>
+
+    <slot />
+
+    <!-- ============================================
+         MASTER SCRIPT — All Systems
+         ============================================ -->
+    <script>
+      // ========== BOOT SEQUENCE ==========
+      const bootLines = [
+        'BIOS v3.1.0 // ARTIFACT_ENGINE',
+        'OPERATOR: AHMED TAHA // CAIRO, EGYPT',
+        'MEMORY_CHECK: 32,768 MB ........ OK',
+        'LOADING KERNEL_MODULE: AGENT_CORE',
+        'INIT SUBSYSTEM: ARCHON ......... PRODUCTION',
+        'INIT SUBSYSTEM: AETHER ......... PAUSED',
+        'INIT SUBSYSTEM: AXON ........... ACTIVE',
+        'COPILOT_AGENTS: 17 DEPLOYED',
+        'MCP_SERVERS: 5 ONLINE',
+        'SKILLS_REGISTRY: 83 LOADED',
+        'REPOSITORIES: 62 INDEXED',
+        'LANGUAGES: 11 SUPPORTED',
+        '──────────────────────────────────',
+        'DECRYPTING INTERFACE...',
+        'RENDERING VIEWPORT...',
+        'ALL SYSTEMS OPERATIONAL'
+      ];
+
+      const bootTerminal = document.getElementById('boot-terminal');
+      const bootTitle = document.getElementById('boot-title');
+      const bootProgress = document.getElementById('boot-progress');
+      const bootScreen = document.getElementById('boot-screen');
+
+      let bootIdx = 0;
+      function bootTick() {
+        if (bootIdx < bootLines.length) {
+          const line = document.createElement('div');
+          line.textContent = bootLines[bootIdx];
+          line.style.opacity = '0';
+          line.style.transform = 'translateX(-10px)';
+          line.style.transition = 'all 0.3s ease';
+          bootTerminal?.appendChild(line);
+          requestAnimationFrame(() => {
+            line.style.opacity = '1';
+            line.style.transform = 'translateX(0)';
+          });
+
+          const pct = ((bootIdx + 1) / bootLines.length) * 100;
+          if (bootProgress) (bootProgress as HTMLElement).style.width = pct + '%';
+
+          bootIdx++;
+          setTimeout(bootTick, 100 + Math.random() * 80);
+        } else {
+          setTimeout(() => {
+            bootTitle?.classList.add('show');
+          }, 300);
+          setTimeout(() => {
+            bootScreen?.classList.add('dismissed');
+            document.body.style.overflow = '';
+            sessionStorage.setItem('artifact_boot_seen', Date.now().toString());
+          }, 1600);
+        }
+      }
+
+      // Skip boot for returning visitors (seen within last hour)
+      const bootKey = 'artifact_boot_seen';
+      const lastBoot = sessionStorage.getItem(bootKey);
+      const skipBoot = lastBoot && (Date.now() - parseInt(lastBoot)) < 3600000;
+
+      if (skipBoot && bootScreen) {
+        // Instant dismiss — returning visitor
+        bootScreen.style.display = 'none';
+        bootScreen.classList.add('dismissed');
+      } else {
+        document.body.style.overflow = 'hidden';
+        // Click/key to skip boot mid-animation
+        const skipHandler = () => {
+          if (!bootScreen?.classList.contains('dismissed')) {
+            bootScreen?.classList.add('dismissed');
+            document.body.style.overflow = '';
+            sessionStorage.setItem(bootKey, Date.now().toString());
+          }
+        };
+        bootScreen?.addEventListener('click', skipHandler);
+        document.addEventListener('keydown', function bootSkipKey(e) {
+          if (e.key === 'Escape' || e.key === ' ' || e.key === 'Enter') {
+            skipHandler();
+            document.removeEventListener('keydown', bootSkipKey);
+          }
+        });
+        setTimeout(bootTick, 300);
+      }
+
+      // ========== ASCII PARTICLE FIELD (handled by ASCIIField.astro) ==========
+
+      // ========== PARTICLE SYSTEM ==========
+      const canvas = document.getElementById('particle-canvas') as HTMLCanvasElement;
+      const ctx = canvas?.getContext('2d');
+
+      interface Particle {
+        x: number; y: number;
+        vx: number; vy: number;
+        size: number;
+        opacity: number;
+      }
+
+      let particles: Particle[] = [];
+      let mouseX = 0, mouseY = 0;
+      let animId: number;
+      let particlesPaused = false;
+
+      function initParticles() {
+        if (!canvas) return;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const count = Math.min(40, Math.floor((window.innerWidth * window.innerHeight) / 40000));
+        particles = [];
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            size: Math.random() * 2 + 1,
+            opacity: Math.random() * 0.5 + 0.1,
+          });
+        }
+      }
+
+      let particleFrame = 0;
+      function drawParticles() {
+        if (!ctx || !canvas) return;
+        if (document.hidden || particlesPaused) { animId = requestAnimationFrame(drawParticles); return; }
+
+        // Throttle to ~30fps
+        particleFrame++;
+        if (particleFrame % 2 !== 0) { animId = requestAnimationFrame(drawParticles); return; }
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Batch: single path for all particles, single path for all lines
+        ctx.fillStyle = 'rgba(0, 240, 255, 0.3)';
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0) p.x = canvas.width;
+          if (p.x > canvas.width) p.x = 0;
+          if (p.y < 0) p.y = canvas.height;
+          if (p.y > canvas.height) p.y = 0;
+
+          const dx = p.x - mouseX, dy = p.y - mouseY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 150) { p.x += (dx / dist) * 1.5; p.y += (dy / dist) * 1.5; }
+
+          ctx.globalAlpha = p.opacity;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Connection lines — use squared distance, skip sqrt
+        ctx.globalAlpha = 1;
+        ctx.lineWidth = 0.5;
+        const connThreshSq = 100 * 100;
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x, dy = p.y - p2.y;
+            const dSq = dx * dx + dy * dy;
+            if (dSq < connThreshSq) {
+              const d = Math.sqrt(dSq);
+              ctx.strokeStyle = `rgba(0, 240, 255, ${0.03 * (1 - d / 100)})`;
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        animId = requestAnimationFrame(drawParticles);
+      }
+
+      initParticles();
+      drawParticles();
+      window.addEventListener('resize', () => { initParticles(); });
+
+      // ========== CONSOLIDATED MOUSE HANDLER ==========
+      const coordReadout = document.getElementById('coord-readout');
+      const crosshairH = document.getElementById('crosshair-h');
+      const crosshairV = document.getElementById('crosshair-v');
+      const isDesktop = window.innerWidth >= 1024;
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        if (coordReadout) {
+          coordReadout.textContent = `X: ${String(e.clientX).padStart(4, '0')} // Y: ${String(e.clientY).padStart(4, '0')}`;
+        }
+        // Crosshair lines (desktop only)
+        if (isDesktop && crosshairH && crosshairV) {
+          crosshairH.style.top = e.clientY + 'px';
+          crosshairV.style.left = e.clientX + 'px';
+        }
+      }, { passive: true });
+
+      // ========== CUSTOM CURSOR (desktop only, uses shared mouseX/mouseY) ==========
+      const cursorDot = document.getElementById('cursor-dot');
+      const cursorRing = document.getElementById('cursor-ring');
+      const cursorGlow = document.getElementById('cursor-glow');
+
+      let ringX = 0, ringY = 0;
+      let dotX = 0, dotY = 0;
+
+      if (isDesktop) {
+        function updateCursor() {
+          if (cursorDot) { cursorDot.style.left = mouseX + 'px'; cursorDot.style.top = mouseY + 'px'; }
+          ringX += (mouseX - ringX) * 0.25;
+          ringY += (mouseY - ringY) * 0.25;
+          if (cursorRing) { cursorRing.style.left = ringX + 'px'; cursorRing.style.top = ringY + 'px'; }
+          dotX += (mouseX - dotX) * 0.12;
+          dotY += (mouseY - dotY) * 0.12;
+          if (cursorGlow) { cursorGlow.style.left = dotX + 'px'; cursorGlow.style.top = dotY + 'px'; }
+          requestAnimationFrame(updateCursor);
+        }
+        updateCursor();
+        document.querySelectorAll('a, button, .magnetic-btn, input').forEach((el) => {
+          el.addEventListener('mouseenter', () => cursorRing?.classList.add('hovering'));
+          el.addEventListener('mouseleave', () => cursorRing?.classList.remove('hovering'));
+        });
+      }
+
+      // ========== MAGNETIC BUTTONS ==========
+      document.querySelectorAll('.magnetic-btn').forEach((btn) => {
+        btn.addEventListener('mousemove', (e) => {
+          const rect = (btn as HTMLElement).getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          (btn as HTMLElement).style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          (btn as HTMLElement).style.transform = 'translate(0, 0)';
+        });
+      });
+
+      // ========== 3D TILT CARDS ==========
+      document.querySelectorAll('.tilt-card').forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = (card as HTMLElement).getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width;
+          const y = (e.clientY - rect.top) / rect.height;
+          const rotateX = (y - 0.5) * -10;
+          const rotateY = (x - 0.5) * 10;
+          (card as HTMLElement).style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          (card as HTMLElement).style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+        });
+      });
+
+      // ========== SCROLL REVEAL OBSERVER ==========
+      const revealObserver = new IntersectionObserver(
+        (entries) => { entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-stagger, .grid-entrance').forEach((el) => {
+        revealObserver.observe(el);
+      });
+
+      // ========== SKILL BAR ANIMATION ==========
+      const barObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.querySelectorAll('.skill-bar-fill').forEach((bar) => bar.classList.add('animate'));
+              barObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+      document.querySelectorAll('.skill-bars-container').forEach((el) => barObserver.observe(el));
+
+      // ========== SCROLL-SPY ==========
+      const sections = document.querySelectorAll('section[id]');
+      const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+      function updateActiveLink() {
+        let current = '';
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 120;
+          if (window.scrollY >= sectionTop) current = section.getAttribute('id') || '';
+        });
+        sidebarLinks.forEach((link) => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+        });
+      }
+      window.addEventListener('scroll', updateActiveLink, { passive: true });
+      updateActiveLink();
+
+      // ========== METRIC CARD MOUSE GLOW ==========
+      document.querySelectorAll('.metric-card').forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          (e.currentTarget as HTMLElement).style.setProperty('--mouse-x', `${x}%`);
+          (e.currentTarget as HTMLElement).style.setProperty('--mouse-y', `${y}%`);
+        });
+      });
+
+      // ========== MOBILE MENU ==========
+      const menuButton = document.getElementById('mobile-menu-btn');
+      const closeButton = document.getElementById('mobile-menu-close');
+      const overlay = document.getElementById('mobile-overlay');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function openMenu() { overlay?.classList.add('open'); mobileMenu?.classList.add('open'); document.body.style.overflow = 'hidden'; }
+      function closeMenu() { overlay?.classList.remove('open'); mobileMenu?.classList.remove('open'); document.body.style.overflow = ''; }
+
+      menuButton?.addEventListener('click', openMenu);
+      closeButton?.addEventListener('click', closeMenu);
+      overlay?.addEventListener('click', closeMenu);
+      mobileLinks.forEach((link) => link.addEventListener('click', closeMenu));
+
+      // ========== SMOOTH PARALLAX + SCROLL PROGRESS ==========
+      const scrollProgressBar = document.getElementById('scroll-progress-bar');
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const scrollY = window.scrollY;
+            // Parallax
+            document.querySelectorAll('[data-parallax]').forEach((el) => {
+              const speed = parseFloat((el as HTMLElement).dataset.parallax || '0.1');
+              (el as HTMLElement).style.transform = `translateY(${scrollY * speed}px)`;
+            });
+            // Scroll progress
+            if (scrollProgressBar) {
+              const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+              const pct = maxScroll > 0 ? (scrollY / maxScroll) * 100 : 0;
+              scrollProgressBar.style.width = pct + '%';
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // ========== INTERACTIVE TERMINAL ==========
+      const terminalInput = document.getElementById('terminal-cmd-input') as HTMLInputElement;
+      const terminalOutput = document.getElementById('terminal-output');
+
+      if (terminalInput && terminalOutput) {
+        const responses: Record<string, string> = {
+          'help': 'COMMANDS: about, skills, contact, projects, status, stack, clear',
+          'about': 'AHMED TAHA // AI AGENT ARCHITECT & FULL-STACK ENGINEER // CAIRO, EGYPT // 62 REPOS // 11 LANGUAGES // BUILDING SYSTEMS THAT BUILD THEMSELVES',
+          'skills': 'AI AGENT ARCHITECTURE (96%) // FULL-STACK (93%) // LLM ORCHESTRATION (91%) // DEVOPS / SYSADMIN (88%) // SYSTEMS PROGRAMMING (85%) // COMPILER DESIGN (78%)',
+          'contact': 'EMAIL: tahaa755@gmail.com // GITHUB: SufficientDaikon // LINKEDIN: ahmed-taha225',
+          'projects': 'ARCHON: 83-SKILL AGENT ENGINE [PRODUCTION] // AETHER: MULTI-AGENT ORCHESTRATION [PAUSED] // AXON: RUST COMPILER [ACTIVE] // HUGBROWSE: TAURI+REACT+RUST [SHIPPED] // 17 COPILOT AGENTS [DEPLOYED]',
+          'status': 'ALL SYSTEMS OPERATIONAL // 17 AGENTS ONLINE // 83 SKILLS LOADED // 62 REPOSITORIES // 5 MCP SERVERS',
+          'stack': 'TYPESCRIPT // PYTHON // RUST // GO // POWERSHELL // GDSCRIPT // BUN // NODE // REACT // ASTRO // TAURI // DOCKER // SUPABASE // CLOUDFLARE',
+          'clear': '__CLEAR__',
+        };
+
+        terminalInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            const cmd = terminalInput.value.trim().toLowerCase();
+            if (!cmd) return;
+            const cmdLine = document.createElement('div');
+            cmdLine.className = 'terminal-prompt';
+            cmdLine.textContent = cmd;
+            terminalOutput?.appendChild(cmdLine);
+
+            if (cmd === 'clear') {
+              terminalOutput!.innerHTML = '';
+            } else {
+              const res = document.createElement('div');
+              res.className = 'terminal-response';
+              res.textContent = responses[cmd] || `UNKNOWN_COMMAND: "${cmd.toUpperCase()}" // TYPE "HELP" FOR AVAILABLE COMMANDS`;
+              terminalOutput?.appendChild(res);
+              const spacer = document.createElement('div');
+              spacer.style.height = '8px';
+              terminalOutput?.appendChild(spacer);
+            }
+            terminalInput.value = '';
+            terminalOutput?.scrollTo(0, terminalOutput.scrollHeight);
+          }
+        });
+      }
+
+      // ========== NEURAL NETWORK CANVAS ==========
+      const neuralCanvas = document.getElementById('neural-canvas') as HTMLCanvasElement;
+      const neuralCtx = neuralCanvas?.getContext('2d');
+
+      if (neuralCanvas && neuralCtx) {
+        const parent = neuralCanvas.parentElement;
+        if (parent) {
+          const resizeNeural = () => { neuralCanvas.width = parent.clientWidth; neuralCanvas.height = parent.clientHeight; };
+          resizeNeural();
+          window.addEventListener('resize', resizeNeural);
+
+          interface NeuralNode { x: number; y: number; layer: number; pulsePhase: number; }
+          const layers = [4, 6, 8, 6, 4];
+          const neuralNodes: NeuralNode[] = [];
+
+          layers.forEach((count, layerIdx) => {
+            for (let i = 0; i < count; i++) {
+              neuralNodes.push({
+                x: (layerIdx + 1) / (layers.length + 1),
+                y: (i + 1) / (count + 1),
+                layer: layerIdx,
+                pulsePhase: Math.random() * Math.PI * 2,
+              });
+            }
+          });
+
+          let neuralVisible = false;
+          let neuralFrame = 0;
+
+          // Pause when not in viewport
+          const neuralObs = new IntersectionObserver((entries) => {
+            neuralVisible = entries[0]?.isIntersecting ?? false;
+          }, { threshold: 0 });
+          neuralObs.observe(neuralCanvas);
+
+          function drawNeural(time: number) {
+            if (!neuralCtx || !neuralCanvas) return;
+            if (document.hidden || !neuralVisible) { requestAnimationFrame(drawNeural); return; }
+
+            // Throttle to ~30fps
+            neuralFrame++;
+            if (neuralFrame % 2 !== 0) { requestAnimationFrame(drawNeural); return; }
+
+            neuralCtx.clearRect(0, 0, neuralCanvas.width, neuralCanvas.height);
+            const w = neuralCanvas.width;
+            const h = neuralCanvas.height;
+
+            for (let i = 0; i < neuralNodes.length; i++) {
+              for (let j = i + 1; j < neuralNodes.length; j++) {
+                if (neuralNodes[j].layer === neuralNodes[i].layer + 1) {
+                  const pulse = (Math.sin(time * 0.002 + neuralNodes[i].pulsePhase) + 1) / 2;
+                  neuralCtx.beginPath();
+                  neuralCtx.moveTo(neuralNodes[i].x * w, neuralNodes[i].y * h);
+                  neuralCtx.lineTo(neuralNodes[j].x * w, neuralNodes[j].y * h);
+                  neuralCtx.strokeStyle = `rgba(0, 240, 255, ${0.03 + pulse * 0.05})`;
+                  neuralCtx.lineWidth = 0.5;
+                  neuralCtx.stroke();
+                }
+              }
+            }
+
+            neuralNodes.forEach((node) => {
+              const pulse = (Math.sin(time * 0.003 + node.pulsePhase) + 1) / 2;
+              const radius = 2 + pulse * 2;
+              neuralCtx.beginPath();
+              neuralCtx.arc(node.x * w, node.y * h, radius, 0, Math.PI * 2);
+              neuralCtx.fillStyle = `rgba(0, 240, 255, ${0.2 + pulse * 0.3})`;
+              neuralCtx.fill();
+            });
+
+            const signalProgress = (time * 0.001) % 1;
+            const signalLayer = Math.floor(signalProgress * (layers.length - 1));
+            const layerProgress = (signalProgress * (layers.length - 1)) % 1;
+            const startNodes = neuralNodes.filter(n => n.layer === signalLayer);
+            const endNodes = neuralNodes.filter(n => n.layer === signalLayer + 1);
+
+            if (startNodes.length > 0 && endNodes.length > 0) {
+              const sn = startNodes[Math.floor(time * 0.01) % startNodes.length];
+              const en = endNodes[Math.floor(time * 0.007) % endNodes.length];
+              const sx = sn.x * w + (en.x * w - sn.x * w) * layerProgress;
+              const sy = sn.y * h + (en.y * h - sn.y * h) * layerProgress;
+
+              neuralCtx.beginPath();
+              neuralCtx.arc(sx, sy, 4, 0, Math.PI * 2);
+              neuralCtx.fillStyle = 'rgba(0, 240, 255, 0.8)';
+              neuralCtx.fill();
+              neuralCtx.beginPath();
+              neuralCtx.arc(sx, sy, 12, 0, Math.PI * 2);
+              neuralCtx.fillStyle = 'rgba(0, 240, 255, 0.15)';
+              neuralCtx.fill();
+            }
+            requestAnimationFrame(drawNeural);
+          }
+          requestAnimationFrame(drawNeural);
+        }
+      }
+
+      // ========== EMP RINGS — Periodic Pulse (only when contact section visible) ==========
+      const contactSection = document.getElementById('contact');
+      let empVisible = false;
+      if (contactSection) {
+        const empObs = new IntersectionObserver((entries) => {
+          empVisible = entries[0]?.isIntersecting ?? false;
+        }, { threshold: 0 });
+        empObs.observe(contactSection);
+      }
+      function createEmpRing() {
+        if (!contactSection || !empVisible) return;
+        const ring = document.createElement('div');
+        ring.className = 'emp-ring';
+        ring.style.borderRadius = '50%';
+        contactSection.appendChild(ring);
+        setTimeout(() => ring.remove(), 3000);
+      }
+      setInterval(createEmpRing, 3000);
+
+      // ========== SIGNAL BARS ANIMATION ==========
+      document.querySelectorAll('.signal-bars').forEach((container) => {
+        const bars = container.querySelectorAll('.signal-bar');
+        let animIdx = 0;
+        setInterval(() => {
+          if (document.hidden) return;
+          bars.forEach((bar, i) => {
+            if (i <= animIdx) bar.classList.add('active');
+            else bar.classList.remove('active');
+          });
+          animIdx = (animIdx + 1) % (bars.length + 1);
+        }, 600);
+      });
+
+      // ========== VISIBILITY-BASED PAUSING ==========
+      // Pause heavy canvas systems when tab is backgrounded
+      let systemsPaused = false;
+      document.addEventListener('visibilitychange', () => {
+        systemsPaused = document.hidden;
+      });
+    </script>
+
+    <!-- ========== GSAP + SPLITTYPE ANIMATION SYSTEM ========== -->
+    <script>
+      import gsap from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+      import SplitType from 'split-type';
+      import Lenis from 'lenis';
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // ========== LENIS SMOOTH SCROLL ==========
+      const koreWorldInner = document.querySelector('.kore-world-inner') as HTMLElement | null;
+      const isMobile = window.innerWidth <= 768;
+
+      // On mobile (no Kore Canvas), Lenis scrolls the window
+      // On desktop, Lenis scrolls the tech world's inner container
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        ...((!isMobile && koreWorldInner) ? { wrapper: koreWorldInner, content: koreWorldInner.firstElementChild as HTMLElement } : {}),
+      });
+
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add((time: number) => { lenis.raf(time * 1000); });
+      gsap.ticker.lagSmoothing(0);
+
+      // Configure ScrollTrigger to use the Kore Canvas scroller on desktop
+      if (!isMobile && koreWorldInner) {
+        ScrollTrigger.defaults({ scroller: koreWorldInner });
+        ScrollTrigger.scrollerProxy(koreWorldInner, {
+          scrollTop(value?: number) {
+            if (arguments.length && value !== undefined) {
+              koreWorldInner.scrollTop = value;
+            }
+            return koreWorldInner.scrollTop;
+          },
+          getBoundingClientRect() {
+            return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+          },
+        });
+      }
+
+      // Expose lenis globally for Kore Canvas panTo() to pause/resume
+      (window as any).__lenis = lenis;
+
+      // ========== HERO ENTRANCE (fires after boot screen exits) ==========
+      function runHeroEntrance() {
+        const h1El = document.querySelector('#hero h1') as HTMLElement | null;
+        if (!h1El) return;
+
+        // Split each line into chars
+        const lines = h1El.querySelectorAll<HTMLElement>('span[id^="scramble-line-1"], span[id^="scramble-line-2"]');
+        const splits = Array.from(lines).map(el => new SplitType(el, { types: 'chars', tagName: 'span' }));
+
+        const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+
+        // Chars cascade in, line by line
+        splits.forEach((split, i) => {
+          if (!split.chars?.length) return;
+          // Set initial state
+          gsap.set(split.chars, { opacity: 0, y: 48, rotationX: -80 });
+          tl.to(split.chars,
+            { opacity: 1, y: 0, rotationX: 0, duration: 0.65, stagger: 0.018 },
+            i * 0.12
+          );
+        });
+
+        // Subtitle + CTA fade up
+        const subtitles = h1El.closest('.flex-1')?.querySelectorAll<HTMLElement>('p, .flex.items-center.gap-5.pt-4');
+        if (subtitles) {
+          gsap.set(Array.from(subtitles), { opacity: 0, y: 20 });
+          tl.to(Array.from(subtitles),
+            { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 },
+            0.5
+          );
+        }
+
+        // HUD corner "draw in" — animate the corner lines from 0 width/height
+        const hudCorners = document.querySelectorAll<HTMLElement>('#hero .absolute.top-20.left-6 .w-12, #hero .absolute.top-20.left-6 .h-12');
+        if (hudCorners.length) {
+          gsap.set(Array.from(hudCorners), { scaleX: 0, scaleY: 0, transformOrigin: 'top left' });
+          tl.to(Array.from(hudCorners),
+            { scaleX: 1, scaleY: 1, duration: 0.6, stagger: 0.1, ease: 'power2.inOut' },
+            0.3
+          );
+        }
+      }
+
+      // ========== BOOT SCREEN EXIT — GSAP CURTAIN ==========
+      function upgradeBootExit() {
+        const bootScreen = document.getElementById('boot-screen');
+        if (!bootScreen) return;
+
+        // Intercept the 'dismissed' class to replace with GSAP animation
+        const origAddClass = bootScreen.classList.add.bind(bootScreen.classList);
+        const observer = new MutationObserver((mutations) => {
+          for (const m of mutations) {
+            if (m.type === 'attributes' && m.attributeName === 'class') {
+              if (bootScreen.classList.contains('dismissed')) {
+                observer.disconnect();
+                // GSAP clip-path curtain wipe up
+                gsap.to(bootScreen, {
+                  clipPath: 'inset(0% 0% 100% 0%)',
+                  duration: 0.9,
+                  ease: 'power4.inOut',
+                  delay: 0.1,
+                  onComplete: () => {
+                    bootScreen.style.display = 'none';
+                    runHeroEntrance();
+                  }
+                });
+                // Set initial clip state immediately so CSS transition doesn't fight GSAP
+                gsap.set(bootScreen, { clipPath: 'inset(0% 0% 0% 0%)' });
+              }
+            }
+          }
+        });
+        observer.observe(bootScreen, { attributes: true });
+      }
+
+      // ========== SCROLL-TRIGGERED HEADING REVEALS ==========
+      function initScrollRevealHeadings() {
+        // Target section headings that are NOT in the hero (handled separately)
+        const targets = document.querySelectorAll<HTMLElement>(
+          'main h2, main h3, .case-study-title, .section-heading-split'
+        );
+
+        targets.forEach((el) => {
+          // Skip if already in viewport on load (hero)
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.5) return;
+
+          const split = new SplitType(el, { types: 'lines,words', tagName: 'span' });
+          if (!split.words?.length) return;
+
+          gsap.set(split.words, { opacity: 0, y: 28 });
+
+          ScrollTrigger.create({
+            trigger: el,
+            start: 'top 88%',
+            onEnter: () => {
+              gsap.to(split.words!, {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                stagger: 0.04,
+                ease: 'power3.out',
+              });
+            },
+          });
+        });
+      }
+
+      // ========== CLIP-PATH SECTION REVEALS ==========
+      function initClipPathReveals() {
+        // Images and block elements get a clip-path reveal instead of fade
+        const imageBlocks = document.querySelectorAll<HTMLElement>('.tilt-card, .case-image-block');
+        imageBlocks.forEach((el) => {
+          gsap.set(el, { clipPath: 'inset(100% 0% 0% 0%)' });
+          ScrollTrigger.create({
+            trigger: el,
+            start: 'top 85%',
+            onEnter: () => {
+              gsap.to(el, {
+                clipPath: 'inset(0% 0% 0% 0%)',
+                duration: 1.1,
+                ease: 'power4.inOut',
+              });
+            },
+          });
+        });
+      }
+
+      // ========== SECTION LABEL GLITCH ENTRANCE ==========
+      function initSectionLabelReveals() {
+        const labels = document.querySelectorAll<HTMLElement>('.section-label');
+        labels.forEach((el) => {
+          // Skip hero label (visible on load)
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight) return;
+
+          gsap.set(el, { opacity: 0, x: -16 });
+          ScrollTrigger.create({
+            trigger: el,
+            start: 'top 90%',
+            onEnter: () => {
+              gsap.to(el, { opacity: 1, x: 0, duration: 0.5, ease: 'power2.out' });
+            },
+          });
+        });
+      }
+
+      // ========== STAGGER CARD GRIDS ==========
+      function initCardStagger() {
+        // Stat/metric cards, timeline items — stagger from bottom
+        const grids = document.querySelectorAll<HTMLElement>(
+          '.grid-entrance, .stats-grid, .metric-card'
+        );
+
+        grids.forEach((el) => {
+          const cards = el.closest('.grid') ? [el] : el.querySelectorAll<HTMLElement>(':scope > *');
+          const targets = cards.length > 1 ? Array.from(cards) : [el];
+
+          gsap.set(targets, { opacity: 0, y: 32 });
+          ScrollTrigger.create({
+            trigger: el,
+            start: 'top 85%',
+            onEnter: () => {
+              gsap.to(targets, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                stagger: 0.07,
+                ease: 'power3.out',
+              });
+            },
+          });
+        });
+      }
+
+      // ========== INIT ==========
+      // Wait for DOM + boot sequence to be wired up
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          upgradeBootExit();
+          initScrollRevealHeadings();
+          initClipPathReveals();
+          initSectionLabelReveals();
+          initCardStagger();
+        });
+      } else {
+        upgradeBootExit();
+        initScrollRevealHeadings();
+        initClipPathReveals();
+        initSectionLabelReveals();
+        initCardStagger();
+      }
+    </script>
+  </body>
+</html>

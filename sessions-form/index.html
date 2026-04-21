@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join the Session</title>
+  <style>
+    /* Reset & Base Styles */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      background-color: #0f0f0f;
+      color: #f5f5f5;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    /* Logical Properties for RTL/LTR Support */
+    body {
+      padding-block: 2rem;
+      padding-inline: 1rem;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    @media (max-width: 767px) {
+      .container {
+        max-width: 100%;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .container {
+        max-width: 90vw;
+      }
+    }
+
+    /* Form Wrapper */
+    form {
+      background-color: #1a1a1a;
+      border-radius: 0.375rem;
+      padding-block: 2rem;
+      padding-inline: 2.5rem;
+      box-shadow: 0 20px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 767px) {
+      form {
+        padding-block: 1.5rem;
+        padding-inline: 1rem;
+      }
+    }
+
+    /* Header */
+    .form-header {
+      margin-block-end: 2rem;
+      text-align: center;
+    }
+
+    .form-header h1 {
+      font-size: 1.875rem;
+      font-weight: 600;
+      margin-block-end: 0.5rem;
+      color: #f5f5f5;
+      letter-spacing: -0.01em;
+    }
+
+    .form-header p {
+      font-size: 0.875rem;
+      color: #a3a3a3;
+    }
+
+    @media (max-width: 767px) {
+      .form-header h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Form Group */
+    .form-group {
+      margin-block-end: 1.75rem;
+    }
+
+    .form-group:last-of-type {
+      margin-block-end: 2rem;
+    }
+
+    /* Labels */
+    label {
+      display: block;
+      margin-block-end: 0.5rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #e5e5e5;
+    }
+
+    /* Input & Textarea */
+    input,
+    textarea {
+      width: 100%;
+      background-color: #1a1a1a;
+      border: 1px solid #333333;
+      border-radius: 0.375rem;
+      color: #f5f5f5;
+      padding-block: 0.75rem;
+      padding-inline: 1rem;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: 1.5;
+      transition: all 150ms ease-out;
+    }
+
+    /* Placeholder text respects direction */
+    input::placeholder,
+    textarea::placeholder {
+      color: #666666;
+    }
+
+    /* Focus State */
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), inset 0 0 0 1px #3b82f6;
+    }
+
+    /* Textarea specific */
+    textarea {
+      resize: vertical;
+      min-height: 5rem;
+    }
+
+    /* Touch targets for mobile (44px minimum) */
+    input,
+    textarea {
+      min-height: 44px;
+    }
+
+    /* Valid state (after blur if fixed) */
+    input.valid,
+    textarea.valid {
+      border-color: #10b981;
+    }
+
+    /* Error state */
+    input.error,
+    textarea.error {
+      border-color: #ef4444;
+    }
+
+    /* Help text */
+    .help-text {
+      display: block;
+      margin-block-start: 0.375rem;
+      font-size: 0.8rem;
+      color: #a3a3a3;
+      text-align: start;
+    }
+
+    /* Error message */
+    .error-message {
+      display: none;
+      margin-block-start: 0.375rem;
+      font-size: 0.8rem;
+      color: #ef4444;
+      text-align: start;
+    }
+
+    .error-message.show {
+      display: block;
+    }
+
+    /* Success icon */
+    .success-icon {
+      display: none;
+      width: 1rem;
+      height: 1rem;
+      color: #10b981;
+      margin-inline-start: 0.5rem;
+    }
+
+    .success-icon.show {
+      display: inline;
+    }
+
+    /* Button */
+    button {
+      width: 100%;
+      background-color: #3b82f6;
+      color: #ffffff;
+      border: none;
+      border-radius: 0.375rem;
+      padding-block: 0.75rem;
+      padding-inline: 1rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 150ms ease-out;
+      min-height: 44px;
+      letter-spacing: 0.01em;
+    }
+
+    button:hover:not(:disabled) {
+      background-color: #2563eb;
+    }
+
+    button:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Footer */
+    .form-footer {
+      text-align: center;
+      margin-block-start: 1.5rem;
+      font-size: 0.75rem;
+      color: #666666;
+    }
+
+    /* Messages */
+    .message {
+      padding-block: 1rem;
+      padding-inline: 1rem;
+      border-radius: 0.375rem;
+      margin-block-end: 1.5rem;
+      display: none;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .message.show {
+      display: block;
+    }
+
+    .message.success {
+      background-color: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .message.error {
+      background-color: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    /* Prevent horizontal scroll on mobile */
+    @media (max-width: 767px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      .container {
+        overflow-x: hidden;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form id="sessionForm" method="POST" dir="ltr">
+      <div class="form-header">
+        <h1>Join the Session</h1>
+        <p>Free session — limited spots available</p>
+      </div>
+
+      <div id="messageContainer"></div>
+
+      <!-- Name Field -->
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          aria-describedby="nameError"
+          autocomplete="name"
+        >
+        <span class="error-message" id="nameError"></span>
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          aria-describedby="emailHelp emailError"
+          autocomplete="email"
+        >
+        <span class="help-text" id="emailHelp">We'll use this to send session details</span>
+        <span class="error-message" id="emailError"></span>
+      </div>
+
+      <!-- Availability Field -->
+      <div class="form-group">
+        <label for="availability">When are you available?</label>
+        <textarea
+          id="availability"
+          name="availability"
+          required
+          aria-describedby="availabilityHelp availabilityError"
+          placeholder="e.g., Wed-Fri 10am-12pm, or any time after 6pm"
+        ></textarea>
+        <span class="help-text" id="availabilityHelp">List your preferred time slots</span>
+        <span class="error-message" id="availabilityError"></span>
+      </div>
+
+      <!-- Arabic Question Field -->
+      <div class="form-group">
+        <label for="workExperience" dir="rtl">ايه طبيعية شغلك وهل استعملت الai قبل كدا</label>
+        <textarea
+          id="workExperience"
+          name="workExperience"
+          required
+          aria-describedby="workError"
+          placeholder="Share briefly..."
+        ></textarea>
+        <span class="error-message" id="workError"></span>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" id="submitBtn">Reserve My Spot</button>
+
+      <div class="form-footer">
+        We respect your privacy
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Configuration
+    const API_ENDPOINT = 'https://session-signup.ahmed-taha.workers.dev/api/sessions';
+    const FORM_ID = 'sessionForm';
+    const VALIDATORS = {
+      name: (value) => {
+        if (!value.trim()) return 'Name is required';
+        if (value.trim().length < 2) return 'Name must be at least 2 characters';
+        if (value.trim().length > 100) return 'Name must be less than 100 characters';
+        return null;
+      },
+      email: (value) => {
+        if (!value.trim()) return 'Email is required';
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) return 'Please enter a valid email address';
+        return null;
+      },
+      availability: (value) => {
+        if (!value.trim()) return 'Please share your availability';
+        if (value.trim().length < 5) return 'Please provide more details about your availability';
+        return null;
+      },
+      workExperience: (value) => {
+        if (!value.trim()) return 'This field is required';
+        if (value.trim().length < 5) return 'Please provide more details';
+        return null;
+      }
+    };
+
+    // State management
+    const state = {
+      touched: {},
+      errors: {},
+      isSubmitting: false
+    };
+
+    // DOM Elements
+    const form = document.getElementById(FORM_ID);
+    const fields = document.querySelectorAll('input, textarea');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Validation functions
+    function validateField(fieldName) {
+      const field = document.getElementById(fieldName);
+      const validator = VALIDATORS[fieldName];
+
+      if (!validator || !field) return;
+
+      const error = validator(field.value);
+      state.errors[fieldName] = error;
+
+      const errorEl = document.getElementById(`${fieldName}Error`);
+      if (error) {
+        field.classList.add('error');
+        field.classList.remove('valid');
+        if (errorEl) {
+          errorEl.textContent = error;
+          errorEl.classList.add('show');
+        }
+      } else {
+        field.classList.remove('error');
+        field.classList.add('valid');
+        if (errorEl) {
+          errorEl.classList.remove('show');
+        }
+      }
+    }
+
+    function validateForm() {
+      let isValid = true;
+      for (const fieldName in VALIDATORS) {
+        validateField(fieldName);
+        if (state.errors[fieldName]) {
+          isValid = false;
+        }
+      }
+      return isValid;
+    }
+
+    // Event listeners
+    fields.forEach((field) => {
+      const fieldName = field.name;
+
+      // Validate on blur
+      field.addEventListener('blur', () => {
+        state.touched[fieldName] = true;
+        validateField(fieldName);
+      });
+
+      // Re-validate on change if already touched
+      field.addEventListener('change', () => {
+        if (state.touched[fieldName]) {
+          validateField(fieldName);
+        }
+      });
+    });
+
+    // Show/hide message
+    function showMessage(type, text) {
+      const container = document.getElementById('messageContainer');
+      container.innerHTML = `<div class="message ${type} show">${text}</div>`;
+      setTimeout(() => {
+        container.innerHTML = '';
+      }, 5000);
+    }
+
+    // Form submission
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Validate form
+      if (!validateForm()) {
+        showMessage('error', 'Please fix the errors above');
+        return;
+      }
+
+      // Prevent double submission
+      if (state.isSubmitting) return;
+      state.isSubmitting = true;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Reserving...';
+
+      // Collect form data
+      const formData = {
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        availability: document.getElementById('availability').value.trim(),
+        workExperience: document.getElementById('workExperience').value.trim()
+      };
+
+      try {
+        const response = await fetch(API_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          showMessage('success', 'Session reserved successfully! Check your email for details.');
+          form.reset();
+          // Reset validation state
+          state.touched = {};
+          state.errors = {};
+          fields.forEach((field) => {
+            field.classList.remove('error', 'valid');
+          });
+        } else {
+          showMessage('error', data.error || 'Something went wrong. Please try again.');
+        }
+      } catch (error) {
+        console.error('Submission error:', error);
+        showMessage('error', 'Network error. Please check your connection and try again.');
+      } finally {
+        state.isSubmitting = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Reserve My Spot';
+      }
+    });
+  </script>
+</body>
+</html>

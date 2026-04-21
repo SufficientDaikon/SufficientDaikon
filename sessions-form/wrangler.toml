@@ -1,0 +1,7 @@
+name = "session-signup"
+type = "service-worker"
+
+[env.production]
+routes = [
+  { pattern = "session-signup.ahmed-taha-portfolio.pages.dev/*", zone_name = "ahmed-taha-portfolio.pages.dev" }
+]

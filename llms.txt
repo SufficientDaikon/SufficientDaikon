@@ -1,0 +1,138 @@
+# The Artifact — Ahmed Taha's Portfolio
+
+> Personal portfolio site for Ahmed Taha, a full-stack engineer and AI architect based in Cairo, Egypt.
+
+## Overview
+
+This is a single-page portfolio website built with Astro 5 and Tailwind CSS 4, deployed on Cloudflare Pages. The design system is called "The Forensic Monolith" — a clinical, dark-mode terminal aesthetic inspired by intelligence dossiers and forensic evidence boards.
+
+## Owner
+
+- **Name:** Ahmed Taha
+- **Location:** Cairo, Egypt
+- **GitHub:** github.com/SufficientDaikon
+- **Email:** tahaa755@gmail.com
+- **LinkedIn:** linkedin.com/in/ahmed-taha225
+- **Bio:** Full-stack engineer and AI architect with 62+ repositories, 17 autonomous agents, and a compiler built from scratch.
+
+## Tech Stack
+
+- **Framework:** Astro 5 (islands architecture — supports React, Svelte, Vue, SolidJS islands)
+- **Styling:** Tailwind CSS 4 via @tailwindcss/vite
+- **Language:** TypeScript (strict)
+- **Deployment:** Cloudflare Pages
+- **Fonts:** Manrope (headlines), Inter (body), Space Grotesk (labels/data)
+- **Icons:** Material Symbols Outlined, weight 200
+
+## Architecture
+
+The site uses Astro's islands architecture. Static HTML is generated at build time with zero client-side JavaScript by default. Interactive components hydrate independently as islands. The project is designed to progressively adopt React, Svelte, Vue, or SolidJS for specific components where those frameworks excel.
+
+### Framework Selection
+
+| Use Case | Framework | File Pattern |
+|----------|-----------|--------------|
+| Static content, layout, SEO | Astro (.astro) | `src/components/*.astro` |
+| Real-time reactive UI, canvas effects | SolidJS (.tsx) | `src/components/solid/*.tsx` |
+| 3D scenes, WebGL, Three.js | React + R3F (.tsx) | `src/components/react/*.tsx` |
+| Scroll animations, transitions | Svelte (.svelte) | `src/components/svelte/*.svelte` |
+| Interactive inspectors, galleries | Vue (.vue) | `src/components/vue/*.vue` |
+
+### Cross-Framework State
+
+nanostores atoms shared between all frameworks via bindings (@nanostores/react, @nanostores/solid, @nanostores/vue, Svelte native $).
+
+## Design System: The Forensic Monolith
+
+### Principles
+- Clinical, surgical precision — not friendly
+- Ultra-dark surfaces with Electric Cyan (#00F0FF) accent at <5% screen coverage
+- Zero border radius — all sharp corners
+- No 1px borders — depth via background color tonal shifts
+- Uppercase, wide-tracked typography
+- Material Symbols Outlined icons at weight 200
+
+### Color Palette
+- Surfaces: #0e0e0e → #131313 → #1c1b1b → #201f1f → #2a2a2a → #353534 → #3a3939
+- Primary accent: #00F0FF (Electric Cyan)
+- Text: #E5E2E1 (primary), #C8C6C5 (secondary), #B9CACB (muted)
+- Ghost borders: #3B494B at 15% opacity
+
+## Site Sections
+
+1. **Header** — Fixed top navigation bar
+2. **Sidebar** — Left sidebar (desktop only, 256px) with stats and nav
+3. **Hero** — Intro with HUD overlays, hex data streams, coordinate readout
+4. **Tech Ticker** — Scrolling technology stack marquee
+5. **Case Study: Archon** — Cross-platform AI skills framework (83 skills, 10 agents, 5 platforms)
+6. **Case Study: Aether** — Autonomous multi-agent orchestration (28 subsystems)
+7. **Axon Note** — Side project: ML/AI-first programming language in Rust
+8. **Metrics** — Performance grid with neural network canvas and radar sweep
+9. **Timeline** — DNA helix timeline with 6 career milestones (2020-2025)
+10. **Contact** — CTA section with interactive terminal emulator
+11. **Footer** — Status bar with version and location
+
+## Visual Effects
+
+The site features extensive client-side visual systems:
+- Code Rain (Matrix-style falling characters)
+- Boot sequence terminal animation
+- Custom crosshair cursor with guide lines
+- Magnetic buttons with hover attraction
+- 3D tilt cards on hover
+- Scroll-triggered reveal animations
+- Interactive terminal (commands: help, about, stack, projects, contact, clear)
+- Neural network canvas animation
+- Radar sweep with animated blips
+- EMP expanding rings
+- Signal strength bars
+- Holographic card sheen effects
+- DNA helix timeline with alternating cards
+- Parallax scrolling
+
+## File Structure
+
+```
+src/
+  layouts/Layout.astro       — Base HTML, fonts, all JS visual systems
+  pages/index.astro           — Main page composition
+  components/
+    Header.astro              — Fixed top nav
+    Sidebar.astro             — Left sidebar with stats
+    Hero.astro                — Hero with HUD overlays
+    TechTicker.astro          — Scrolling tech marquee
+    SectionDivider.astro      — Section break labels
+    CaseStudy.astro           — Reusable project showcase
+    Metrics.astro             — Stats grid with neural canvas
+    Timeline.astro            — DNA helix career timeline
+    Contact.astro             — CTA + terminal
+    Footer.astro              — Status footer
+  styles/global.css           — Tailwind v4 @theme tokens
+tools/
+  awwwards_server.py          — Awwwards scraper MCP server
+```
+
+## Featured Projects
+
+### Archon — The Architect
+Cross-platform AI skills framework. 83 production skills, 10 specialized agents, 5 cognitive synapses. Deploys across Claude, Copilot, Cursor, Windsurf, and Antigravity. MIT licensed.
+
+### Aether — The Nexus
+Autonomous multi-agent orchestration framework. 28 interconnected subsystems for planning, execution, and self-correcting workflows. Built on Bun and TypeScript. Status: Paused.
+
+### Axon
+ML/AI-first systems programming language built in Rust. Compile-time tensor shape validation, ownership-based memory safety, native GPU execution. Full lexer, parser, and borrow checker.
+
+## MCP Servers
+
+The project uses three MCP servers:
+- **Google Stitch** — AI design tool for UI generation
+- **Awwwards** — Scrapes award-winning portfolio sites for design inspiration
+- **Astro Docs** — Official Astro documentation for framework reference
+
+## Contact
+
+- GitHub: github.com/SufficientDaikon
+- Email: tahaa755@gmail.com
+- LinkedIn: linkedin.com/in/ahmed-taha225
+- Available remotely worldwide from Cairo, Egypt

@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//h/portfolio/**)",
+      "Bash(npx tsx:*)",
+      "Bash(where python:*)",
+      "Bash(python3 -c \"import sqlite3; print\\(''sqlite3 OK''\\)\")",
+      "Bash(python3 tools/extract-firefox-cookies.py)",
+      "Read(//c/Users/tahaa/AppData/Local/Temp/claude/h--portfolio/08a13c7c-336b-4ae2-b7bd-be1264374dd8/tasks/**)",
+      "Read(//c/Users/tahaa/.claude/skills/whisk-workflow/**)",
+      "Edit(~/.claude/skills/whisk-workflow/**)"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
+    ]
+  }
+}

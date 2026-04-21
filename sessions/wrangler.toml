@@ -1,0 +1,22 @@
+name = "session-signup"
+main = "src/index.ts"
+compatibility_date = "2024-12-19"
+account_id = "56a0160de0b26495001602696996367a"
+workers_dev = true
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "sessions"
+database_id = "3bd00a0c-978a-41f4-9b81-ac93e1084d65"
+
+# Environment configuration
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+[env.staging]
+vars = { ENVIRONMENT = "staging" }
+
+# Build configuration
+[build]
+command = "npm install && npm run build"

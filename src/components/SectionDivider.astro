@@ -1,0 +1,28 @@
+---
+interface Props {
+  label?: string
+}
+const { label } = Astro.props
+---
+
+<div class="section-divider relative my-0">
+  <div class="laser-line"></div>
+  <div class="laser-glow"></div>
+
+  <!-- Sweeping light -->
+  <div class="absolute top-1/2 left-0 right-0 h-[1px] pointer-events-none overflow-hidden">
+    <div class="w-20 h-full bg-gradient-to-r from-transparent via-cyan/60 to-transparent" style="animation: sweep-left 6s ease-in-out infinite;"></div>
+  </div>
+
+  <!-- Data annotations -->
+  <div class="absolute top-2 left-6 font-label text-[7px] text-outline/20 uppercase tracking-[0.3em] hidden lg:block">
+    {label || 'SECTOR_TRANSITION'}
+  </div>
+  <div class="absolute bottom-2 right-6 font-label text-[7px] text-outline/20 uppercase tracking-[0.3em] hidden lg:block">
+    TS: {new Date().toISOString().split('T')[0]}
+  </div>
+
+  <!-- Corner brackets -->
+  <div class="absolute top-1/2 left-12 -translate-y-1/2 text-outline/15 font-label text-[8px] hidden lg:block">[</div>
+  <div class="absolute top-1/2 right-12 -translate-y-1/2 text-outline/15 font-label text-[8px] hidden lg:block">]</div>
+</div>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ar" dir="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>احجز جلستك</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
+      background: #0f0f0f;
+      color: #f5f5f5;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-block: 2rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 700px;
+      padding-inline: 1.5rem;
+    }
+
+    .form-wrapper {
+      background: #1a1a1a;
+      border: 1px solid #222;
+      border-radius: 0.5rem;
+      padding-block: 2.5rem;
+      padding-inline: 2.5rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-block-end: 0.5rem;
+      color: #f5f5f5;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #a3a3a3;
+      margin-block-end: 2rem;
+    }
+
+    .form-group {
+      margin-block-end: 1.75rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #e5e5e5;
+      margin-block-end: 0.6rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding-block: 0.75rem;
+      padding-inline: 1rem;
+      background: #0f0f0f;
+      border: 1px solid #333;
+      border-radius: 0.375rem;
+      color: #f5f5f5;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 200ms, box-shadow 200ms;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: inset 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 5rem;
+      font-family: inherit;
+    }
+
+    .help-text {
+      display: block;
+      font-size: 0.8rem;
+      color: #a3a3a3;
+      margin-block-start: 0.4rem;
+    }
+
+    .error-text {
+      display: block;
+      font-size: 0.8rem;
+      color: #ef4444;
+      margin-block-start: 0.4rem;
+    }
+
+    .field-error input,
+    .field-error textarea {
+      border-color: #ef4444;
+    }
+
+    /* Availability Grid */
+    .availability-grid-wrapper {
+      background: #0f0f0f;
+      border: 1px solid #333;
+      border-radius: 0.375rem;
+      padding: 1.25rem;
+    }
+
+    .days-select {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 0.75rem;
+      margin-block-end: 1.5rem;
+    }
+
+    .day-btn {
+      padding: 0.75rem;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 0.375rem;
+      color: #a3a3a3;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 150ms;
+    }
+
+    .day-btn:hover {
+      border-color: #3b82f6;
+      color: #3b82f6;
+    }
+
+    .day-btn.active {
+      background: #3b82f6;
+      border-color: #3b82f6;
+      color: #fff;
+    }
+
+    .hours-container {
+      display: none;
+      margin-block-start: 1rem;
+    }
+
+    .hours-container.active {
+      display: block;
+    }
+
+    .day-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #e5e5e5;
+      margin-block-end: 0.75rem;
+    }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+      gap: 0.5rem;
+    }
+
+    .hour-btn {
+      padding: 0.5rem;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 0.3rem;
+      color: #a3a3a3;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 150ms;
+    }
+
+    .hour-btn:hover {
+      border-color: #60a5fa;
+      color: #60a5fa;
+    }
+
+    .hour-btn.selected {
+      background: #3b82f6;
+      border-color: #3b82f6;
+      color: #fff;
+    }
+
+    .summary-text {
+      font-size: 0.85rem;
+      color: #a3a3a3;
+      margin-block-start: 1rem;
+      padding-block: 0.75rem;
+      padding-inline: 0.75rem;
+      background: #0f0f0f;
+      border-inline-start: 2px solid #3b82f6;
+      border-radius: 0.3rem;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 0.9rem;
+      background: #3b82f6;
+      border: none;
+      border-radius: 0.375rem;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 150ms;
+      margin-block-start: 1rem;
+    }
+
+    button[type="submit"]:hover {
+      background: #2563eb;
+    }
+
+    button[type="submit"]:active {
+      background: #1d4ed8;
+    }
+
+    button[type="submit"]:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .message {
+      margin-block: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 0.375rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .message.success {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+      display: block;
+    }
+
+    .message.error {
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+      display: block;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .form-wrapper {
+        padding-block: 1.5rem;
+        padding-inline: 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .days-select {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-wrapper">
+      <h1>احجز جلستك</h1>
+      <p class="subtitle">جلسة مجانية عشان نتكلم عن الـAI و الشغل</p>
+
+      <form id="signupForm">
+        <div id="successMessage" class="message success"></div>
+        <div id="errorMessage" class="message error"></div>
+
+        <!-- Name Field -->
+        <div class="form-group">
+          <label for="name">الاسم معرفش هعمل بيه ايه بس ممكن احتاجو</label>
+          <input type="text" id="name" name="name" required placeholder="عم محمد">
+          <span class="error-text" id="nameError"></span>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">ال email علشان ابعت عليه اللينك</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com">
+          <span class="error-text" id="emailError"></span>
+        </div>
+
+        <!-- Availability Grid -->
+        <div class="form-group">
+          <label>متى انت اللي تقدر تحضر؟</label>
+          <div class="availability-grid-wrapper">
+            <!-- Days -->
+            <div class="days-select" id="daysSelect"></div>
+
+            <!-- Hours per day -->
+            <div id="hoursContainer"></div>
+
+            <!-- Summary -->
+            <div class="summary-text" id="availabilitySummary">لم تحدد أي أوقات متاحة بعد</div>
+          </div>
+          <span class="error-text" id="availabilityError"></span>
+        </div>
+
+        <!-- Work & AI Experience -->
+        <div class="form-group">
+          <label for="workExperience">كلمني شوية عن شغلك وقد ايه انت بتستعمل الai دلوقتي</label>
+          <textarea id="workExperience" name="workExperience" required placeholder="اكتب هنا..."></textarea>
+          <span class="error-text" id="workExperienceError"></span>
+        </div>
+
+        <button type="submit" id="submitBtn">احجز المقعد</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const DAYS = ['الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت', 'الأحد'];
+    const HOURS = Array.from({ length: 14 }, (_, i) => i + 9); // 9am to 10pm
+
+    let selectedAvailability = {};
+
+    // Initialize form
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeDaysSelect();
+      initializeHoursContainers();
+      setupFormListeners();
+    });
+
+    function initializeDaysSelect() {
+      const daysSelect = document.getElementById('daysSelect');
+      DAYS.forEach((day, index) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'day-btn';
+        btn.textContent = day;
+        btn.dataset.day = index;
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          toggleDay(btn, index);
+        });
+        daysSelect.appendChild(btn);
+      });
+    }
+
+    function initializeHoursContainers() {
+      const hoursContainer = document.getElementById('hoursContainer');
+      DAYS.forEach((day, dayIndex) => {
+        const dayDiv = document.createElement('div');
+        dayDiv.className = 'hours-container';
+        dayDiv.id = `hours-day-${dayIndex}`;
+        dayDiv.innerHTML = `
+          <div class="day-label">${day}</div>
+          <div class="hours-grid" id="hours-grid-${dayIndex}"></div>
+        `;
+        hoursContainer.appendChild(dayDiv);
+
+        const hoursGrid = dayDiv.querySelector(`#hours-grid-${dayIndex}`);
+        HOURS.forEach((hour) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'hour-btn';
+          btn.textContent = `${hour}:00`;
+          btn.dataset.hour = hour;
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleHour(btn, dayIndex, hour);
+          });
+          hoursGrid.appendChild(btn);
+        });
+      });
+    }
+
+    function toggleDay(btn, dayIndex) {
+      btn.classList.toggle('active');
+      document.getElementById(`hours-day-${dayIndex}`).classList.toggle('active');
+
+      if (!btn.classList.contains('active')) {
+        selectedAvailability[dayIndex] = [];
+        // Deselect all hours for this day
+        document.querySelectorAll(`#hours-grid-${dayIndex} .hour-btn`).forEach((h) => {
+          h.classList.remove('selected');
+        });
+      }
+
+      updateAvailabilitySummary();
+    }
+
+    function toggleHour(btn, dayIndex, hour) {
+      btn.classList.toggle('selected');
+
+      if (!selectedAvailability[dayIndex]) {
+        selectedAvailability[dayIndex] = [];
+      }
+
+      if (btn.classList.contains('selected')) {
+        if (!selectedAvailability[dayIndex].includes(hour)) {
+          selectedAvailability[dayIndex].push(hour);
+        }
+      } else {
+        selectedAvailability[dayIndex] = selectedAvailability[dayIndex].filter((h) => h !== hour);
+      }
+
+      updateAvailabilitySummary();
+    }
+
+    function updateAvailabilitySummary() {
+      const summary = document.getElementById('availabilitySummary');
+      const selected = Object.entries(selectedAvailability).filter(([_, hours]) => hours.length > 0);
+
+      if (selected.length === 0) {
+        summary.textContent = 'لم تحدد أي أوقات متاحة بعد';
+        return;
+      }
+
+      const parts = selected.map(([dayIndex, hours]) => {
+        const dayName = DAYS[dayIndex];
+        const hourRange = `${Math.min(...hours)}:00 - ${Math.max(...hours) + 1}:00`;
+        return `${dayName}: ${hourRange}`;
+      });
+
+      summary.textContent = `الأوقات المتاحة: ${parts.join(' | ')}`;
+    }
+
+    function setupFormListeners() {
+      const form = document.getElementById('signupForm');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        await submitForm();
+      });
+
+      // Real-time validation on blur
+      document.getElementById('name').addEventListener('blur', validateName);
+      document.getElementById('email').addEventListener('blur', validateEmail);
+      document.getElementById('workExperience').addEventListener('blur', validateWorkExperience);
+    }
+
+    function validateName() {
+      const nameInput = document.getElementById('name');
+      const nameError = document.getElementById('nameError');
+      const value = nameInput.value.trim();
+
+      if (value.length < 2) {
+        nameError.textContent = 'الاسم يجب أن يكون أطول من حرفين';
+        return false;
+      }
+      nameError.textContent = '';
+      return true;
+    }
+
+    function validateEmail() {
+      const emailInput = document.getElementById('email');
+      const emailError = document.getElementById('emailError');
+      const value = emailInput.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(value)) {
+        emailError.textContent = 'البريد الإلكتروني غير صحيح';
+        return false;
+      }
+      emailError.textContent = '';
+      return true;
+    }
+
+    function validateWorkExperience() {
+      const workInput = document.getElementById('workExperience');
+      const workError = document.getElementById('workExperienceError');
+      const value = workInput.value.trim();
+
+      if (value.length < 10) {
+        workError.textContent = 'الرجاء كتابة وصف أطول قليلاً';
+        return false;
+      }
+      workError.textContent = '';
+      return true;
+    }
+
+    function validateAvailability() {
+      const selected = Object.entries(selectedAvailability).filter(([_, hours]) => hours.length > 0);
+      if (selected.length === 0) {
+        document.getElementById('availabilityError').textContent = 'الرجاء تحديد أوقات متاحة';
+        return false;
+      }
+      document.getElementById('availabilityError').textContent = '';
+      return true;
+    }
+
+    async function submitForm() {
+      // Validate all fields
+      const isNameValid = validateName();
+      const isEmailValid = validateEmail();
+      const isWorkValid = validateWorkExperience();
+      const isAvailabilityValid = validateAvailability();
+
+      if (!isNameValid || !isEmailValid || !isWorkValid || !isAvailabilityValid) {
+        return;
+      }
+
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'جاري الحفظ...';
+
+      try {
+        const formData = {
+          name: document.getElementById('name').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          availability: Object.entries(selectedAvailability)
+            .filter(([_, hours]) => hours.length > 0)
+            .reduce((acc, [dayIndex, hours]) => {
+              acc[DAYS[dayIndex]] = hours;
+              return acc;
+            }, {}),
+          workExperience: document.getElementById('workExperience').value.trim(),
+        };
+
+        const response = await fetch('https://session-signup.ahmed-taha.workers.dev/api/sessions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          document.getElementById('successMessage').textContent = `✓ تم حجزك بنجاح! رقم الجلسة: ${result.sessionId.slice(0, 8)}`;
+          document.getElementById('errorMessage').style.display = 'none';
+          document.getElementById('signupForm').reset();
+          selectedAvailability = {};
+          document.querySelectorAll('.day-btn, .hour-btn').forEach((btn) => btn.classList.remove('active', 'selected'));
+          updateAvailabilitySummary();
+        } else {
+          document.getElementById('errorMessage').textContent = `✗ ${result.error}`;
+          document.getElementById('successMessage').style.display = 'none';
+        }
+      } catch (error) {
+        console.error('Submission error:', error);
+        document.getElementById('errorMessage').textContent = '✗ حدث خطأ ما. حاول مرة أخرى.';
+        document.getElementById('successMessage').style.display = 'none';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'احجز المقعد';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+---
+const navItems = [
+  { label: 'Overview', href: '#hero' },
+  { label: 'Projects', href: '#archon' },
+  { label: 'Axon', href: '#axon' },
+  { label: 'Metrics', href: '#metrics' },
+  { label: 'Timeline', href: '#timeline' },
+  { label: 'Contact', href: '#contact' },
+]
+---
+
+<header class="tech-header sticky top-0 left-0 right-0 z-50 h-14 glass-panel flex items-center justify-between px-6 lg:px-10 page-load" style="border-bottom: 1px solid rgba(59, 73, 75, 0.15);">
+  <button id="header-logo-link" class="magnetic-btn font-label text-[13px] font-bold tracking-[0.2em] text-on-surface uppercase bg-transparent border-none cursor-crosshair">
+    AHMED<span class="text-cyan">_</span>TAHA
+  </button>
+
+  <nav class="hidden md:flex items-center gap-8">
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class="font-label text-[10px] uppercase tracking-[0.2em] text-outline hover:text-on-surface transition-colors duration-200 relative group"
+      >
+        {item.label}
+        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-cyan group-hover:w-full transition-all duration-300"></span>
+      </a>
+    ))}
+  </nav>
+
+  <div class="flex items-center gap-4">
+    <a
+      href="#contact"
+      class="magnetic-btn font-label text-[10px] uppercase tracking-[0.15em] px-5 py-2 bg-cyan text-on-cyan font-semibold hover:bg-cyan-dim transition-colors duration-100 active:scale-[0.97] hidden sm:inline-flex items-center gap-2"
+    >
+      <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+      Contact
+    </a>
+
+    <button id="mobile-menu-btn" class="lg:hidden flex flex-col justify-center items-center w-8 h-8 gap-[5px]" aria-label="Open menu">
+      <span class="w-5 h-[1.5px] bg-on-surface transition-all duration-200"></span>
+      <span class="w-3 h-[1.5px] bg-on-surface transition-all duration-200"></span>
+    </button>
+  </div>
+</header>
+
+<div id="mobile-overlay" class="mobile-menu-overlay lg:hidden"></div>
+
+<nav id="mobile-menu" class="mobile-menu lg:hidden">
+  <div class="flex items-center justify-between px-6 h-14" style="border-bottom: 1px solid rgba(59, 73, 75, 0.15);">
+    <span class="font-label text-[10px] text-outline uppercase tracking-[0.25em]">NAVIGATION</span>
+    <button id="mobile-menu-close" class="flex items-center justify-center w-8 h-8" aria-label="Close menu">
+      <span class="material-symbols-outlined text-[20px] text-outline">close</span>
+    </button>
+  </div>
+
+  <div class="px-6 py-8 space-y-0">
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class="mobile-nav-link flex items-center gap-3 py-5 text-on-surface-dim hover:text-on-surface transition-colors duration-200"
+        style="border-bottom: 1px solid rgba(59, 73, 75, 0.1);"
+      >
+        <span class="font-label text-[12px] uppercase tracking-[0.2em]">{item.label}</span>
+      </a>
+    ))}
+  </div>
+
+  <div class="absolute bottom-8 left-6 right-6">
+    <a
+      href="#contact"
+      class="mobile-nav-link block text-center font-label text-[11px] uppercase tracking-[0.15em] px-5 py-4 bg-cyan text-on-cyan font-semibold"
+    >
+      Initiate Contact
+    </a>
+    <div class="flex items-center gap-2 mt-6 justify-center">
+      <div class="w-1.5 h-1.5 bg-cyan animate-pulse-slow" style="box-shadow: 0 0 8px #00F0FF;"></div>
+      <span class="font-label text-[8px] text-outline/50 uppercase tracking-[0.2em]">SYSTEM_ACTIVE</span>
+    </div>
+  </div>
+</nav>

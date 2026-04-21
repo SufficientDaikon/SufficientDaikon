@@ -1,0 +1,597 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
+import Sidebar from '../components/Sidebar.astro'
+import Hero from '../components/Hero.astro'
+import TechTicker from '../components/TechTicker.astro'
+import SectionDivider from '../components/SectionDivider.astro'
+import CaseStudy from '../components/CaseStudy.astro'
+import Metrics from '../components/Metrics.astro'
+import Timeline from '../components/Timeline.astro'
+import Contact from '../components/Contact.astro'
+import Footer from '../components/Footer.astro'
+import AIPanel from '../components/react/AIPanel'
+import WorldSelector from '../components/WorldSelector.astro'
+import DesignWorld from '../components/worlds/DesignWorld.astro'
+import BusinessWorld from '../components/worlds/BusinessWorld.astro'
+---
+
+<Layout>
+  <!-- ====== KORE CANVAS SYSTEM ====== -->
+  <!-- viewport: 100vw x 100vh, overflow hidden -->
+  <!-- camera: GSAP-driven transform (x, y, scale) -->
+  <!-- universe: 5000px x 5000px absolute positioning -->
+
+  <div id="kore-viewport">
+    <!-- Subtle grid overlay on viewport -->
+    <div class="kore-grid-overlay" aria-hidden="true"></div>
+
+    <div id="kore-camera">
+      <div id="kore-universe">
+
+        <!-- SVG Synapse connections between nodes -->
+        <svg id="kore-synapses" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="synapseGradCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="rgba(0,240,255,0.05)"/>
+              <stop offset="50%" stop-color="rgba(0,240,255,0.15)"/>
+              <stop offset="100%" stop-color="rgba(0,240,255,0.05)"/>
+            </linearGradient>
+            <linearGradient id="synapseGradPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="rgba(0,240,255,0.05)"/>
+              <stop offset="50%" stop-color="rgba(192,132,252,0.15)"/>
+              <stop offset="100%" stop-color="rgba(192,132,252,0.05)"/>
+            </linearGradient>
+            <linearGradient id="synapseGradAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="rgba(0,240,255,0.05)"/>
+              <stop offset="50%" stop-color="rgba(245,158,11,0.15)"/>
+              <stop offset="100%" stop-color="rgba(245,158,11,0.05)"/>
+            </linearGradient>
+          </defs>
+          <!-- Hub to Tech World -->
+          <path class="kore-synapse" d="M 2500 2500 Q 3150 2500 3800 2500" stroke="url(#synapseGradCyan)"/>
+          <!-- Hub to Design World -->
+          <path class="kore-synapse" d="M 2500 2500 Q 1850 1850 1200 1200" stroke="url(#synapseGradPurple)"/>
+          <!-- Hub to Business World -->
+          <path class="kore-synapse" d="M 2500 2500 Q 3150 3150 3800 3800" stroke="url(#synapseGradAmber)"/>
+        </svg>
+
+        <!-- ====== NODE: WORLD SELECTOR / HUB — Center (2500, 2500) ====== -->
+        <div class="kore-node" id="kore-node-hub" style="left:2500px;top:2500px;">
+          <WorldSelector />
+        </div>
+
+        <!-- ====== NODE: TECH WORLD — Right (3800, 2500) ====== -->
+        <div class="kore-node kore-node-world" id="kore-node-tech" style="left:3800px;top:2500px;">
+          <div class="kore-world-inner">
+            <Header />
+            <div class="tech-body">
+              <Sidebar />
+              <main class="flex-1 relative min-w-0">
+              <Hero />
+              <TechTicker />
+              <SectionDivider label="CASE_FILE_01" />
+              <CaseStudy
+                index="01"
+                codename="CODENAME: THE ARCHITECT // CROSS-PLATFORM AGENT ENGINE"
+                title="Archon"
+                description="The Virtuoso Engine — a cross-platform skills framework for AI agents. 83 production skills, 10 specialized agents, and 5 cognitive synapses with enforced guardrails. Write once, deploy across Claude, Copilot, Cursor, Windsurf, and Antigravity. MIT licensed."
+                stats={[
+                  { label: 'SKILLS_ACTIVE', value: '83' },
+                  { label: 'AGENTS', value: '10 Specialized' },
+                  { label: 'PLATFORMS', value: '5 AI Editors' },
+                  { label: 'LICENSE', value: 'MIT // Open Source' },
+                ]}
+                badge="DEPLOYED // PRODUCTION"
+                imageAlt="Archon AI agent orchestration engine"
+                imageSrc="/generated/archon-hero.webp"
+                tags={['TypeScript', 'Python', 'Claude Code', 'Copilot CLI', 'Cursor', 'MCP', 'MIT']}
+              />
+              <SectionDivider label="CASE_FILE_02" />
+              <CaseStudy
+                index="02"
+                codename="CODENAME: THE NEXUS // AUTONOMOUS ORCHESTRATION LAYER"
+                title="Aether"
+                description="An autonomous multi-agent orchestration framework built on Bun and TypeScript. 28 interconnected subsystems for planning, execution, and self-correcting workflows. Agents that coordinate other agents — recursively."
+                stats={[
+                  { label: 'SUBSYSTEMS', value: '28 Active' },
+                  { label: 'RUNTIME', value: 'Bun + TypeScript' },
+                  { label: 'ARCHITECTURE', value: 'Multi-Agent LLM' },
+                  { label: 'STATUS', value: 'Paused // Resuming' },
+                ]}
+                badge="PAUSED // ARCHITECTURE COMPLETE"
+                imageAlt="Aether autonomous orchestration framework"
+                imageSrc="/generated/aether-hero.webp"
+                reversed
+                tags={['Bun', 'TypeScript', 'Multi-Agent', 'LLM Orchestration', 'Self-Correcting']}
+              />
+              <SectionDivider label="CASE_FILE_03" />
+              <CaseStudy
+                index="03"
+                codename="CODENAME: THE COMPILER // ML-FIRST SYSTEMS LANGUAGE"
+                title="Axon"
+                description="A systems programming language built from scratch in Rust, purpose-engineered for ML and AI workloads. Compile-time tensor shape validation, ownership-based memory safety without a GC, and native GPU execution semantics — before your program runs a single instruction."
+                stats={[
+                  { label: 'IMPLEMENTATION', value: 'Rust // Zero-Dep' },
+                  { label: 'COMPONENTS', value: 'Lexer + Parser + Borrow Checker' },
+                  { label: 'TARGET', value: 'ML // GPU-Native' },
+                  { label: 'STATUS', value: 'Active // Research' },
+                ]}
+                badge="ACTIVE // COMPILER RESEARCH"
+                imageSrc="/generated/axon-hero.webp"
+                imageAlt="Abstract syntax tree visualization with glowing cyan wireframe nodes on black void"
+                tags={['Rust', 'LLVM', 'GPU Compute', 'Tensor Types', 'Borrow Checker', 'Zero-GC']}
+              />
+              <SectionDivider label="PERFORMANCE_DATA" />
+              <Metrics />
+              <SectionDivider label="MISSION_LOG" />
+              <Timeline />
+              <SectionDivider label="TRANSMISSION_PORTAL" />
+              <Contact />
+            </main>
+            </div>
+            <Footer />
+          </div>
+        </div>
+
+        <!-- ====== NODE: DESIGN WORLD — Upper-Left (1200, 1200) ====== -->
+        <div class="kore-node kore-node-world" id="kore-node-design" style="left:1200px;top:1200px;">
+          <DesignWorld />
+        </div>
+
+        <!-- ====== NODE: BUSINESS WORLD — Lower-Right (3800, 3800) ====== -->
+        <div class="kore-node kore-node-world" id="kore-node-business" style="left:3800px;top:3800px;">
+          <BusinessWorld />
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== GLOBAL HUD (fixed to screen, above canvas) ====== -->
+  <nav id="kore-nav" class="kore-nav" aria-label="World navigation">
+    <button class="kore-nav-btn active" data-target="hub" aria-label="Navigate to Hub — World Selector">
+      <span class="kore-nav-dot kore-dot-cyan"></span>
+      <span>HUB</span>
+    </button>
+    <button class="kore-nav-btn" data-target="tech" aria-label="Navigate to Engineer — Technical Portfolio">
+      <span class="kore-nav-dot kore-dot-cyan"></span>
+      <span>ENGINEER</span>
+    </button>
+    <button class="kore-nav-btn" data-target="design" aria-label="Navigate to Creative — Design Portfolio">
+      <span class="kore-nav-dot kore-dot-purple"></span>
+      <span>CREATIVE</span>
+    </button>
+    <button class="kore-nav-btn" data-target="business" aria-label="Navigate to Operator — Business Portfolio">
+      <span class="kore-nav-dot kore-dot-amber"></span>
+      <span>OPERATOR</span>
+    </button>
+  </nav>
+
+  <AIPanel client:only="react" />
+</Layout>
+
+<style>
+/* ====== KORE CANVAS SYSTEM ====== */
+#kore-viewport {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #0e0e0e;
+  z-index: 1;
+}
+
+.kore-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,240,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,240,255,0.015) 1px, transparent 1px);
+  background-size: 100px 100px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#kore-camera {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+#kore-universe {
+  position: absolute;
+  width: 5000px;
+  height: 5000px;
+  top: 0;
+  left: 0;
+}
+
+/* ====== SYNAPSE SVG ====== */
+#kore-synapses {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.kore-synapse {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 12 8;
+  opacity: 0;
+}
+
+/* ====== UNIVERSE NODES ====== */
+.kore-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+/* Hub node sizing */
+#kore-node-hub {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* World nodes — each is a full viewport-sized container */
+.kore-node-world {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Inner wrapper for tech world (needs scrolling) */
+.kore-world-inner {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #0e0e0e;
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-surface-high, #2a2a2a) var(--color-surface-dim, #131313);
+}
+
+/* Tech world flex layout: sidebar + main */
+.tech-body {
+  display: flex;
+  min-height: calc(100% - 3.5rem);
+}
+
+/* ====== GLOBAL NAV HUD ====== */
+.kore-nav {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  gap: 4px;
+  background: rgba(14,14,14,0.85);
+  border: 1px solid rgba(59,73,75,0.2);
+  padding: 6px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0;
+  pointer-events: none;
+}
+.kore-nav.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+.kore-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  cursor: crosshair;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  transition: color 0.2s, background 0.2s;
+}
+.kore-nav-btn:hover {
+  color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.04);
+}
+.kore-nav-btn.active {
+  color: #E5E2E1;
+  background: rgba(255,255,255,0.06);
+}
+.kore-nav-dot {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+}
+.kore-dot-cyan { background: #00F0FF; }
+.kore-dot-purple { background: #C084FC; }
+.kore-dot-amber { background: #F59E0B; }
+
+/* ====== MOBILE: disable canvas, show stacked ====== */
+@media (max-width: 768px) {
+  #kore-viewport {
+    position: relative;
+    overflow: visible;
+    height: auto;
+  }
+  #kore-camera {
+    position: relative !important;
+    transform: none !important;
+  }
+  #kore-universe {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .kore-node {
+    position: relative !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  .kore-node-world {
+    height: auto !important;
+    overflow: visible;
+  }
+  .kore-world-inner {
+    overflow: visible;
+    height: auto;
+  }
+  .kore-grid-overlay,
+  #kore-synapses {
+    display: none;
+  }
+  .kore-nav {
+    display: none;
+  }
+  /* On mobile, only show hub first */
+  #kore-node-tech,
+  #kore-node-design,
+  #kore-node-business {
+    display: none;
+  }
+}
+</style>
+
+<script>
+  import gsap from 'gsap';
+
+  // ====== KORE CAMERA SYSTEM ======
+  const camera = document.getElementById('kore-camera');
+  const nav = document.getElementById('kore-nav');
+  const isMobile = window.innerWidth <= 768;
+
+  if (!isMobile && camera) {
+    // World coordinates
+    const worlds: Record<string, { x: number; y: number; scale: number }> = {
+      hub:      { x: 2500, y: 2500, scale: 1 },
+      tech:     { x: 3800, y: 2500, scale: 1 },
+      design:   { x: 1200, y: 1200, scale: 1 },
+      business: { x: 3800, y: 3800, scale: 1 },
+    };
+
+    let currentWorld = '';
+    let isTransitioning = false;
+
+    const hubNode = document.getElementById('kore-node-hub');
+    const worldNodes: Record<string, HTMLElement | null> = {
+      tech: document.getElementById('kore-node-tech'),
+      design: document.getElementById('kore-node-design'),
+      business: document.getElementById('kore-node-business'),
+    };
+
+    // World accent colors for cursor
+    const worldColors: Record<string, string> = {
+      hub: '#00F0FF',
+      tech: '#00F0FF',
+      design: '#C084FC',
+      business: '#F59E0B',
+    };
+
+    function panTo(worldId: string) {
+      if (isTransitioning || worldId === currentWorld) return;
+      const w = worlds[worldId];
+      if (!w) return;
+      isTransitioning = true;
+
+      // Pause Lenis during transition
+      const lenis = (window as any).__lenis;
+      if (lenis) lenis.stop();
+
+      const screenW = window.innerWidth;
+      const screenH = window.innerHeight;
+      const tx = (screenW / 2) - (w.x * w.scale);
+      const ty = (screenH / 2) - (w.y * w.scale);
+
+      const prevWorld = currentWorld;
+      const tl = gsap.timeline();
+
+      // 1. Exit — simple opacity + slight scale down (no blur, no clip-path)
+      if (prevWorld === 'hub' && hubNode) {
+        tl.to(hubNode, { opacity: 0, scale: 0.97, duration: 0.25, ease: 'power2.in' }, 0);
+      } else if (prevWorld !== 'hub' && worldNodes[prevWorld]) {
+        const prevNode = worldNodes[prevWorld]!;
+        const scrollEl = prevNode.querySelector('.kore-world-inner');
+        if (scrollEl) scrollEl.scrollTop = 0;
+        tl.to(prevNode, {
+          opacity: 0, scale: 0.97, duration: 0.25, ease: 'power2.in',
+          onComplete: () => { prevNode.style.overflow = 'hidden'; prevNode.style.pointerEvents = 'none'; }
+        }, 0);
+      }
+
+      // 2. Synapse pulse (subtle)
+      const synapses = document.querySelectorAll<SVGPathElement>('.kore-synapse');
+      tl.to(synapses, { attr: { 'stroke-opacity': 0.6 }, duration: 0.2 }, 0.1);
+      tl.to(synapses, { attr: { 'stroke-opacity': 0.15 }, duration: 0.4 }, 0.5);
+
+      // 3. Camera pan — single smooth move, no midpoint bounce
+      tl.to(camera, {
+        x: tx, y: ty, scale: w.scale,
+        duration: 0.6, ease: 'power2.inOut',
+      }, 0.15);
+
+      // 4. Enter — fade in with subtle scale overshoot
+      const enterDelay = 0.6;
+      if (worldId === 'hub' && hubNode) {
+        gsap.set(hubNode, { scale: 1.02, opacity: 0 });
+        tl.to(hubNode, { opacity: 1, scale: 1, duration: 0.35, ease: 'power2.out' }, enterDelay);
+      } else if (worldId !== 'hub' && worldNodes[worldId]) {
+        const targetNode = worldNodes[worldId]!;
+        gsap.set(targetNode, { scale: 1.02, opacity: 0 });
+        targetNode.style.overflow = 'auto';
+        targetNode.style.pointerEvents = 'auto';
+        tl.to(targetNode, { opacity: 1, scale: 1, duration: 0.35, ease: 'power2.out' }, enterDelay);
+      }
+
+      // 5. Complete (~0.95s total)
+      tl.call(() => {
+        currentWorld = worldId;
+        isTransitioning = false;
+
+        // Update cursor color for this world
+        document.body.style.setProperty('--cursor-color', worldColors[worldId] || '#00F0FF');
+
+        // Update body class for world-specific CSS (hides crosshairs in non-tech worlds)
+        document.body.classList.remove('world-hub', 'world-tech', 'world-design', 'world-business');
+        document.body.classList.add(`world-${worldId}`);
+
+        // Resume Lenis for scrollable worlds
+        if (lenis) {
+          if (worldId === 'hub') {
+            lenis.stop();
+          } else {
+            lenis.start();
+          }
+        }
+
+        // Update nav active state
+        document.querySelectorAll('.kore-nav-btn').forEach(btn => {
+          btn.classList.toggle('active', (btn as HTMLElement).dataset.target === worldId);
+        });
+      }, undefined, undefined, enterDelay + 0.35);
+    }
+
+    // Initial position: center on hub
+    panTo('hub');
+
+    // Show nav after boot screen exits
+    function showNav() {
+      if (nav) {
+        nav.classList.add('visible');
+        gsap.fromTo(nav, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' });
+      }
+    }
+
+    // Watch for boot screen dismissal
+    const bootScreen = document.getElementById('boot-screen');
+    if (bootScreen) {
+      const bootObserver = new MutationObserver(() => {
+        if (bootScreen.classList.contains('dismissed') || bootScreen.style.display === 'none') {
+          bootObserver.disconnect();
+          setTimeout(showNav, 800);
+        }
+      });
+      bootObserver.observe(bootScreen, { attributes: true, attributeFilter: ['class', 'style'] });
+    } else {
+      showNav();
+    }
+
+    // Nav button clicks
+    document.querySelectorAll('.kore-nav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = (btn as HTMLElement).dataset.target;
+        if (target) panTo(target);
+      });
+    });
+
+    // WorldSelector panel clicks → panTo world
+    document.getElementById('ws-panel-tech')?.addEventListener('click', () => panTo('tech'));
+    document.getElementById('ws-panel-design')?.addEventListener('click', () => panTo('design'));
+    document.getElementById('ws-panel-business')?.addEventListener('click', () => panTo('business'));
+
+    // Back buttons in world navs → panTo hub
+    document.getElementById('back-from-design')?.addEventListener('click', () => panTo('hub'));
+    document.getElementById('back-from-business')?.addEventListener('click', () => panTo('hub'));
+
+    // Header logo → panTo hub (instead of page reload)
+    document.getElementById('header-logo-link')?.addEventListener('click', (e) => {
+      e.preventDefault();
+      panTo('hub');
+    });
+
+    // Animate synapses in after boot
+    setTimeout(() => {
+      gsap.to('.kore-synapse', {
+        opacity: 1,
+        duration: 1.5,
+        stagger: 0.2,
+        ease: 'power2.out',
+      });
+    }, 3000);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') panTo('hub');
+    });
+
+    // Handle window resize — re-center current world
+    window.addEventListener('resize', () => {
+      if (currentWorld && !isTransitioning) {
+        const w = worlds[currentWorld];
+        if (!w) return;
+        const screenW = window.innerWidth;
+        const screenH = window.innerHeight;
+        const tx = (screenW / 2) - (w.x * w.scale);
+        const ty = (screenH / 2) - (w.y * w.scale);
+        gsap.set(camera, { x: tx, y: ty, scale: w.scale });
+      }
+    });
+  }
+</script>
+
+<style>
+/* ====== TECH WORLD BACK BUTTON ====== */
+.kore-back-btn {
+  position: sticky;
+  top: 0;
+  z-index: 51;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  background: rgba(14,14,14,0.95);
+  border: none;
+  border-bottom: 1px solid rgba(0,240,255,0.15);
+  padding: 8px 14px;
+  cursor: crosshair;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0,240,255,0.65);
+  backdrop-filter: blur(10px);
+  transition: color 0.2s, background 0.2s;
+}
+.kore-back-btn:hover {
+  color: #00F0FF;
+  border-color: rgba(0,240,255,0.5);
+  background: rgba(0,240,255,0.06);
+}
+</style>

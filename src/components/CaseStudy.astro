@@ -1,0 +1,134 @@
+---
+interface Stat {
+  label: string
+  value: string
+}
+
+interface Props {
+  index: string
+  codename: string
+  title: string
+  description: string
+  stats: Stat[]
+  badge: string
+  imageAlt: string
+  imageSrc?: string
+  reversed?: boolean
+  tags?: string[]
+}
+
+const { index, codename, title, description, stats, badge, imageAlt, imageSrc, reversed = false, tags = [] } = Astro.props
+---
+
+<section id={index === '01' ? 'archon' : title.toLowerCase()} class="relative py-28 lg:py-36 overflow-hidden section-wipe">
+  <!-- Section background with depth -->
+  <div class:list={['absolute inset-0', reversed ? 'bg-surface-container' : 'bg-surface-low']}>
+    <div class="absolute inset-0 forensic-grid opacity-20"></div>
+    <!-- Cyan dot-grid overlay for visual depth -->
+    <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle, rgba(0,240,255,0.07) 1px, transparent 1px); background-size: 40px 40px;"></div>
+    <!-- Subtle volumetric radial glow -->
+    <div class="absolute inset-0 pointer-events-none" style={`background: radial-gradient(ellipse at ${reversed ? '30%' : '70%'} 50%, rgba(0,240,255,0.03) 0%, transparent 60%);`}></div>
+  </div>
+
+  <!-- Subtle accent line decoration -->
+  <div class="absolute top-0 right-8 bottom-0 w-[1px] bg-cyan/[0.06] hidden lg:block" aria-hidden="true"></div>
+  <div class="absolute top-0 left-8 bottom-0 w-[1px] bg-cyan/[0.03] hidden lg:block" aria-hidden="true"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-16 xl:px-24">
+    <div class="flex items-center gap-4 mb-3">
+      <span class="section-label block reveal">CASE_STUDY_{index}</span>
+      <div class="signal-bars reveal">
+        <div class="signal-bar" style="height: 3px;"></div>
+        <div class="signal-bar" style="height: 6px;"></div>
+        <div class="signal-bar" style="height: 9px;"></div>
+        <div class="signal-bar" style="height: 12px;"></div>
+      </div>
+    </div>
+    <span class="font-label text-[10px] text-on-surface-variant/70 uppercase tracking-[0.2em] block mb-14 reveal">{codename}</span>
+
+    <div class:list={[
+      'grid lg:grid-cols-2 gap-12 lg:gap-20 items-start',
+      reversed && 'lg:[direction:rtl] lg:[&>*]:[direction:ltr]',
+    ]}>
+      <!-- Text content -->
+      <div class:list={['space-y-8', reversed ? 'reveal-right' : 'reveal-left']}>
+        <h2 class="font-headline text-4xl lg:text-6xl xl:text-7xl font-extrabold text-on-surface tracking-tight glitch-hover heading-reveal" data-text={title}>
+          {title}
+        </h2>
+
+        <p class="font-body text-base lg:text-lg text-on-surface-dim leading-relaxed max-w-lg">          {description}
+        </p>
+
+        {tags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mt-2 reveal-stagger">
+            {tags.map((tag) => (
+              <span class="tech-chip">{tag}</span>
+            ))}
+          </div>
+        )}
+
+        <!-- Stats — glass panel table with holo effect -->
+        <div class="glass-panel ghost-border ghost-border-shimmer holo-card p-1 mt-10 glow-cyan reveal-stagger">
+          {stats.map((stat) => (
+            <div class="flex items-baseline justify-between px-5 py-4 group hover:bg-surface-high/50 transition-colors duration-300 relative z-[2]" style="border-bottom: 1px solid rgba(59, 73, 75, 0.12);">
+              <span class="font-label text-[10px] text-on-surface-variant uppercase tracking-[0.25em]">{stat.label}</span>
+              <span class="font-label text-sm text-on-surface font-semibold tracking-wide group-hover:text-cyan transition-colors duration-300">{stat.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Image area — 3D tilt card with glitch image -->
+      <div class:list={['relative min-h-[420px] lg:min-h-[520px] overflow-hidden group tilt-card holo-card', reversed ? 'reveal-left' : 'reveal-right']}>
+        <div class="case-image-wrap glitch-image z-[2]">
+          {imageSrc ? (
+            <img
+              src={imageSrc}
+              alt={imageAlt}
+              class="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+              width="1408"
+              height="768"
+            />
+          ) : (
+            <div class="absolute inset-0 bg-gradient-to-br from-surface-high to-surface-lowest">
+              <div class="absolute inset-0 forensic-grid opacity-40"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center space-y-4">
+                  <span class="material-symbols-outlined text-[56px] text-outline/20">
+                    {index === '01' ? 'security' : 'hub'}
+                  </span>
+                  <span class="block font-label text-[9px] text-outline/30 uppercase tracking-[0.3em]">{title}_CORE</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <!-- Scan line -->
+          <div class="scan-line"></div>
+
+          <!-- Edge glow on hover -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-[3]" style="box-shadow: inset 0 0 60px -20px rgba(0, 240, 255, 0.15);"></div>
+
+          <!-- Corner brackets — forensic framing -->
+          <div class="absolute top-3 left-3 w-6 h-[1px] bg-cyan/40 z-[3]"></div>
+          <div class="absolute top-3 left-3 h-6 w-[1px] bg-cyan/40 z-[3]"></div>
+          <div class="absolute top-3 right-3 w-6 h-[1px] bg-cyan/40 z-[3]"></div>
+          <div class="absolute top-3 right-3 h-6 w-[1px] bg-cyan/40 z-[3]"></div>
+          <div class="absolute bottom-16 left-3 w-6 h-[1px] bg-cyan/40 z-[3]"></div>
+          <div class="absolute bottom-16 left-3 h-6 w-[1px] bg-cyan/40 z-[3]"></div>
+          <div class="absolute bottom-16 right-3 w-6 h-[1px] bg-cyan/40 z-[3]"></div>
+          <div class="absolute bottom-16 right-3 h-6 w-[1px] bg-cyan/40 z-[3]"></div>
+
+          <!-- Badge overlay -->
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-surface-lowest/90 via-surface-lowest/40 to-transparent pt-16 pb-4 px-5 z-[4]">
+            <div class="flex items-center gap-2">
+              <div class="status-dot animate-pulse-slow" style="box-shadow: 0 0 6px rgba(0, 240, 255, 0.5);"></div>
+              <span class="font-label text-[9px] text-cyan uppercase tracking-[0.2em]">{badge}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

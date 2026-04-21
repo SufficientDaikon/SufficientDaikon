@@ -1,0 +1,267 @@
+---
+/**
+ * ASCIIField — Canvas-based ASCII particle background
+ * Inspired by chenglou/pretext Variable Typographic ASCII demo.
+ *
+ * v2: Pure canvas rendering — eliminates 19k DOM element rebuilds per frame.
+ * Physics simulation drives a brightness field → mapped to ASCII characters
+ * drawn directly on canvas with fillText. World-aware color switching.
+ */
+---
+
+<div id="ascii-field" class="ascii-field" aria-hidden="true">
+  <canvas id="ascii-canvas" class="ascii-canvas"></canvas>
+</div>
+
+<style>
+  .ascii-field {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.30;
+    mix-blend-mode: screen;
+    contain: strict;
+  }
+
+  .ascii-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ascii-field { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    .ascii-field { display: none; }
+  }
+</style>
+
+<script>
+  const field = document.getElementById('ascii-field');
+  const displayCanvas = document.getElementById('ascii-canvas') as HTMLCanvasElement;
+  if (!field || !displayCanvas) { /* graceful degrade */ }
+
+  if (field && displayCanvas) {
+    const ctx = displayCanvas.getContext('2d', { alpha: true })!;
+
+    const CHAR_W = 8.5;
+    const CHAR_H = 13;
+    let COLS = 0, ROWS = 0;
+
+    const SIM_W = 180, SIM_H = 120;
+    const PARTICLE_N = 70;
+    const SPRITE_R = 14;
+    const ATTRACTOR_FORCE_1 = 0.20;
+    const ATTRACTOR_FORCE_2 = 0.05;
+    const FIELD_DECAY = 0.82;
+    const FIELD_OVERSAMPLE = 2;
+    const RAMP = ' .·:;=+*#%@';
+
+    // World-aware color (updated by MutationObserver)
+    let cr = 0, cg = 240, cb = 255;
+    function updateWorldColor() {
+      const cl = document.body.classList;
+      if (cl.contains('world-design')) { cr = 192; cg = 132; cb = 252; }
+      else if (cl.contains('world-business')) { cr = 245; cg = 158; cb = 11; }
+      else { cr = 0; cg = 240; cb = 255; }
+    }
+    const bodyObs = new MutationObserver(updateWorldColor);
+    bodyObs.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    updateWorldColor();
+
+    // Particles
+    interface Particle { x: number; y: number; vx: number; vy: number; }
+    const particles: Particle[] = [];
+    for (let i = 0; i < PARTICLE_N; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const r = Math.random() * 30 + 15;
+      particles.push({
+        x: SIM_W / 2 + Math.cos(angle) * r,
+        y: SIM_H / 2 + Math.sin(angle) * r,
+        vx: (Math.random() - 0.5) * 0.6,
+        vy: (Math.random() - 0.5) * 0.6,
+      });
+    }
+
+    // Brightness field
+    let fieldCols = 0, fieldRows = 0, fieldScaleX = 0, fieldScaleY = 0;
+    let brightnessField = new Float32Array(0);
+
+    interface FieldStamp { rx: number; ry: number; sx: number; sy: number; values: Float32Array; }
+    let particleStamp: FieldStamp;
+    let attractorStamp1: FieldStamp;
+    let attractorStamp2: FieldStamp;
+
+    function spriteAlphaAt(d: number): number {
+      if (d >= 1) return 0;
+      if (d <= 0.3) return 0.4 + (0.12 - 0.4) * (d / 0.3);
+      return 0.12 * (1 - (d - 0.3) / 0.7);
+    }
+
+    function createStamp(radiusPx: number): FieldStamp {
+      const frx = radiusPx * fieldScaleX;
+      const fry = radiusPx * fieldScaleY;
+      const rx = Math.ceil(frx);
+      const ry = Math.ceil(fry);
+      const sx = rx * 2 + 1, sy = ry * 2 + 1;
+      const values = new Float32Array(sx * sy);
+      for (let y = -ry; y <= ry; y++) {
+        for (let x = -rx; x <= rx; x++) {
+          const d = Math.sqrt((x / frx) ** 2 + (y / fry) ** 2);
+          values[(y + ry) * sx + x + rx] = spriteAlphaAt(d);
+        }
+      }
+      return { rx, ry, sx, sy, values };
+    }
+
+    function splatStamp(cx: number, cy: number, stamp: FieldStamp): void {
+      const gcx = Math.round(cx * fieldScaleX);
+      const gcy = Math.round(cy * fieldScaleY);
+      for (let y = -stamp.ry; y <= stamp.ry; y++) {
+        const gy = gcy + y;
+        if (gy < 0 || gy >= fieldRows) continue;
+        const fOff = gy * fieldCols;
+        const sOff = (y + stamp.ry) * stamp.sx;
+        for (let x = -stamp.rx; x <= stamp.rx; x++) {
+          const gx = gcx + x;
+          if (gx < 0 || gx >= fieldCols) continue;
+          const sv = stamp.values[sOff + x + stamp.rx];
+          if (sv === 0) continue;
+          const fi = fOff + gx;
+          brightnessField[fi] = Math.min(1, brightnessField[fi] + sv);
+        }
+      }
+    }
+
+    function resizeCanvas() {
+      displayCanvas.width = window.innerWidth;
+      displayCanvas.height = window.innerHeight;
+      COLS = Math.ceil(displayCanvas.width / CHAR_W);
+      ROWS = Math.ceil(displayCanvas.height / CHAR_H);
+      fieldCols = COLS * FIELD_OVERSAMPLE;
+      fieldRows = ROWS * FIELD_OVERSAMPLE;
+      fieldScaleX = fieldCols / SIM_W;
+      fieldScaleY = fieldRows / SIM_H;
+      brightnessField = new Float32Array(fieldCols * fieldRows);
+      particleStamp = createStamp(SPRITE_R);
+      attractorStamp1 = createStamp(24);
+      attractorStamp2 = createStamp(10);
+      ctx.font = '11px "Space Grotesk", "SF Mono", monospace';
+      ctx.textBaseline = 'top';
+    }
+    resizeCanvas();
+
+    // Pre-compute alpha strings for 11 levels to avoid string alloc in hot loop
+    const alphaStrs: string[] = [];
+    for (let i = 0; i <= 10; i++) {
+      alphaStrs.push((i / 10 * 0.9).toFixed(2));
+    }
+
+    let running = true;
+    let frameCount = 0;
+
+    function render(now: number): void {
+      if (!running) { requestAnimationFrame(render); return; }
+
+      // Throttle to ~20fps (every 3rd frame at 60fps)
+      frameCount++;
+      if (frameCount % 3 !== 0) { requestAnimationFrame(render); return; }
+
+      const a1x = Math.cos(now * 0.0005) * SIM_W * 0.3 + SIM_W / 2;
+      const a1y = Math.sin(now * 0.0008) * SIM_H * 0.35 + SIM_H / 2;
+      const a2x = Math.cos(now * 0.001 + Math.PI) * SIM_W * 0.2 + SIM_W / 2;
+      const a2y = Math.sin(now * 0.0006 + Math.PI) * SIM_H * 0.25 + SIM_H / 2;
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        const d1x = a1x - p.x, d1y = a1y - p.y;
+        const d2x = a2x - p.x, d2y = a2y - p.y;
+        const dist1 = d1x * d1x + d1y * d1y;
+        const dist2 = d2x * d2x + d2y * d2y;
+        const ax = dist1 < dist2 ? d1x : d2x;
+        const ay = dist1 < dist2 ? d1y : d2y;
+        const dist = Math.sqrt(Math.min(dist1, dist2)) + 1;
+        const force = dist1 < dist2 ? ATTRACTOR_FORCE_1 : ATTRACTOR_FORCE_2;
+
+        p.vx += ax / dist * force + (Math.random() - 0.5) * 0.2;
+        p.vy += ay / dist * force + (Math.random() - 0.5) * 0.2;
+        p.vx *= 0.96; p.vy *= 0.96;
+        p.x += p.vx; p.y += p.vy;
+
+        if (p.x < -SPRITE_R) p.x += SIM_W + SPRITE_R * 2;
+        if (p.x > SIM_W + SPRITE_R) p.x -= SIM_W + SPRITE_R * 2;
+        if (p.y < -SPRITE_R) p.y += SIM_H + SPRITE_R * 2;
+        if (p.y > SIM_H + SPRITE_R) p.y -= SIM_H + SPRITE_R * 2;
+      }
+
+      // Decay
+      for (let i = 0; i < brightnessField.length; i++) {
+        brightnessField[i] *= FIELD_DECAY;
+      }
+
+      // Splat
+      for (let i = 0; i < particles.length; i++) {
+        splatStamp(particles[i].x, particles[i].y, particleStamp);
+      }
+      splatStamp(a1x, a1y, attractorStamp1);
+      splatStamp(a2x, a2y, attractorStamp2);
+
+      // Render to canvas (no DOM manipulation!)
+      ctx.clearRect(0, 0, displayCanvas.width, displayCanvas.height);
+
+      // Batch by alpha level to minimize fillStyle changes
+      const buckets: { char: string; x: number; y: number }[][] = [];
+      for (let i = 0; i <= 10; i++) buckets.push([]);
+
+      for (let row = 0; row < ROWS; row++) {
+        const fieldRowStart = row * FIELD_OVERSAMPLE * fieldCols;
+        const y = row * CHAR_H;
+
+        for (let col = 0; col < COLS; col++) {
+          const fieldColStart = col * FIELD_OVERSAMPLE;
+          let brightness = 0;
+
+          for (let sy = 0; sy < FIELD_OVERSAMPLE; sy++) {
+            const off = fieldRowStart + sy * fieldCols + fieldColStart;
+            for (let sx = 0; sx < FIELD_OVERSAMPLE; sx++) {
+              brightness += brightnessField[off + sx] || 0;
+            }
+          }
+
+          const norm = Math.min(1, brightness / (FIELD_OVERSAMPLE * FIELD_OVERSAMPLE));
+          if (norm < 0.02) continue;
+
+          const charIdx = Math.min(RAMP.length - 1, (norm * RAMP.length) | 0);
+          const alphaIdx = Math.max(1, Math.min(10, Math.round(norm * 10)));
+          buckets[alphaIdx].push({ char: RAMP[charIdx], x: col * CHAR_W, y });
+        }
+      }
+
+      // Draw each alpha bucket with a single fillStyle
+      for (let a = 1; a <= 10; a++) {
+        const bucket = buckets[a];
+        if (bucket.length === 0) continue;
+        ctx.fillStyle = `rgba(${cr},${cg},${cb},${alphaStrs[a]})`;
+        for (let i = 0; i < bucket.length; i++) {
+          ctx.fillText(bucket[i].char, bucket[i].x, bucket[i].y);
+        }
+      }
+
+      requestAnimationFrame(render);
+    }
+
+    document.addEventListener('visibilitychange', () => { running = !document.hidden; });
+
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resizeCanvas, 200);
+    });
+
+    requestAnimationFrame(render);
+  }
+</script>

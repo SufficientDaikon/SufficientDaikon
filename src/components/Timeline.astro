@@ -1,0 +1,119 @@
+---
+const milestones = [
+  {
+    year: '2025',
+    title: 'COPILOT AGENT ECOSYSTEM',
+    description: '17 VS Code Copilot agents and a 4-agent CLI pipeline for Spec-Driven Development — from spec to implementation to review to packaging. Full software lifecycle, automated.',
+    status: 'SHIPPED',
+    icon: 'deployed_code',
+  },
+  {
+    year: '2024',
+    title: 'ARCHON DEPLOYED',
+    description: 'Launched the Virtuoso Engine — 83 skills, 10 specialized agents, 5 AI editor platforms. Cross-platform framework that lets you write once and deploy everywhere. Open source.',
+    status: 'PRODUCTION',
+    icon: 'rocket_launch',
+  },
+  {
+    year: '2024',
+    title: 'AXON LANGUAGE',
+    description: 'Designed and built an ML/AI-first programming language compiler in Rust — compile-time tensor shapes, ownership-based safety, native GPU execution. Lexer, parser, borrow checker.',
+    status: 'ACTIVE',
+    icon: 'code',
+  },
+  {
+    year: '2024',
+    title: 'AETHER FRAMEWORK',
+    description: 'Architected 28 interconnected subsystems for autonomous multi-agent orchestration on Bun + TypeScript. Agents that plan, execute, and self-correct — recursively.',
+    status: 'PAUSED',
+    icon: 'hub',
+  },
+  {
+    year: '2023',
+    title: 'DESKTOP & FULL-STACK',
+    description: 'Shipped HugBrowse (Tauri + React + Rust) — a local AI model platform. Built HarvestHub — adaptive scraping with XLSX exports. Django, Spring Boot, Go APIs. Production across the stack.',
+    status: 'SHIPPED',
+    icon: 'devices',
+  },
+  {
+    year: '2020',
+    title: 'FIRST COMMIT',
+    description: 'GitHub account created May 2020. Started with Python, PHP, and Django. Over 6 years: 62 repositories, 11 programming languages, and a trajectory from web apps to autonomous systems.',
+    status: 'ORIGIN',
+    icon: 'terminal',
+  },
+]
+---
+
+<section id="timeline" class="relative py-28 lg:py-36 bg-surface-container overflow-hidden">
+  <div class="absolute inset-0 forensic-grid opacity-30"></div>
+  <div class="absolute inset-0 topo-bg pointer-events-none" aria-hidden="true"></div>
+
+  <div class="relative max-w-5xl mx-auto px-6 lg:px-16 xl:px-24 z-10">
+    <span class="section-label block mb-3 reveal">OPERATION_HISTORY</span>
+    <h2 class="font-headline text-3xl lg:text-5xl font-extrabold text-on-surface tracking-tight mb-20 reveal glitch-hover heading-reveal" data-text="Mission Log">
+      Mission Log
+    </h2>
+
+    <!-- DNA Timeline -->
+    <div class="dna-timeline">
+      <!-- Central strand line -->
+      <div class="absolute left-6 lg:left-1/2 top-0 bottom-0 w-[1px] bg-cyan/10 lg:-translate-x-1/2"></div>
+
+      <!-- DNA wave strands (desktop only) -->
+      <div class="hidden lg:block">
+        <div class="dna-strand"></div>
+      </div>
+
+      <!-- Milestones -->
+      <div class="space-y-16 lg:space-y-24 relative z-[2]">
+        {milestones.map((milestone, i) => (
+          <div class:list={[
+            'relative grid lg:grid-cols-2 gap-6 lg:gap-16 items-center',
+            i % 2 === 0 ? '' : 'lg:[direction:rtl] lg:[&>*]:[direction:ltr]',
+          ]}>
+            <!-- Node dot -->
+            <div class:list={[
+              'absolute left-6 lg:left-1/2 w-4 h-4 -translate-x-1/2 z-[3] dna-node',
+              i === 0 ? 'bg-cyan' : 'bg-surface-lowest border-2 border-cyan/40',
+            ]} style={i === 0 ? 'box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);' : 'box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);'}>
+            </div>
+
+            <!-- Content card -->
+            <div class:list={[
+              'ml-14 lg:ml-0 glass-panel ghost-border holo-card p-6 lg:p-8 reveal',
+              i % 2 === 0 ? 'reveal-left' : 'reveal-right',
+            ]}>
+              <div class="relative z-[2]">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="material-symbols-outlined text-[18px] text-cyan/60">{milestone.icon}</span>
+                  <span class="font-label text-[9px] text-on-surface-variant uppercase tracking-[0.25em]">{milestone.year}</span>
+                  <span class="font-label text-[9px] text-on-surface-variant/60 uppercase tracking-[0.2em] ml-auto">{milestone.status}</span>
+                </div>
+                <h3 class="font-headline text-xl lg:text-2xl font-bold text-on-surface mb-4 tracking-tight">
+                  {milestone.title}
+                </h3>
+                <p class="font-body text-sm text-on-surface-dim leading-relaxed">
+                  {milestone.description}
+                </p>
+              </div>
+            </div>
+
+            <!-- Year badge (other side on desktop) -->
+            <div class="hidden lg:flex items-center justify-center">
+              <span class="font-headline text-6xl font-extrabold text-on-surface-variant/[0.18] tracking-tight select-none">
+                {milestone.year}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Terminal node at bottom -->
+      <div class="relative mt-16 flex items-center gap-4 ml-14 lg:ml-0 lg:justify-center reveal">
+        <div class="absolute left-6 lg:left-1/2 w-3 h-3 -translate-x-1/2 bg-outline-variant/30"></div>
+        <span class="font-label text-[9px] text-outline/40 uppercase tracking-[0.3em] lg:ml-8">END_OF_LOG // MORE_INCOMING</span>
+      </div>
+    </div>
+  </div>
+</section>

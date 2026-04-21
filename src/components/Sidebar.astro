@@ -1,0 +1,44 @@
+---
+const navItems = [
+  { label: 'Overview', icon: 'grid_view', href: '#hero' },
+  { label: 'Archon', icon: 'security', href: '#archon' },
+  { label: 'Aether', icon: 'hub', href: '#aether' },
+  { label: 'Axon', icon: 'code', href: '#axon' },
+  { label: 'Metrics', icon: 'analytics', href: '#metrics' },
+  { label: 'Timeline', icon: 'timeline', href: '#timeline' },
+  { label: 'Contact', icon: 'mail', href: '#contact' },
+]
+---
+
+<aside class="hidden lg:flex sticky top-14 self-start w-64 h-[calc(100vh-3.5rem)] bg-surface-lowest flex-col z-40 shrink-0 page-load page-load-delay-1" style="border-right: 1px solid rgba(59, 73, 75, 0.15);">
+  <div class="px-6 py-8">
+    <span class="section-label text-cyan-dim">ARCHITECT</span>
+    <span class="block font-label text-[9px] text-outline tracking-[0.2em] mt-1">AVAILABLE FOR HIRE</span>
+  </div>
+
+  <nav class="flex-1 px-3">
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class="sidebar-link flex items-center gap-3 px-3 py-3 mb-1 transition-all duration-200 group text-outline hover:text-on-surface hover:bg-surface-container border-l-[3px] border-transparent hover:border-outline-variant"
+      >
+        <span class="material-symbols-outlined text-[18px] text-outline group-hover:text-on-surface-dim transition-colors duration-200">
+          {item.icon}
+        </span>
+        <span class="font-label text-[11px] uppercase tracking-[0.15em]">{item.label}</span>
+      </a>
+    ))}
+  </nav>
+
+  <!-- System status -->
+  <div class="px-6 py-6">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="w-1.5 h-1.5 bg-cyan" style="box-shadow: 0 0 8px #00F0FF;"></span>
+      <span class="font-label text-[9px] text-on-surface-variant/70 tracking-[0.2em] uppercase">System Operational</span>
+    </div>
+    <div class="font-label text-[8px] text-outline/50 uppercase tracking-[0.15em] leading-relaxed" style="animation: data-flicker 8s ease-in-out infinite;">
+      83 SKILLS // 17 AGENTS<br/>
+      62 REPOS // 5 MCP SERVERS
+    </div>
+  </div>
+</aside>

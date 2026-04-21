@@ -1,0 +1,25 @@
+{
+  "name": "gemini-vision-server",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "keywords": [
+    "mcp",
+    "gemini",
+    "vision"
+  ],
+  "author": "Ahmed Taha",
+  "license": "MIT",
+  "description": "MCP server giving AI agents Gemini 2.5 Pro vision — screenshot & analyze any URL",
+  "dependencies": {
+    "@google/genai": "^1.47.0",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@types/node": "^25.5.0",
+    "playwright": "^1.58.2",
+    "typescript": "^6.0.2"
+  }
+}

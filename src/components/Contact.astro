@@ -1,0 +1,132 @@
+---
+
+---
+
+<section id="contact" class="relative py-28 lg:py-40 bg-surface-lowest overflow-hidden">
+  <!-- EMP Ring container — rings are injected by JS -->
+
+  <!-- Rotating wireframe diamond -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+    <div class="relative w-[400px] h-[400px] lg:w-[600px] lg:h-[600px]" style="animation: subtle-rotate 40s linear infinite;">
+      <div class="absolute inset-0 border border-cyan/[0.05]" style="transform: rotate(45deg);"></div>
+      <div class="absolute inset-12 border border-cyan/[0.04]" style="transform: rotate(45deg);"></div>
+      <div class="absolute inset-24 border border-cyan/[0.03]" style="transform: rotate(45deg);"></div>
+    </div>
+  </div>
+
+  <!-- Counter-rotating ring -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+    <div class="w-[500px] h-[500px] lg:w-[800px] lg:h-[800px] border border-cyan/[0.02] opacity-60" style="animation: subtle-rotate 60s linear infinite reverse;"></div>
+  </div>
+
+  <!-- Volumetric radial glow — larger and more visible -->
+  <div class="volumetric-bg" aria-hidden="true" style="width: 900px; height: 900px;"></div>
+
+  <!-- Topographic contour background -->
+  <div class="absolute inset-0 topo-bg pointer-events-none" aria-hidden="true"></div>
+
+  <div class="relative max-w-5xl mx-auto px-6 lg:px-16 z-10">
+    <span class="section-label block mb-4 reveal">COMMUNICATION_PORTAL</span>
+    <span class="font-label text-[9px] text-outline/40 uppercase tracking-[0.3em] block mb-12 reveal">CHANNEL_OPEN // READY_FOR_TRANSMISSION</span>
+
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      <!-- Left — CTA + Links -->
+      <div class="text-center lg:text-left">
+        <h2 class="font-headline text-4xl sm:text-5xl lg:text-7xl font-extrabold text-on-surface tracking-tight mb-8 reveal heading-reveal">
+          Initiate<br/>
+          <span class="text-cyan stroke-fill-cyan" style="text-shadow: 0 0 40px rgba(0, 240, 255, 0.4), 0 0 80px rgba(0, 240, 255, 0.15);">Protocol</span>
+        </h2>
+
+        <p class="font-body text-base lg:text-lg text-on-surface-dim max-w-lg mx-auto lg:mx-0 mb-10 leading-relaxed reveal">
+          Open to roles in AI agent architecture, full-stack engineering, DevOps, and systems programming. Based in Cairo, Egypt — available remotely worldwide.
+        </p>
+
+        <!-- Availability status indicator -->
+        <div class="flex items-center gap-3 mb-10 justify-center lg:justify-start reveal">
+          <div class="status-dot"></div>
+          <span class="font-label text-[10px] text-on-surface-variant uppercase tracking-[0.2em]">Available for opportunities</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 reveal">
+          <a
+            href="mailto:tahaa755@gmail.com"
+            class="magnetic-btn font-label text-[11px] uppercase tracking-[0.15em] px-10 py-4 bg-cyan text-on-cyan font-semibold hover:bg-cyan-dim transition-all duration-150 active:scale-[0.97] inline-flex items-center gap-3 glow-cyan-strong"
+          >
+            <span class="material-symbols-outlined text-[16px]">mail</span>
+            Secure Contact
+          </a>
+
+          <a
+            href="https://github.com/SufficientDaikon"
+            target="_blank"
+            rel="noopener"
+            class="magnetic-btn font-label text-[11px] uppercase tracking-[0.15em] px-10 py-4 text-on-surface-dim font-medium hover:text-on-surface transition-all duration-200 ghost-border hover:ghost-border-active inline-flex items-center gap-3"
+          >
+            <span class="material-symbols-outlined text-[16px]">code</span>
+            GitHub
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/ahmed-taha225/"
+            target="_blank"
+            rel="noopener"
+            class="magnetic-btn font-label text-[11px] uppercase tracking-[0.15em] px-10 py-4 text-on-surface-dim font-medium hover:text-on-surface transition-all duration-200 ghost-border hover:ghost-border-active inline-flex items-center gap-3"
+          >
+            <span class="material-symbols-outlined text-[16px]">person</span>
+            LinkedIn
+          </a>
+        </div>
+
+        <!-- Signal bars + response time -->
+        <div class="flex items-center gap-6 mt-10 justify-center lg:justify-start reveal">
+          <div class="flex items-center gap-3">
+            <div class="signal-bars">
+              <div class="signal-bar" style="height: 4px;"></div>
+              <div class="signal-bar" style="height: 7px;"></div>
+              <div class="signal-bar" style="height: 10px;"></div>
+              <div class="signal-bar" style="height: 14px;"></div>
+              <div class="signal-bar" style="height: 16px;"></div>
+            </div>
+            <span class="font-label text-[9px] text-outline/50 uppercase tracking-[0.2em]">SIGNAL: OPTIMAL</span>
+          </div>
+          <span class="font-label text-[9px] text-outline/40 uppercase tracking-[0.15em]">RESPONSE: &lt;24H</span>
+        </div>
+      </div>
+
+      <!-- Right — Interactive Terminal -->
+      <div class="reveal-right">
+        <div class="terminal-window">
+          <div class="terminal-titlebar">
+            <div class="terminal-dot active"></div>
+            <div class="terminal-dot"></div>
+            <div class="terminal-dot"></div>
+            <span class="font-label text-[9px] text-outline/50 uppercase tracking-[0.25em] ml-3">TAHA_TERMINAL v3.1</span>
+          </div>
+          <div class="terminal-body" id="terminal-output" style="max-height: 280px; overflow-y: auto;">
+            <div class="terminal-response" style="margin-bottom: 8px;">AHMED_TAHA // INTERACTIVE COMMAND INTERFACE</div>
+            <div class="terminal-response" style="margin-bottom: 8px;">TYPE "HELP" FOR AVAILABLE COMMANDS</div>
+            <div style="height: 8px;"></div>
+          </div>
+          <div class="flex items-center px-4 py-3" style="border-top: 1px solid rgba(59, 73, 75, 0.15);">
+            <span class="font-label text-[11px] text-cyan mr-2" style="letter-spacing: 0.1em;">{'>'}</span>
+            <input
+              type="text"
+              id="terminal-cmd-input"
+              class="terminal-input"
+              placeholder="ENTER_COMMAND..."
+              autocomplete="off"
+              spellcheck="false"
+            />
+          </div>
+        </div>
+
+        <!-- Terminal footer metadata -->
+        <div class="flex items-center justify-between mt-4 px-1 reveal" aria-hidden="true">
+          <span class="font-label text-[8px] text-outline/30 uppercase tracking-[0.2em]">TCP/IP: ESTABLISHED</span>
+          <span class="font-label text-[8px] text-outline/30 uppercase tracking-[0.2em]">LAT: 30.0444° N</span>
+          <span class="font-label text-[8px] text-outline/30 uppercase tracking-[0.2em]">LONG: 31.2357° E</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

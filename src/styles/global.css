@@ -1,0 +1,2516 @@
+@import "tailwindcss";
+
+/* ============================================
+   THE FORENSIC MONOLITH — Design System Tokens
+   ============================================ */
+
+@theme {
+  --color-surface-dim: #131313;
+  --color-surface: #131313;
+  --color-surface-lowest: #0e0e0e;
+  --color-surface-low: #1c1b1b;
+  --color-surface-container: #201f1f;
+  --color-surface-high: #2a2a2a;
+  --color-surface-highest: #353534;
+  --color-surface-bright: #3a3939;
+
+  --color-cyan: #00f0ff;
+  --color-cyan-dim: #00dbe9;
+  --color-cyan-pale: #dbfcff;
+  --color-cyan-fixed: #7df4ff;
+  --color-on-cyan: #00363a;
+  --color-cyan-container: #006970;
+
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-dim: #c8c6c5;
+  --color-on-surface-variant: #b9cacb;
+  --color-outline: #849495;
+  --color-outline-variant: #3b494b;
+
+  --color-error: #ffb4ab;
+
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Space Grotesk", monospace;
+
+  --spacing-section: 5.5rem;
+}
+
+/* ============================================
+   Base
+   ============================================ */
+
+@layer base {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-surface-high) var(--color-surface-dim);
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface-dim);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-cyan);
+  }
+
+  body {
+    background-color: var(--color-surface-lowest);
+    color: var(--color-on-surface);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-cyan);
+    color: var(--color-on-cyan);
+  }
+
+  * {
+    border-radius: 0 !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-headline);
+  }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+@utility font-headline {
+  font-family: var(--font-headline);
+}
+@utility font-body {
+  font-family: var(--font-body);
+}
+@utility font-label {
+  font-family: var(--font-label);
+}
+
+@utility ghost-border {
+  outline: 1px solid rgba(59, 73, 75, 0.2);
+}
+
+@utility ghost-border-active {
+  outline: 1px solid var(--color-cyan-dim);
+}
+
+@utility label-technical {
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-outline);
+}
+
+@utility section-label {
+  font-family: var(--font-label);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--color-cyan-dim);
+}
+
+@utility noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================================
+   Forensic Grid — Dot-Matrix Background
+   ============================================ */
+
+.forensic-grid {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(59, 73, 75, 0.12) 1px,
+    transparent 0
+  );
+  background-size: 32px 32px;
+}
+
+/* ============================================
+   Glass Panel — Frosted Surface
+   ============================================ */
+
+.glass-panel {
+  background: rgba(19, 19, 19, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ============================================
+   Ambient Glow System
+   ============================================ */
+
+.glow-cyan {
+  box-shadow: 0 0 60px -15px rgba(0, 240, 255, 0.15);
+}
+
+.glow-cyan-strong {
+  box-shadow: 0 0 80px -10px rgba(0, 240, 255, 0.25);
+}
+
+.glow-cyan-intense {
+  box-shadow:
+    0 0 120px -20px rgba(0, 240, 255, 0.3),
+    inset 0 0 60px -20px rgba(0, 240, 255, 0.05);
+}
+
+/* ============================================
+   BOOT SEQUENCE — Loading Screen
+   ============================================ */
+
+#boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99998;
+  background: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.8s;
+  /* Failsafe: auto-dismiss after 8s even if JS fails */
+  animation: boot-failsafe 0.8s 8s forwards;
+}
+
+@keyframes boot-failsafe {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+#boot-screen.dismissed {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  animation: none;
+}
+
+#boot-screen .boot-terminal {
+  font-family: var(--font-label);
+  font-size: 11px;
+  color: rgba(0, 240, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  line-height: 2;
+  max-width: 500px;
+  width: 90%;
+}
+
+#boot-screen .boot-title {
+  font-family: var(--font-headline);
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-weight: 800;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+#boot-screen .boot-title.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#boot-screen .boot-title .cyan {
+  color: #00f0ff;
+  text-shadow:
+    0 0 40px rgba(0, 240, 255, 0.5),
+    0 0 80px rgba(0, 240, 255, 0.2);
+}
+
+#boot-screen .boot-progress {
+  width: 200px;
+  height: 2px;
+  background: rgba(59, 73, 75, 0.3);
+  margin-top: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+#boot-screen .boot-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #00f0ff;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.8);
+  transition: width 0.1s linear;
+}
+
+#boot-screen .boot-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 240, 255, 0.015) 2px,
+    rgba(0, 240, 255, 0.015) 4px
+  );
+}
+
+/* ============================================
+   CUSTOM CURSOR — Glow Trail
+   ============================================ */
+
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9997;
+  mix-blend-mode: screen;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--cursor-color, #00f0ff);
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 10px color-mix(in srgb, var(--cursor-color, #00f0ff) 80%, transparent),
+    0 0 30px color-mix(in srgb, var(--cursor-color, #00f0ff) 30%, transparent);
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.cursor-ring {
+  width: 28px;
+  height: 28px;
+  border: 1px solid
+    color-mix(in srgb, var(--cursor-color, #00f0ff) 35%, transparent);
+  position: fixed;
+  pointer-events: none;
+  z-index: 9997;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.3s ease,
+    height 0.3s ease,
+    border-color 0.4s ease;
+}
+
+.cursor-ring.hovering {
+  width: 44px;
+  height: 44px;
+  border-color: color-mix(
+    in srgb,
+    var(--cursor-color, #00f0ff) 60%,
+    transparent
+  );
+}
+
+.cursor-glow {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--cursor-color, #00f0ff) 6%, transparent) 0%,
+    transparent 70%
+  );
+  position: fixed;
+  pointer-events: none;
+  z-index: 9996;
+  transform: translate(-50%, -50%);
+  transition: background 0.4s ease;
+}
+
+/* Hide default cursor on desktop */
+@media (min-width: 1024px) {
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+  }
+}
+
+/* ============================================
+   PARTICLE CANVAS
+   ============================================ */
+
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.35;
+  mix-blend-mode: screen;
+}
+
+/* ============================================
+   MAGNETIC BUTTONS
+   ============================================ */
+
+.magnetic-btn {
+  position: relative;
+  display: inline-flex;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ============================================
+   3D TILT CARDS
+   ============================================ */
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+}
+
+.tilt-card-inner {
+  transform: translateZ(20px);
+}
+
+/* ============================================
+   GLITCH EFFECT — Headlines
+   ============================================ */
+
+.glitch-hover {
+  position: relative;
+}
+
+.glitch-hover::before,
+.glitch-hover::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.glitch-hover::before {
+  color: #ff0040;
+  animation: none;
+}
+
+.glitch-hover::after {
+  color: #00f0ff;
+  animation: none;
+}
+
+.glitch-hover:hover::before {
+  opacity: 0.8;
+  animation: glitch-1 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+.glitch-hover:hover::after {
+  opacity: 0.8;
+  animation: glitch-2 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both
+    infinite;
+}
+
+@keyframes glitch-1 {
+  0% {
+    clip-path: inset(40% 0 61% 0);
+    transform: translate(-2px, 1px);
+  }
+  20% {
+    clip-path: inset(92% 0 1% 0);
+    transform: translate(1px, -1px);
+  }
+  40% {
+    clip-path: inset(43% 0 1% 0);
+    transform: translate(-1px, 2px);
+  }
+  60% {
+    clip-path: inset(25% 0 58% 0);
+    transform: translate(2px, 0px);
+  }
+  80% {
+    clip-path: inset(54% 0 7% 0);
+    transform: translate(-1px, -1px);
+  }
+  100% {
+    clip-path: inset(58% 0 43% 0);
+    transform: translate(0px, 1px);
+  }
+}
+
+@keyframes glitch-2 {
+  0% {
+    clip-path: inset(65% 0 13% 0);
+    transform: translate(2px, -1px);
+  }
+  20% {
+    clip-path: inset(12% 0 64% 0);
+    transform: translate(-1px, 1px);
+  }
+  40% {
+    clip-path: inset(82% 0 2% 0);
+    transform: translate(1px, -2px);
+  }
+  60% {
+    clip-path: inset(31% 0 52% 0);
+    transform: translate(-2px, 0px);
+  }
+  80% {
+    clip-path: inset(8% 0 72% 0);
+    transform: translate(1px, 1px);
+  }
+  100% {
+    clip-path: inset(44% 0 38% 0);
+    transform: translate(0px, -1px);
+  }
+}
+
+/* ============================================
+   HORIZONTAL TECH TICKER
+   ============================================ */
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 30s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ============================================
+   SECTION DIVIDER — Laser Wipe
+   ============================================ */
+
+.section-divider {
+  position: relative;
+  height: 80px;
+  overflow: hidden;
+}
+
+.laser-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 240, 255, 0.05) 20%,
+    rgba(0, 240, 255, 0.4) 50%,
+    rgba(0, 240, 255, 0.05) 80%,
+    transparent 100%
+  );
+}
+
+.laser-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 60px;
+  background: radial-gradient(
+    ellipse,
+    rgba(0, 240, 255, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ============================================
+   PARALLAX LAYERS
+   ============================================ */
+
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-layer {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ============================================
+   PROGRESS BAR — Skill Bars
+   ============================================ */
+
+.skill-bar {
+  height: 3px;
+  background: rgba(59, 73, 75, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: #00f0ff;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+  width: 0%;
+  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-bar-fill.animate {
+  width: var(--bar-width);
+}
+
+/* ============================================
+   Scroll-Reveal Animations
+   ============================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-stagger.visible > *:nth-child(1) {
+  transition-delay: 0ms;
+}
+.reveal-stagger.visible > *:nth-child(2) {
+  transition-delay: 100ms;
+}
+.reveal-stagger.visible > *:nth-child(3) {
+  transition-delay: 200ms;
+}
+.reveal-stagger.visible > *:nth-child(4) {
+  transition-delay: 300ms;
+}
+.reveal-stagger.visible > *:nth-child(5) {
+  transition-delay: 400ms;
+}
+.reveal-stagger.visible > *:nth-child(6) {
+  transition-delay: 500ms;
+}
+
+.reveal-stagger.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   Page Load Orchestration
+   ============================================ */
+
+.page-load {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: pageLoadIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.page-load-delay-1 {
+  animation-delay: 0.15s;
+}
+.page-load-delay-2 {
+  animation-delay: 0.3s;
+}
+.page-load-delay-3 {
+  animation-delay: 0.5s;
+}
+.page-load-delay-4 {
+  animation-delay: 0.7s;
+}
+
+@keyframes pageLoadIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   Metric Card — Mouse-Tracked Glow
+   ============================================ */
+
+.metric-card {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.4s ease;
+}
+
+.metric-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(0, 240, 255, 0.08) 0%,
+    transparent 60%
+  );
+  z-index: 1;
+}
+
+.metric-card:hover::before {
+  opacity: 1;
+}
+
+.metric-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================
+   Case Study — Image Hover
+   ============================================ */
+
+.case-image-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.case-image-wrap img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.case-image-wrap:hover img {
+  transform: scale(1.04);
+}
+
+.case-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  outline: 1px solid rgba(0, 240, 255, 0.3);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.case-image-wrap:hover::after {
+  opacity: 1;
+}
+
+/* ============================================
+   Active Sidebar
+   ============================================ */
+
+.sidebar-link.active {
+  color: var(--color-on-surface);
+  background-color: var(--color-surface-container);
+  border-left-color: var(--color-cyan);
+}
+
+.sidebar-link.active .material-symbols-outlined {
+  color: var(--color-cyan);
+}
+
+/* ============================================
+   Terminal Cursor
+   ============================================ */
+
+.typing-cursor::after {
+  content: "█";
+  color: var(--color-cyan);
+  animation: blink-cursor 1s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   Mobile Menu
+   ============================================ */
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(14, 14, 14, 0.9);
+  backdrop-filter: blur(12px);
+  z-index: 55;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: var(--color-surface-lowest);
+  z-index: 60;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+/* ============================================
+   Scan Line Animation
+   ============================================ */
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 240, 255, 0.2) 50%,
+    transparent 100%
+  );
+  animation: scanMove 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes scanMove {
+  0%,
+  100% {
+    top: 20%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  50% {
+    top: 80%;
+  }
+}
+
+/* ============================================
+   Volumetric Light (CTA Section)
+   ============================================ */
+
+.volumetric-bg {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(0, 240, 255, 0.06) 0%,
+    rgba(0, 240, 255, 0.02) 30%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ============================================
+   WATERMARK — Fixed Rotated Text
+   ============================================ */
+
+.watermark {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  pointer-events: none;
+  z-index: 2;
+  font-family: var(--font-label);
+  font-size: 7px;
+  color: var(--color-outline);
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  opacity: 0.15;
+}
+
+/* ============================================
+   Keyframes
+   ============================================ */
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes monolith-breathe {
+  0%,
+  100% {
+    transform: rotateY(-8deg) rotateX(4deg);
+  }
+  50% {
+    transform: rotateY(-4deg) rotateX(2deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes subtle-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes hero-grid-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes hero-orb-drift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(15px, -10px); }
+  50% { transform: translate(-10px, 15px); }
+  75% { transform: translate(10px, 10px); }
+}
+
+@keyframes hero-orb-pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+@keyframes hero-scan-sweep {
+  0% { top: -2px; }
+  100% { top: 100%; }
+}
+
+@keyframes data-flicker {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  75% {
+    opacity: 0.15;
+  }
+}
+
+@keyframes sweep-left {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@utility animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@utility animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+@utility animate-monolith {
+  animation: monolith-breathe 8s ease-in-out infinite;
+}
+
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ============================================
+   CODE RAIN CANVAS — Matrix-Style Background
+   ============================================ */
+
+/* Code rain canvas replaced by ASCIIField.astro component */
+
+/* ============================================
+   ORBITAL RADAR — Animated Rings
+   ============================================ */
+
+.orbital-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 500px;
+}
+
+.orbital-ring {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(0, 240, 255, 0.06);
+  animation: subtle-rotate var(--orbit-speed, 20s) linear infinite;
+}
+
+.orbital-ring:nth-child(2) {
+  inset: 15%;
+  animation-direction: reverse;
+  border-color: rgba(0, 240, 255, 0.08);
+}
+.orbital-ring:nth-child(3) {
+  inset: 30%;
+  border-color: rgba(0, 240, 255, 0.1);
+}
+.orbital-ring:nth-child(4) {
+  inset: 45%;
+  animation-direction: reverse;
+  border-color: rgba(0, 240, 255, 0.06);
+}
+
+.orbital-node {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #00f0ff;
+  box-shadow:
+    0 0 12px rgba(0, 240, 255, 0.8),
+    0 0 30px rgba(0, 240, 255, 0.3);
+}
+
+.orbital-node::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   CRT / VHS DISTORTION OVERLAY
+   ============================================ */
+
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9990;
+}
+
+.crt-scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 1px,
+    rgba(0, 0, 0, 0.03) 1px,
+    rgba(0, 0, 0, 0.03) 2px
+  );
+}
+
+.crt-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9989;
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+
+/* ============================================
+   HOLOGRAPHIC CARD EFFECT — Rainbow Sheen
+   ============================================ */
+
+.holo-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.holo-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(0, 240, 255, 0.03) 30%,
+    rgba(0, 240, 255, 0.08) 40%,
+    rgba(0, 200, 255, 0.03) 50%,
+    transparent 60%
+  );
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.holo-card:hover::before {
+  opacity: 1;
+  animation: holo-sheen 2s ease-in-out infinite;
+}
+
+@keyframes holo-sheen {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ============================================
+   NEURAL NETWORK CANVAS
+   ============================================ */
+
+#neural-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* ============================================
+   INTERACTIVE TERMINAL — Contact Section
+   ============================================ */
+
+.terminal-window {
+  background: rgba(14, 14, 14, 0.95);
+  outline: 1px solid rgba(59, 73, 75, 0.25);
+  font-family: var(--font-label);
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-window::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 240, 255, 0.008) 2px,
+    rgba(0, 240, 255, 0.008) 4px
+  );
+  pointer-events: none;
+}
+
+.terminal-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(59, 73, 75, 0.15);
+}
+
+.terminal-dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(59, 73, 75, 0.4);
+}
+
+.terminal-dot.active {
+  background: #00f0ff;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+}
+
+.terminal-body {
+  padding: 16px;
+  font-size: 11px;
+  line-height: 1.8;
+  color: rgba(0, 240, 255, 0.7);
+  min-height: 200px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.terminal-prompt::before {
+  content: "> ";
+  color: #00f0ff;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  color: #00f0ff;
+  font-family: var(--font-label);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  outline: none;
+  width: 80%;
+  caret-color: #00f0ff;
+}
+
+.terminal-response {
+  color: rgba(229, 226, 225, 0.6);
+}
+
+/* ============================================
+   DNA HELIX TIMELINE
+   ============================================ */
+
+.dna-timeline {
+  position: relative;
+  padding: 4rem 0;
+}
+
+.dna-strand {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+}
+
+.dna-strand::before,
+.dna-strand::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  border: 1px solid rgba(0, 240, 255, 0.06);
+  pointer-events: none;
+}
+
+.dna-strand::before {
+  left: -100px;
+  animation: dna-wave 4s ease-in-out infinite;
+}
+
+.dna-strand::after {
+  left: -100px;
+  animation: dna-wave 4s ease-in-out infinite reverse;
+}
+
+@keyframes dna-wave {
+  0%,
+  100% {
+    border-radius: 50% 0 50% 0;
+  }
+  50% {
+    border-radius: 0 50% 0 50%;
+  }
+}
+
+.dna-node {
+  position: relative;
+  z-index: 2;
+  width: 12px;
+  height: 12px;
+  background: var(--color-surface-lowest);
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dna-node.active {
+  border-color: #00f0ff;
+  background: #00f0ff;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
+/* ============================================
+   SECTION WIPE TRANSITIONS
+   ============================================ */
+
+.section-wipe {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-wipe::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00f0ff 50%, transparent);
+  animation: section-wipe-anim 4s ease-in-out infinite;
+}
+
+@keyframes section-wipe-anim {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* ============================================
+   RADAR SWEEP
+   ============================================ */
+
+.radar-sweep {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.radar-sweep::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.4), transparent);
+  transform-origin: left center;
+  animation: radar-spin 4s linear infinite;
+}
+
+@keyframes radar-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.radar-sweep::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  transform-origin: left top;
+  background: conic-gradient(
+    from 0deg,
+    rgba(0, 240, 255, 0.08),
+    transparent 30%
+  );
+  animation: radar-spin 4s linear infinite;
+}
+
+/* ============================================
+   ELECTROMAGNETIC PULSE — Expanding Ring
+   ============================================ */
+
+.emp-ring {
+  position: absolute;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  animation: emp-expand 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes emp-expand {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* ============================================
+   TOPOGRAPHIC CONTOUR BACKGROUND
+   ============================================ */
+
+.topo-bg {
+  background-image:
+    repeating-radial-gradient(
+      circle at 30% 40%,
+      transparent 0px,
+      transparent 40px,
+      rgba(0, 240, 255, 0.015) 40px,
+      rgba(0, 240, 255, 0.015) 41px
+    ),
+    repeating-radial-gradient(
+      circle at 70% 60%,
+      transparent 0px,
+      transparent 60px,
+      rgba(0, 240, 255, 0.01) 60px,
+      rgba(0, 240, 255, 0.01) 61px
+    ),
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      transparent 0px,
+      transparent 80px,
+      rgba(0, 240, 255, 0.008) 80px,
+      rgba(0, 240, 255, 0.008) 81px
+    );
+}
+
+/* ============================================
+   HEX DATA STREAM BACKGROUND
+   ============================================ */
+
+.hex-stream {
+  position: absolute;
+  font-family: var(--font-label);
+  font-size: 8px;
+  color: rgba(0, 240, 255, 0.04);
+  line-height: 2;
+  white-space: pre;
+  pointer-events: none;
+  overflow: hidden;
+  animation: hex-scroll 20s linear infinite;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
+@keyframes hex-scroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+/* ============================================
+   CROSSHAIR LINES — Desktop Cursor Guide
+   ============================================ */
+
+.crosshair-line-h,
+.crosshair-line-v {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9994;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.crosshair-line-h {
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 240, 255, 0.06) 20%,
+    rgba(0, 240, 255, 0.06) 80%,
+    transparent 100%
+  );
+}
+
+.crosshair-line-v {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 240, 255, 0.06) 20%,
+    rgba(0, 240, 255, 0.06) 80%,
+    transparent 100%
+  );
+}
+
+body:hover .crosshair-line-h,
+body:hover .crosshair-line-v {
+  opacity: 1;
+}
+
+/* Hide crosshairs in non-tech worlds */
+body.world-design .crosshair-line-h,
+body.world-design .crosshair-line-v,
+body.world-business .crosshair-line-h,
+body.world-business .crosshair-line-v {
+  opacity: 0 !important;
+}
+
+/* ============================================
+   SIGNAL STRENGTH BARS
+   ============================================ */
+
+.signal-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+}
+
+.signal-bar {
+  width: 3px;
+  background: rgba(0, 240, 255, 0.15);
+  transition:
+    height 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s ease;
+}
+
+.signal-bar.active {
+  background: #00f0ff;
+  box-shadow: 0 0 6px rgba(0, 240, 255, 0.4);
+}
+
+/* ============================================
+   GLITCH IMAGE EFFECT — Case Studies
+   ============================================ */
+
+.glitch-image {
+  /* position inherited from .case-image-wrap (absolute) */
+}
+
+.glitch-image::before,
+.glitch-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+.glitch-image:hover::before {
+  opacity: 0.5;
+  animation: img-glitch-r 0.2s ease infinite alternate;
+  filter: hue-rotate(90deg);
+}
+
+.glitch-image:hover::after {
+  opacity: 0.5;
+  animation: img-glitch-b 0.3s ease infinite alternate;
+  filter: hue-rotate(-90deg);
+}
+
+@keyframes img-glitch-r {
+  0% {
+    clip-path: inset(20% 0 30% 0);
+    transform: translateX(3px);
+  }
+  100% {
+    clip-path: inset(70% 0 5% 0);
+    transform: translateX(-3px);
+  }
+}
+
+@keyframes img-glitch-b {
+  0% {
+    clip-path: inset(50% 0 20% 0);
+    transform: translateX(-3px);
+  }
+  100% {
+    clip-path: inset(10% 0 60% 0);
+    transform: translateX(3px);
+  }
+}
+
+/* ============================================
+   Accessibility — Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  #particle-canvas,
+  .crt-overlay,
+  .noise-overlay {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   Accessibility — Focus Indicators
+   ============================================ */
+
+:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 2px;
+  border-radius: 0 !important;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 99999;
+  padding: 8px 16px;
+  background: var(--color-cyan);
+  color: var(--color-on-cyan);
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ============================================
+   TEXT STROKE-TO-FILL — Hero & Section Headings
+   Outlined text → solid fill on hover/focus
+   ============================================ */
+
+.stroke-fill {
+  -webkit-text-stroke: 1.5px var(--color-on-surface);
+  -webkit-text-fill-color: transparent;
+  transition:
+    -webkit-text-fill-color 0.4s ease,
+    -webkit-text-stroke-color 0.4s ease,
+    filter 0.4s ease;
+}
+
+.stroke-fill:hover,
+.stroke-fill:focus-within {
+  -webkit-text-fill-color: var(--color-on-surface);
+  -webkit-text-stroke-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.15));
+}
+
+.stroke-fill-cyan {
+  -webkit-text-stroke: 1.5px var(--color-cyan);
+  -webkit-text-fill-color: transparent;
+  transition:
+    -webkit-text-fill-color 0.4s ease,
+    -webkit-text-stroke-color 0.4s ease,
+    filter 0.4s ease;
+}
+
+.stroke-fill-cyan:hover,
+.stroke-fill-cyan:focus-within {
+  -webkit-text-fill-color: var(--color-cyan);
+  -webkit-text-stroke-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(0, 240, 255, 0.3));
+}
+
+/* ============================================
+   TECH CHIPS — Inline technology badges
+   Inspired by pretext rich-note inline elements
+   ============================================ */
+
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-cyan-dim);
+  background: rgba(0, 240, 255, 0.06);
+  border: 1px solid rgba(0, 240, 255, 0.12);
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.tech-chip:hover {
+  background: rgba(0, 240, 255, 0.12);
+  border-color: rgba(0, 240, 255, 0.25);
+  color: var(--color-cyan);
+}
+
+body.world-design .tech-chip {
+  color: rgba(192, 132, 252, 0.8);
+  background: rgba(192, 132, 252, 0.06);
+  border-color: rgba(192, 132, 252, 0.12);
+}
+
+body.world-design .tech-chip:hover {
+  background: rgba(192, 132, 252, 0.12);
+  border-color: rgba(192, 132, 252, 0.25);
+  color: rgba(192, 132, 252, 1);
+}
+
+body.world-business .tech-chip {
+  color: rgba(245, 158, 11, 0.8);
+  background: rgba(245, 158, 11, 0.06);
+  border-color: rgba(245, 158, 11, 0.12);
+}
+
+body.world-business .tech-chip:hover {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.25);
+  color: rgba(245, 158, 11, 1);
+}
+
+/* ============================================
+   HEADING UNDERLINE EXPANSION
+   Thin line grows from left on hover
+   ============================================ */
+
+.heading-reveal {
+  position: relative;
+  display: inline-block;
+}
+
+.heading-reveal::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-cyan);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.heading-reveal:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   ENHANCED BUTTON HOVER — Pulse + Lift
+   ============================================ */
+
+.magnetic-btn {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.3s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.magnetic-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 240, 255, 0.1) 0%,
+    transparent 50%,
+    rgba(0, 240, 255, 0.05) 100%
+  );
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.magnetic-btn:hover::after {
+  opacity: 1;
+}
+
+.magnetic-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 24px -8px rgba(0, 240, 255, 0.2);
+}
+
+.magnetic-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* ============================================
+   SKILL BAR GLOW — Ambient light on fill
+   ============================================ */
+
+.skill-bar {
+  position: relative;
+}
+
+.skill-bar::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: 0;
+  width: var(--bar-width, 0%);
+  background: linear-gradient(90deg, transparent 60%, rgba(0, 240, 255, 0.15));
+  filter: blur(6px);
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.5s ease,
+    width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-bar:hover::after {
+  opacity: 1;
+}
+
+.skill-bar-fill.animate ~ .skill-bar::after,
+.skill-bar:has(.skill-bar-fill.animate)::after {
+  width: var(--bar-width, 0%);
+}
+
+/* ============================================
+   GHOST BORDER SHIMMER — Subtle animated edge
+   ============================================ */
+
+.ghost-border-shimmer {
+  position: relative;
+}
+
+.ghost-border-shimmer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  outline: 1px solid rgba(59, 73, 75, 0.2);
+  transition: outline-color 0.3s ease;
+  pointer-events: none;
+}
+
+.ghost-border-shimmer:hover::before {
+  outline-color: rgba(0, 240, 255, 0.15);
+  animation: border-pulse 2s ease-in-out infinite;
+}
+
+@keyframes border-pulse {
+  0%,
+  100% {
+    outline-color: rgba(0, 240, 255, 0.1);
+  }
+  50% {
+    outline-color: rgba(0, 240, 255, 0.25);
+  }
+}
+
+/* ============================================
+   SECTION LABEL DOT — Pulsing status indicator
+   ============================================ */
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-cyan);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.status-dot::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  animation: status-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes status-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   DNA NODE HOVER — Interactive feedback
+   ============================================ */
+
+.dna-node {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  cursor: default;
+}
+
+.dna-node:hover {
+  border-color: var(--color-cyan) !important;
+  box-shadow:
+    0 0 24px rgba(0, 240, 255, 0.4),
+    0 0 48px rgba(0, 240, 255, 0.15);
+  transform: translateX(-50%) scale(1.3);
+}
+
+/* ============================================
+   TERMINAL ATMOSPHERIC GLOW
+   ============================================ */
+
+.terminal-window {
+  transition: box-shadow 0.5s ease;
+}
+
+.terminal-window:hover {
+  box-shadow:
+    0 0 60px -20px rgba(0, 240, 255, 0.1),
+    0 0 120px -40px rgba(0, 240, 255, 0.05);
+}
+
+.terminal-window:focus-within {
+  box-shadow:
+    0 0 80px -20px rgba(0, 240, 255, 0.15),
+    0 0 160px -40px rgba(0, 240, 255, 0.08);
+  outline: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+/* ============================================
+   METRIC CARD — Top accent border on hover
+   ============================================ */
+
+.metric-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-cyan),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 3;
+}
+
+.metric-card:hover::after {
+  opacity: 1;
+}
+
+/* ============================================
+   CASE STUDY — Enhanced image overlay gradient
+   ============================================ */
+
+.case-image-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 240, 255, 0.03) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(0, 240, 255, 0.02) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.case-image-wrap:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+   LINK HOVER — Subtle cyan underline
+   ============================================ */
+
+.link-forensic {
+  position: relative;
+  color: var(--color-on-surface-dim);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link-forensic::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-cyan);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-forensic:hover {
+  color: var(--color-on-surface);
+}
+
+.link-forensic:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   WORLD-AWARE ACCENT OVERRIDES
+   Design = purple, Business = amber
+   ============================================ */
+
+body.world-design .metric-card::after {
+  background: linear-gradient(90deg, transparent, #c084fc, transparent);
+}
+
+body.world-design .heading-reveal::after {
+  background: #c084fc;
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.4);
+}
+
+body.world-design .status-dot {
+  background: #c084fc;
+}
+
+body.world-design .status-dot::before {
+  border-color: rgba(192, 132, 252, 0.3);
+}
+
+body.world-business .metric-card::after {
+  background: linear-gradient(90deg, transparent, #f59e0b, transparent);
+}
+
+body.world-business .heading-reveal::after {
+  background: #f59e0b;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+}
+
+body.world-business .status-dot {
+  background: #f59e0b;
+}
+
+body.world-business .status-dot::before {
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* ============================================
+   20/10 UPGRADE — Smooth Text Clip Reveal
+   Character-level stagger for headings on scroll
+   ============================================ */
+
+@keyframes text-clip-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+.text-clip-reveal {
+  clip-path: inset(0 100% 0 0);
+  opacity: 0;
+  animation: text-clip-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-play-state: paused;
+}
+
+.text-clip-reveal.visible {
+  animation-play-state: running;
+}
+
+/* ============================================
+   20/10 UPGRADE — Metric Card Hover: Scale + Counter Glow
+   ============================================ */
+
+.metric-card {
+  transition:
+    background-color 0.4s ease,
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 40px -12px rgba(0, 240, 255, 0.15),
+    0 0 80px -30px rgba(0, 240, 255, 0.08);
+}
+
+.metric-card:hover .counter-value {
+  text-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+}
+
+/* ============================================
+   20/10 UPGRADE — Skill Bar Interaction Enhancement
+   ============================================ */
+
+.skill-bar-fill {
+  position: relative;
+}
+
+.skill-bar-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 6px;
+  background: #00f0ff;
+  box-shadow:
+    0 0 12px rgba(0, 240, 255, 0.8),
+    0 0 24px rgba(0, 240, 255, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-bar-fill.animate::after {
+  opacity: 1;
+  animation: skill-tip-pulse 2s ease-in-out infinite;
+}
+
+@keyframes skill-tip-pulse {
+  0%, 100% { box-shadow: 0 0 12px rgba(0, 240, 255, 0.8), 0 0 24px rgba(0, 240, 255, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(0, 240, 255, 1), 0 0 40px rgba(0, 240, 255, 0.6); }
+}
+
+/* ============================================
+   20/10 UPGRADE — Timeline Card Progressive Reveal
+   Cards stagger in with delay based on position
+   ============================================ */
+
+.dna-timeline .glass-panel {
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease;
+}
+
+.dna-timeline .glass-panel:hover {
+  box-shadow:
+    0 0 40px -10px rgba(0, 240, 255, 0.1),
+    inset 0 0 30px -15px rgba(0, 240, 255, 0.03);
+}
+
+/* ============================================
+   20/10 UPGRADE — Enhanced Radar with Trailing Glow
+   ============================================ */
+
+.radar-sweep::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  transform-origin: left top;
+  background: conic-gradient(
+    from 0deg,
+    rgba(0, 240, 255, 0.15),
+    rgba(0, 240, 255, 0.08) 10%,
+    transparent 40%
+  );
+  animation: radar-spin 4s linear infinite;
+}
+
+/* ============================================
+   20/10 UPGRADE — WorldSelector Panel Entrance Glow
+   Subtle light sweep when hovering panels
+   ============================================ */
+
+.ws-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 50%,
+    rgba(0, 240, 255, 0.04) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ws-panel:hover::after {
+  opacity: 1;
+}
+
+#ws-panel-design::after {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 50%,
+    rgba(192, 132, 252, 0.06) 100%
+  );
+}
+
+#ws-panel-business::after {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 50%,
+    rgba(245, 158, 11, 0.04) 100%
+  );
+}
+
+/* ============================================
+   20/10 UPGRADE — Monolith Hover: Deep Glow Intensification
+   ============================================ */
+
+.animate-monolith {
+  transition: box-shadow 0.6s ease;
+}
+
+.animate-monolith:hover {
+  box-shadow:
+    0 0 120px -20px rgba(0, 240, 255, 0.4),
+    0 0 200px -40px rgba(0, 240, 255, 0.15),
+    inset 0 0 60px -20px rgba(0, 240, 255, 0.08) !important;
+}
+
+.animate-monolith:hover .scan-line {
+  opacity: 0.8;
+}
+
+/* ============================================
+   20/10 UPGRADE — Scroll Progress: Glow Bloom at Tip
+   ============================================ */
+
+#scroll-progress-bar::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: -2px;
+  width: 6px;
+  height: 8px;
+  background: #00F0FF;
+  box-shadow:
+    0 0 12px rgba(0, 240, 255, 1),
+    0 0 30px rgba(0, 240, 255, 0.6);
+  opacity: 0.8;
+}
+
+/* ============================================
+   20/10 UPGRADE — Interactive Terminal: Command Feedback
+   ============================================ */
+
+.terminal-body .terminal-response {
+  transition: opacity 0.3s ease;
+  border-left: 2px solid transparent;
+  padding-left: 8px;
+  margin-left: -10px;
+}
+
+.terminal-body .terminal-response:last-child {
+  border-left-color: rgba(0, 240, 255, 0.2);
+}
+
+/* ============================================
+   20/10 UPGRADE — Section Divider: Breath Animation
+   ============================================ */
+
+.laser-line {
+  animation: laser-breathe 4s ease-in-out infinite;
+}
+
+@keyframes laser-breathe {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* ============================================
+   20/10 UPGRADE — Card Hover: Depth Shadow System
+   Progressive elevation on hover for all glass panels
+   ============================================ */
+
+.glass-panel {
+  transition:
+    background 0.3s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  background: rgba(26, 26, 26, 0.85);
+  box-shadow:
+    0 8px 32px -8px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 240, 255, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   20/10 UPGRADE — Ticker: Smooth pause on hover + glow
+   ============================================ */
+
+.ticker-track {
+  transition: opacity 0.3s ease;
+}
+
+.ticker-track:hover {
+  opacity: 0.85;
+}
+
+.ticker-track span:hover {
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+}
+
+/* ============================================
+   20/10 UPGRADE — Tech Chip: Micro-interaction
+   ============================================ */
+
+.tech-chip {
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-chip::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 240, 255, 0.08),
+    transparent
+  );
+  transition: left 0.4s ease;
+}
+
+.tech-chip:hover::before {
+  left: 100%;
+}
+
+/* ============================================
+   20/10 UPGRADE — CTA Button: Electric Border Glow
+   ============================================ */
+
+.glow-cyan,
+.glow-cyan-strong {
+  position: relative;
+}
+
+.glow-cyan-strong::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.3), transparent 40%, transparent 60%, rgba(0, 240, 255, 0.15));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-cyan-strong:hover::before {
+  opacity: 1;
+}
+
+/* ============================================
+   20/10 UPGRADE — Smooth scroll indicator bounce
+   ============================================ */
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+.dw-scroll-line {
+  animation: scroll-bounce 2s ease-in-out infinite !important;
+}
+
+/* ============================================
+   20/10 UPGRADE — CTA Button: Always-On Emissive Glow
+   Makes primary CTA feel "powered on" and alive
+   ============================================ */
+
+.glow-cyan-strong {
+  box-shadow:
+    0 0 20px -4px rgba(0, 240, 255, 0.25),
+    0 0 60px -12px rgba(0, 240, 255, 0.12);
+  animation: cta-breathe 3s ease-in-out infinite;
+}
+
+@keyframes cta-breathe {
+  0%, 100% {
+    box-shadow:
+      0 0 20px -4px rgba(0, 240, 255, 0.25),
+      0 0 60px -12px rgba(0, 240, 255, 0.12);
+  }
+  50% {
+    box-shadow:
+      0 0 28px -4px rgba(0, 240, 255, 0.35),
+      0 0 80px -12px rgba(0, 240, 255, 0.18);
+  }
+}
+
+.glow-cyan-strong:hover {
+  box-shadow:
+    0 0 36px -4px rgba(0, 240, 255, 0.5),
+    0 0 100px -12px rgba(0, 240, 255, 0.25) !important;
+  animation: none;
+}
+
+/* ============================================
+   20/10 UPGRADE — Enhanced Ghost Border Hover
+   More rewarding hover feedback for outlined buttons
+   ============================================ */
+
+.ghost-border {
+  position: relative;
+  outline: 1px solid rgba(59, 73, 75, 0.25);
+  transition:
+    outline-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.ghost-border:hover,
+.ghost-border-active {
+  outline-color: rgba(0, 240, 255, 0.2);
+  background-color: rgba(0, 240, 255, 0.03);
+  box-shadow: 0 0 30px -8px rgba(0, 240, 255, 0.1);
+}
+
+/* ============================================
+   20/10 UPGRADE — Glitch Hover: Visible Color Shift
+   Makes glitch-hover headings feel interactive
+   ============================================ */
+
+.glitch-hover {
+  transition: text-shadow 0.3s ease;
+}
+
+.glitch-hover:hover {
+  text-shadow: 
+    2px 0 rgba(0, 240, 255, 0.15),
+    -2px 0 rgba(255, 0, 128, 0.08);
+}
+
+/* ============================================
+   20/10 UPGRADE — Case Study Image: Richer Hover
+   ============================================ */
+
+.case-image-wrap {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.case-image-wrap:hover {
+  transform: scale(1.01);
+}
+
+.case-image-wrap:hover .scan-line {
+  animation-duration: 2s;
+}
+
+/* ============================================
+   20/10 UPGRADE — Status Dot: Richer Glow
+   ============================================ */
+
+.status-dot {
+  box-shadow:
+    0 0 8px rgba(0, 240, 255, 0.6),
+    0 0 20px rgba(0, 240, 255, 0.2);
+}

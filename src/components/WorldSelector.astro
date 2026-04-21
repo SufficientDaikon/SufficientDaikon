@@ -1,0 +1,548 @@
+---
+// THE ARTIFACT — World Selector
+// Three panels, one identity. Choose your briefing.
+---
+
+<div id="world-selector-overlay">
+
+  <!-- Header bar -->
+  <div class="ws-header">
+    <span class="ws-logo">AHMED<span class="ws-dot">_</span>TAHA</span>
+    <span class="ws-sub">SELECT BRIEFING LEVEL // CAIRO, EGYPT // 30.0444° N, 31.2357° E</span>
+  </div>
+
+  <!-- Three Panels -->
+  <div class="ws-panels" id="ws-panels">
+
+    <!-- PANEL 01: THE ENGINEER -->
+    <div class="ws-panel" id="ws-panel-tech" data-world="tech">
+      <div class="ws-panel-bg ws-bg-tech"></div>
+      <div class="ws-panel-grid"></div>
+      <div class="ws-panel-content">
+        <div class="ws-panel-number">[ 01 ]</div>
+        <!-- Top-right ambient HUD decoration -->
+        <div class="ws-hud-top">
+          <div class="ws-hud-line"></div>
+          <span class="ws-hud-tag">CORE_ACTIVE</span>
+        </div>
+        <div class="ws-panel-identity">
+          <span class="ws-identity-label">THE ENGINEER</span>
+          <h2 class="ws-identity-title ws-title-tech">AI SYSTEMS<br/>ARCHITECT</h2>
+          <div class="ws-identity-detail ws-detail-tech">
+            <span>62 REPOS</span><span class="ws-sep">//</span>
+            <span>17 AGENTS</span><span class="ws-sep">//</span>
+            <span>83 SKILLS</span>
+          </div>
+          <p class="ws-identity-desc">The framework running this interaction. 83 skills. Cairo, Egypt.</p>
+          <button class="ws-enter-btn ws-enter-tech">
+            <span>ACCESS DOSSIER</span>
+            <span class="ws-arrow">→</span>
+          </button>
+        </div>
+        <!-- Metrics cluster (mirrors business panel pattern) -->
+        <div class="ws-metrics-cluster ws-metrics-tech">
+          <div class="ws-metric"><span class="ws-metric-val ws-metric-cyan">11</span><span class="ws-metric-label">LANGUAGES</span></div>
+          <div class="ws-metric"><span class="ws-metric-val ws-metric-cyan">5+</span><span class="ws-metric-label">YRS EXP</span></div>
+          <div class="ws-metric"><span class="ws-metric-val ws-metric-cyan">51</span><span class="ws-metric-label">PUBLIC</span></div>
+        </div>
+      </div>
+      <div class="ws-panel-scanlines"></div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="ws-divider"></div>
+
+    <!-- PANEL 02: THE CREATIVE -->
+    <div class="ws-panel" id="ws-panel-design" data-world="design">
+      <div class="ws-panel-bg ws-bg-design">
+        <div class="ws-blob ws-blob-1"></div>
+        <div class="ws-blob ws-blob-2"></div>
+        <div class="ws-blob ws-blob-3"></div>
+      </div>
+      <div class="ws-panel-content">
+        <div class="ws-panel-number ws-num-design">[ 02 ]</div>
+        <!-- Top HUD decoration (design variant) -->
+        <div class="ws-hud-top ws-hud-design">
+          <div class="ws-hud-line ws-hud-line-design"></div>
+          <span class="ws-hud-tag ws-hud-tag-design">VISUAL_SYS</span>
+        </div>
+        <div class="ws-panel-identity">
+          <span class="ws-identity-label ws-label-design">THE CREATIVE</span>
+          <h2 class="ws-identity-title ws-title-design">UX &amp; VISUAL<br/>SYSTEMS</h2>
+          <div class="ws-identity-detail ws-detail-design">
+            <span>INTERFACE</span><span class="ws-sep ws-sep-design">//</span>
+            <span>MOTION</span><span class="ws-sep ws-sep-design">//</span>
+            <span>FORENSICS</span>
+          </div>
+          <p class="ws-identity-desc ws-desc-design">The portfolio runs the tools that built the portfolio. The aesthetic is load-bearing.</p>
+          <button class="ws-enter-btn ws-enter-design">
+            <span>OPEN CASE FILE</span>
+            <span class="ws-arrow">→</span>
+          </button>
+        </div>
+        <!-- Design metrics cluster -->
+        <div class="ws-metrics-cluster ws-metrics-design">
+          <div class="ws-metric"><span class="ws-metric-val ws-metric-purple">18</span><span class="ws-metric-label">TOKENS</span></div>
+          <div class="ws-metric"><span class="ws-metric-val ws-metric-purple">15</span><span class="ws-metric-label">MOTIONS</span></div>
+          <div class="ws-metric"><span class="ws-metric-val ws-metric-purple">4</span><span class="ws-metric-label">WORLDS</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="ws-divider"></div>
+
+    <!-- PANEL 03: THE OPERATOR -->
+    <div class="ws-panel" id="ws-panel-business" data-world="business">
+      <div class="ws-panel-bg ws-bg-business"></div>
+      <div class="ws-panel-grid ws-grid-business"></div>
+      <!-- Ambient amber orb top-center -->
+      <div class="ws-amber-orb"></div>
+      <div class="ws-panel-content">
+        <div class="ws-panel-number ws-num-business">[ 03 ]</div>
+        <div class="ws-hud-top ws-hud-business">
+          <div class="ws-hud-line ws-hud-line-business"></div>
+          <span class="ws-hud-tag ws-hud-tag-business">OPS_LIVE</span>
+        </div>
+        <div class="ws-panel-identity">
+          <span class="ws-identity-label ws-label-business">THE OPERATOR</span>
+          <h2 class="ws-identity-title ws-title-business">PRODUCT &amp;<br/>GROWTH</h2>
+          <div class="ws-identity-detail ws-detail-business">
+            <span>STRATEGY</span><span class="ws-sep ws-sep-business">//</span>
+            <span>SCALE</span><span class="ws-sep ws-sep-business">//</span>
+            <span>AUTOMATION</span>
+          </div>
+          <p class="ws-identity-desc ws-desc-business">62 repos. The paused ones are documented. The rest are in production.</p>
+          <button class="ws-enter-btn ws-enter-business">
+            <span>VIEW TRACK RECORD</span>
+            <span class="ws-arrow">→</span>
+          </button>
+        </div>
+        <!-- Metric clusters -->
+        <div class="ws-metrics-cluster">
+          <div class="ws-metric"><span class="ws-metric-val">62</span><span class="ws-metric-label">REPOS</span></div>
+          <div class="ws-metric"><span class="ws-metric-val">17</span><span class="ws-metric-label">AGENTS</span></div>
+          <div class="ws-metric"><span class="ws-metric-val">5</span><span class="ws-metric-label">PLATFORMS</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom coordinate bar -->
+  <div class="ws-footer">
+    <span class="ws-footer-tag">ARTIFACT // V3.1.0</span>
+    <span class="ws-footer-tag">HOVER TO PREVIEW · CLICK TO ENTER</span>
+    <span class="ws-footer-tag">ALL RIGHTS RESERVED // AHMED TAHA 2026</span>
+  </div>
+
+</div>
+
+<style>
+/* ====== SELECTOR (now inside Kore universe node) ====== */
+#world-selector-overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  overflow: hidden;
+}
+
+/* ====== HEADER ====== */
+.ws-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 52px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  flex-shrink: 0;
+}
+.ws-logo {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #E5E2E1;
+}
+.ws-dot { color: #00F0FF; }
+.ws-sub {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ====== PANELS CONTAINER ====== */
+.ws-panels {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ====== INDIVIDUAL PANEL ====== */
+.ws-panel {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  cursor: crosshair;
+  transition: flex 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 0;
+}
+.ws-panels:hover .ws-panel:not(:hover) {
+  flex: 0.55;
+}
+.ws-panels:hover .ws-panel:hover {
+  flex: 1.9;
+}
+
+/* ====== PANEL BACKGROUNDS ====== */
+.ws-panel-bg {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.7s ease, opacity 0.5s ease;
+}
+.ws-bg-tech {
+  background: #0A0A0A;
+}
+.ws-bg-design {
+  background: #07050F;
+  overflow: hidden;
+}
+.ws-bg-business {
+  background: #020D1A;
+  background-image: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(245,158,11,0.12), transparent);
+}
+
+/* Grid patterns */
+.ws-panel-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(59,73,75,0.18) 1px, transparent 0);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+.ws-grid-business {
+  background-image:
+    linear-gradient(rgba(245,158,11,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,158,11,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Scanlines */
+.ws-panel-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,240,255,0.012) 2px,
+    rgba(0,240,255,0.012) 4px
+  );
+  pointer-events: none;
+}
+
+/* Design blobs */
+.ws-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  animation: blobPulse 6s ease-in-out infinite;
+}
+.ws-blob-1 {
+  width: 300px; height: 300px;
+  top: -80px; left: -80px;
+  background: radial-gradient(circle, #7C3AED, transparent 70%);
+  animation-delay: 0s;
+}
+.ws-blob-2 {
+  width: 250px; height: 250px;
+  bottom: -60px; right: -60px;
+  background: radial-gradient(circle, #EC4899, transparent 70%);
+  animation-delay: 2s;
+}
+.ws-blob-3 {
+  width: 200px; height: 200px;
+  top: 40%; left: 20%;
+  background: radial-gradient(circle, #C084FC, transparent 70%);
+  animation-delay: 4s;
+}
+@keyframes blobPulse {
+  0%,100% { transform: scale(1) translate(0,0); opacity: 0.35; }
+  50% { transform: scale(1.15) translate(10px,-10px); opacity: 0.5; }
+}
+
+/* ====== PANEL CONTENT ====== */
+.ws-panel-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem 2rem;
+  gap: 0;
+}
+
+/* Number */
+.ws-panel-number {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.25);
+  line-height: 1;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  user-select: none;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: color 0.4s ease;
+}
+.ws-panel:hover .ws-panel-number {
+  color: rgba(255,255,255,0.45);
+}
+.ws-num-design {
+  color: rgba(192,132,252,0.3);
+}
+.ws-panel:hover .ws-num-design {
+  color: rgba(192,132,252,0.55);
+}
+.ws-num-business {
+  color: rgba(245,158,11,0.25);
+}
+.ws-panel:hover .ws-num-business {
+  color: rgba(245,158,11,0.45);
+}
+
+/* Identity block */
+.ws-panel-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ws-identity-label {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(0,240,255,0.85);
+  display: block;
+}
+.ws-label-design { color: rgba(192,132,252,0.9); }
+.ws-label-business { color: rgba(245,158,11,0.9); }
+
+.ws-identity-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: #E5E2E1;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.ws-title-tech { color: #E5E2E1; }
+.ws-title-design em {
+  font-style: italic;
+  background: linear-gradient(135deg, #C084FC, #EC4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ws-title-business { color: #F8FAFC; }
+
+.ws-identity-detail {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+.ws-identity-detail span {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.ws-detail-tech span:not(.ws-sep) { color: rgba(0,240,255,0.65); }
+.ws-detail-design span:not(.ws-sep) { color: rgba(192,132,252,0.7); }
+.ws-detail-business span:not(.ws-sep) { color: rgba(245,158,11,0.7); }
+.ws-sep { color: rgba(255,255,255,0.2) !important; }
+
+.ws-identity-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+  margin: 4px 0 0;
+  max-width: 280px;
+  opacity: 0.7;
+  transform: translateY(0);
+  transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+}
+.ws-panel:hover .ws-identity-desc { opacity: 1; transform: translateY(0); }
+
+/* Enter button */
+.ws-enter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 8px;
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid rgba(0,240,255,0.25);
+  font-family: 'Space Grotesk', monospace;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0,240,255,0.5);
+  cursor: crosshair;
+  opacity: 0.75;
+  transform: translateY(0);
+  transition: opacity 0.35s ease 0.15s, transform 0.35s ease 0.15s, background 0.2s, color 0.2s;
+}
+.ws-enter-tech { border-color: rgba(0,240,255,0.25); color: rgba(0,240,255,0.6); }
+.ws-enter-design { border-color: rgba(192,132,252,0.3); color: rgba(192,132,252,0.7); }
+.ws-enter-business { border-color: rgba(245,158,11,0.3); color: rgba(245,158,11,0.7); }
+
+.ws-panel:hover .ws-enter-btn { opacity: 1; transform: translateY(0); }
+
+.ws-enter-tech:hover { background: rgba(0,240,255,0.1); color: #00F0FF; border-color: rgba(0,240,255,0.5); }
+.ws-enter-design:hover { background: rgba(192,132,252,0.12); color: #C084FC; border-color: rgba(192,132,252,0.5); }
+.ws-enter-business:hover { background: rgba(245,158,11,0.1); color: #F59E0B; border-color: rgba(245,158,11,0.5); }
+
+.ws-arrow {
+  transition: transform 0.2s ease;
+}
+.ws-enter-btn:hover .ws-arrow { transform: translateX(4px); }
+
+/* Business metrics cluster */
+.ws-metrics-cluster {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  opacity: 0.8;
+  transform: translateY(0);
+  transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
+}
+.ws-panel:hover .ws-metrics-cluster { opacity: 1; transform: translateY(0); }
+.ws-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ws-metric-val {
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #F59E0B;
+  line-height: 1;
+}
+.ws-metric-cyan { color: #00F0FF !important; }
+.ws-metric-purple { color: #C084FC !important; }
+.ws-metric-label {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 7px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245,158,11,0.5);
+}
+.ws-metrics-tech .ws-metric-label { color: rgba(0,240,255,0.45); }
+.ws-metrics-design .ws-metric-label { color: rgba(192,132,252,0.5); }
+
+/* HUD top decoration */
+.ws-hud-top {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.ws-panel:hover .ws-hud-top { opacity: 1; }
+.ws-hud-line {
+  width: 20px;
+  height: 1px;
+  background: rgba(0,240,255,0.35);
+}
+.ws-hud-line-design { background: rgba(192,132,252,0.4); }
+.ws-hud-tag {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 7px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0,240,255,0.5);
+}
+.ws-hud-tag-design { color: rgba(192,132,252,0.6); }
+.ws-hud-tag-business { color: rgba(245,158,11,0.6); }
+.ws-hud-line-business { background: rgba(245,158,11,0.35); }
+
+/* Ambient amber orb for business panel */
+.ws-amber-orb {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: -80px;
+  right: -60px;
+  background: radial-gradient(circle, rgba(245,158,11,0.18), transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(40px);
+  animation: blobPulse 8s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* ====== DIVIDER ====== */
+.ws-divider {
+  width: 1px;
+  background: rgba(255,255,255,0.06);
+  flex-shrink: 0;
+  transition: background 0.3s ease;
+}
+
+/* ====== FOOTER ====== */
+.ws-footer {
+  height: 40px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  flex-shrink: 0;
+}
+.ws-footer-tag {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 768px) {
+  .ws-panels { flex-direction: column; }
+  .ws-divider { width: 100%; height: 1px; }
+  .ws-panels:hover .ws-panel:not(:hover) { flex: 0.7; }
+  .ws-panels:hover .ws-panel:hover { flex: 2; }
+  .ws-identity-title { font-size: 1.6rem; }
+  .ws-identity-desc { opacity: 1; transform: none; }
+  .ws-enter-btn { opacity: 1; transform: none; }
+  .ws-metrics-cluster { opacity: 1; transform: none; }
+  .ws-panel-number { font-size: 0.65rem; }
+  .ws-sub { display: none; }
+}
+</style>
+
