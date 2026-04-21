@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Archon for Kids</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+.float { animation: float 3s ease-in-out infinite; }
+</style>
+</head>
+<body class="text-white bg-gradient-to-b from-slate-950 to-slate-900">
+
+<div class="min-h-screen bg-gradient-to-b from-blue-900 via-purple-900 to-slate-900 flex items-center justify-center px-4 relative">
+<div class="absolute top-20 left-10 w-40 h-40 bg-cyan-400 rounded-full blur-3xl opacity-20 float"></div>
+<div class="relative z-10 text-center max-w-4xl">
+<h1 class="text-8xl font-black mb-4 text-cyan-400">ARCHON</h1>
+<h2 class="text-5xl font-bold mb-6">The Super Smart Brain!</h2>
+<p class="text-2xl mb-8 text-gray-300">AI that thinks better and never cuts corners</p>
+<button onclick="document.getElementById('main').scrollIntoView()" class="px-8 py-4 bg-cyan-400 text-black font-bold text-xl rounded-full hover:scale-110">LEARN MORE</button>
+</div>
+</div>
+
+<div id="main" class="px-4 py-20">
+<div class="max-w-4xl mx-auto">
+<h2 class="text-5xl font-bold text-center mb-12 text-cyan-300">4 Cool Things</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+<div class="bg-blue-600 rounded-2xl p-8 cursor-pointer hover:scale-105" onclick="showDetail(0)">
+<div class="text-5xl mb-2">TOOLS</div>
+<h3 class="text-3xl font-bold">Skills</h3>
+<p class="text-lg">99 Superpowers</p>
+</div>
+
+<div class="bg-purple-600 rounded-2xl p-8 cursor-pointer hover:scale-105" onclick="showDetail(1)">
+<div class="text-5xl mb-2">TEAM</div>
+<h3 class="text-3xl font-bold">Agents</h3>
+<p class="text-lg">17 Team Members</p>
+</div>
+
+<div class="bg-pink-600 rounded-2xl p-8 cursor-pointer hover:scale-105" onclick="showDetail(2)">
+<div class="text-5xl mb-2">RULES</div>
+<h3 class="text-3xl font-bold">Synapses</h3>
+<p class="text-lg">Keep Honest</p>
+</div>
+
+<div class="bg-green-600 rounded-2xl p-8 cursor-pointer hover:scale-105" onclick="showDetail(3)">
+<div class="text-5xl mb-2">STEPS</div>
+<h3 class="text-3xl font-bold">Pipelines</h3>
+<p class="text-lg">Recipes</p>
+</div>
+
+</div>
+
+<div id="detail" class="mt-20"></div>
+</div>
+</div>
+
+<div class="bg-black bg-opacity-50 text-center py-8 text-gray-400">
+<p>Made by Ahmed Taha - Find us on <a href="https://github.com/SufficientDaikon/archon" class="text-cyan-400">GitHub</a></p>
+</div>
+
+<script>
+function showDetail(idx) {
+  const details = [
+    {
+      title: "SKILLS",
+      color: "bg-blue-600",
+      content: `
+        <h3 class="text-5xl font-bold mb-6">Skills = Superpowers</h3>
+        <p class="text-2xl mb-8">Things AI can do:</p>
+        <div class="text-xl space-y-4">
+          <div>CODE - Write programs</div>
+          <div>DESIGN - Make pictures</div>
+          <div>WRITE - Create stories</div>
+          <div>TEST - Check things work</div>
+        </div>
+        <p class="text-2xl mt-8"><strong>99 total - Like 99 superpowers!</strong></p>
+      `
+    },
+    {
+      title: "AGENTS",
+      color: "bg-purple-600",
+      content: `
+        <h3 class="text-5xl font-bold mb-6">Agents = Team Members</h3>
+        <p class="text-2xl mb-8">Like a sports team:</p>
+        <div class="text-xl space-y-4">
+          <div>WRITER - Makes the plan</div>
+          <div>BUILDER - Makes the thing</div>
+          <div>CHECKER - Checks if good</div>
+        </div>
+        <p class="text-2xl mt-8"><strong>17 team members working together!</strong></p>
+      `
+    },
+    {
+      title: "SYNAPSES",
+      color: "bg-pink-600",
+      content: `
+        <h3 class="text-5xl font-bold mb-6">Synapses = Rules</h3>
+        <p class="text-2xl mb-8">Rules that keep everyone honest:</p>
+        <div class="text-xl space-y-3">
+          <div>- Do EVERY step</div>
+          <div>- ALWAYS test</div>
+          <div>- Fix it NOW</div>
+          <div>- Do it RIGHT</div>
+          <div>- Keep it CLEAN</div>
+        </div>
+        <p class="text-2xl mt-8"><strong>These make sure no one gets lazy!</strong></p>
+      `
+    },
+    {
+      title: "PIPELINES",
+      color: "bg-green-600",
+      content: `
+        <h3 class="text-5xl font-bold mb-6">Pipelines = Recipes</h3>
+        <p class="text-2xl mb-8">Step by step:</p>
+        <div class="text-xl space-y-3">
+          <div>1. PLAN what you want</div>
+          <div>2. BUILD it</div>
+          <div>3. TEST it works</div>
+          <div>4. CHECK it</div>
+          <div>5. DONE!</div>
+        </div>
+        <p class="text-2xl mt-8"><strong>8 pipelines for different jobs</strong></p>
+      `
+    }
+  ];
+
+  const d = details[idx];
+  document.getElementById("detail").innerHTML = `
+    <div class="${d.color} rounded-2xl p-12">
+      ${d.content}
+      <button onclick="document.getElementById('detail').innerHTML=''" class="mt-8 px-6 py-3 bg-cyan-400 text-black font-bold rounded-full hover:scale-110">BACK</button>
+    </div>
+  `;
+  document.getElementById("detail").scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
