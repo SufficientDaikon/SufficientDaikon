@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 90" fill="none">
+  <defs>
+    <linearGradient id="footer-accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#7c3aed" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @media (prefers-color-scheme: light) {
+      .ft-text { fill: #4a4a6a !important; }
+      .ft-sig { fill: #6b7280 !important; }
+      .ft-line { stroke: #d4d4d8 !important; }
+    }
+    @keyframes pulse-line {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.6; }
+    }
+    .ft-pulse { animation: pulse-line 4s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) {
+      .ft-pulse { animation: none !important; opacity: 0.4; }
+    }
+  </style>
+
+  <!-- Divider line -->
+  <line class="ft-line ft-pulse" x1="100" y1="16" x2="800" y2="16" stroke="url(#footer-accent)" stroke-width="0.5"/>
+
+  <!-- Tagline -->
+  <text class="ft-text" text-anchor="middle" x="450" y="46" fill="#a5b4fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" letter-spacing="2" opacity="0.65">
+    BUILDING AI THAT BUILDS SOFTWARE
+  </text>
+
+  <!-- Location + year -->
+  <text class="ft-sig" text-anchor="middle" x="450" y="64" fill="#6b7280" font-family="'SF Mono', 'Fira Code', 'Cascadia Code', monospace" font-size="10" opacity="0.55">
+    cairo, egypt · since 2020
+  </text>
+
+  <!-- Opus attribution -->
+  <text class="ft-sig" text-anchor="middle" x="450" y="82" fill="#7c3aed" font-family="'SF Mono', 'Fira Code', 'Cascadia Code', monospace" font-size="10" letter-spacing="1" opacity="0.5">
+    ahmed taha × claude opus
+  </text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 20" fill="none">
+  <style>
+    @media (prefers-color-scheme: light) {
+      .div-line { stroke: #d4d4d8 !important; }
+      .div-dot { fill: #7c3aed !important; }
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+    .div-dot { animation: pulse-dot 3s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) {
+      .div-dot { animation: none !important; }
+    }
+  </style>
+  <line class="div-line" x1="0" y1="10" x2="420" y2="10" stroke="#27272a" stroke-width="0.5"/>
+  <circle class="div-dot" cx="450" cy="10" r="3" fill="#7c3aed"/>
+  <line class="div-line" x1="480" y1="10" x2="900" y2="10" stroke="#27272a" stroke-width="0.5"/>
+</svg>

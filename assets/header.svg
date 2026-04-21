@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="900" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="50%" stop-color="#0d0d2b"/>
+      <stop offset="100%" stop-color="#0a0a1a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <filter id="blur-lg">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="40"/>
+    </filter>
+    <radialGradient id="orb1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <style>
+    @media (prefers-color-scheme: light) {
+      .bg-rect { fill: #f8f9fa !important; }
+      .name-text { fill: #1a1a2e !important; }
+      .subtitle-text { fill: #4a4a6a !important; }
+      .line-accent { stroke: #7c3aed !important; }
+      .dot { fill: #7c3aed !important; }
+      .grid-line { stroke: #e2e8f0 !important; }
+      .tag-text { fill: #6b7280 !important; }
+    }
+
+    @keyframes float-orb-1 {
+      0%, 100% { transform: translate(0, 0); }
+      33% { transform: translate(20px, -15px); }
+      66% { transform: translate(-10px, 10px); }
+    }
+    @keyframes float-orb-2 {
+      0%, 100% { transform: translate(0, 0); }
+      33% { transform: translate(-15px, 20px); }
+      66% { transform: translate(25px, -10px); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+    @keyframes dash-move {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -20; }
+    }
+    @keyframes scan-line {
+      0% { transform: translateY(-300px); }
+      100% { transform: translateY(300px); }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    @keyframes star-pulse {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.8; }
+    }
+
+    .orb-1 { animation: float-orb-1 12s ease-in-out infinite; }
+    .orb-2 { animation: float-orb-2 15s ease-in-out infinite; }
+    .pulse { animation: pulse 3s ease-in-out infinite; }
+    .dash-anim { animation: dash-move 1.5s linear infinite; }
+    .scan { animation: scan-line 8s linear infinite; }
+    .cursor-blink { animation: blink 1s step-end infinite; }
+    .star { animation: star-pulse 4s ease-in-out infinite; }
+    .star-d1 { animation-delay: -1s; }
+    .star-d2 { animation-delay: -2s; }
+    .star-d3 { animation-delay: -3s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+
+  <!-- Background -->
+  <rect class="bg-rect" width="900" height="300" fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.06">
+    <line class="grid-line" x1="0" y1="75" x2="900" y2="75" stroke="#a855f7" stroke-width="0.5"/>
+    <line class="grid-line" x1="0" y1="150" x2="900" y2="150" stroke="#a855f7" stroke-width="0.5"/>
+    <line class="grid-line" x1="0" y1="225" x2="900" y2="225" stroke="#a855f7" stroke-width="0.5"/>
+    <line class="grid-line" x1="225" y1="0" x2="225" y2="300" stroke="#a855f7" stroke-width="0.5"/>
+    <line class="grid-line" x1="450" y1="0" x2="450" y2="300" stroke="#a855f7" stroke-width="0.5"/>
+    <line class="grid-line" x1="675" y1="0" x2="675" y2="300" stroke="#a855f7" stroke-width="0.5"/>
+  </g>
+
+  <!-- Ambient stars -->
+  <g>
+    <circle class="star" cx="120" cy="45" r="1" fill="#c4b5fd"/>
+    <circle class="star star-d1" cx="340" cy="28" r="1.2" fill="#818cf8"/>
+    <circle class="star star-d2" cx="580" cy="52" r="0.8" fill="#c4b5fd"/>
+    <circle class="star star-d3" cx="760" cy="35" r="1" fill="#a78bfa"/>
+    <circle class="star star-d2" cx="95" cy="250" r="0.8" fill="#c4b5fd"/>
+    <circle class="star star-d1" cx="820" cy="240" r="1.2" fill="#818cf8"/>
+    <circle class="star star-d3" cx="650" cy="265" r="1" fill="#c4b5fd"/>
+    <circle class="star" cx="200" cy="270" r="0.8" fill="#a78bfa"/>
+    <circle class="star star-d1" cx="430" cy="255" r="1" fill="#818cf8"/>
+    <circle class="star star-d2" cx="50" cy="140" r="0.8" fill="#c4b5fd"/>
+    <circle class="star star-d3" cx="860" cy="130" r="1" fill="#a78bfa"/>
+  </g>
+
+  <!-- Floating orbs -->
+  <g class="orb-1">
+    <circle cx="150" cy="90" r="100" fill="url(#orb1)" filter="url(#blur-lg)"/>
+  </g>
+  <g class="orb-2">
+    <circle cx="750" cy="210" r="120" fill="url(#orb2)" filter="url(#blur-lg)"/>
+  </g>
+
+  <!-- Scan line -->
+  <g class="scan" opacity="0.03">
+    <rect x="0" y="0" width="900" height="2" fill="#a855f7"/>
+  </g>
+
+  <!-- Terminal cursor indicator -->
+  <g transform="translate(40, 98)">
+    <text fill="#7c3aed" font-family="'SF Mono', 'Fira Code', 'Cascadia Code', monospace" font-size="11" opacity="0.6">$</text>
+    <text fill="#a5b4fc" font-family="'SF Mono', 'Fira Code', 'Cascadia Code', monospace" font-size="11" x="14" opacity="0.5">whoami</text>
+    <rect class="cursor-blink" x="62" y="-10" width="7" height="14" fill="#7c3aed" opacity="0.6"/>
+  </g>
+
+  <!-- Center content -->
+  <g transform="translate(450, 105)">
+    <!-- Name -->
+    <text class="name-text" text-anchor="middle" fill="#f5f3ff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="48" font-weight="700" letter-spacing="-1">
+      Ahmed Taha
+    </text>
+
+    <!-- Accent line under name -->
+    <line class="line-accent pulse" x1="-60" y1="18" x2="60" y2="18" stroke="url(#accent)" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Subtitle -->
+    <text class="subtitle-text" text-anchor="middle" y="52" fill="#a5b4fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="400" letter-spacing="3" opacity="0.9">
+      BUILDING AI THAT BUILDS SOFTWARE
+    </text>
+  </g>
+
+  <!-- Bottom tagline (timeless, no stale numbers) -->
+  <g transform="translate(450, 260)">
+    <line class="line-accent dash-anim" x1="-410" y1="-15" x2="410" y2="-15" stroke="#7c3aed" stroke-width="0.5" stroke-dasharray="6 4" opacity="0.4"/>
+    <text class="tag-text" text-anchor="middle" fill="#6b7280" font-family="'SF Mono', 'Fira Code', 'Cascadia Code', monospace" font-size="11" letter-spacing="2" opacity="0.6">
+      since 2020  ·  cairo, egypt
+    </text>
+  </g>
+
+  <!-- Corner markers -->
+  <g opacity="0.3">
+    <path d="M 12 2 L 2 2 L 2 12" stroke="#7c3aed" stroke-width="1" fill="none"/>
+    <path d="M 888 2 L 898 2 L 898 12" stroke="#7c3aed" stroke-width="1" fill="none"/>
+    <path d="M 12 298 L 2 298 L 2 288" stroke="#7c3aed" stroke-width="1" fill="none"/>
+    <path d="M 888 298 L 898 298 L 898 288" stroke="#7c3aed" stroke-width="1" fill="none"/>
+  </g>
+</svg>
