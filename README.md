@@ -143,6 +143,17 @@ These aren't typo fixes. Each PR modifies core engine code in [PowerShell](https
 
 <br/>
 
+
+---
+
+## Stats
+
+<div align="center">
+  <img src="./metrics/metrics.svg" alt="GitHub metrics" width="100%" />
+</div>
+
+<br/>
+
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00F0FF,50:003B4A,100:0D1117&height=120&section=footer" width="100%" alt="" />
 </div>
