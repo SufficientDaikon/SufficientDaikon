@@ -1,39 +1,53 @@
-i didn't write this claude did xD
-
 <div align="center">
-  <img src="./assets/header.svg" width="100%" alt="Ahmed Taha, Building AI that builds software" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,50:003B4A,100:00F0FF&height=220&section=header&text=Ahmed%20Taha&fontSize=72&fontColor=FFFFFF&animation=twinkling&fontAlignY=38&desc=Building%20AI%20that%20builds%20software&descAlignY=60&descSize=22&descColor=00F0FF" width="100%" alt="Ahmed Taha — Building AI that builds software" />
 </div>
 
-<br/>
-
-He builds AI agents from Cairo that ship production code to [**PowerShell**](https://github.com/PowerShell/PowerShell) (52K stars) while he sleeps.
-83 skills, a tensor-typed compiler, and a broken hand, so everything runs hands-free. Yes, including this README.
-
-<p>
-  <a href="https://www.linkedin.com/in/ahmed-taha225/">LinkedIn</a> · <a href="mailto:tahaa755@gmail.com">Email</a>
+<p align="center">
+  <a href="https://www.linkedin.com/in/ahmed-taha225/">
+    <img src="https://img.shields.io/badge/LinkedIn-ahmed--taha225-0A66C2?style=flat-square&logo=linkedin&logoColor=white&labelColor=0D1117" alt="LinkedIn" />
+  </a>
+  &nbsp;
+  <a href="mailto:tahaa755@gmail.com">
+    <img src="https://img.shields.io/badge/Email-tahaa755%40gmail.com-00F0FF?style=flat-square&logo=gmail&logoColor=white&labelColor=0D1117" alt="Email" />
+  </a>
+  &nbsp;
+  <img src="https://img.shields.io/badge/Cairo%2C_Egypt-30323D?style=flat-square&logo=googlemaps&logoColor=00F0FF&labelColor=0D1117" alt="Cairo, Egypt" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/62_repos-30323D?style=flat-square&logo=github&logoColor=00F0FF&labelColor=0D1117" alt="62 repos" />
 </p>
 
 <br/>
 
-<img src="./assets/divider.svg" width="100%" alt="" />
+I build AI agents from Cairo that ship production code to [**PowerShell**](https://github.com/PowerShell/PowerShell) (52K stars) while I sleep.
+83 skills, a tensor-typed compiler, and a broken hand — so everything runs hands-free. Including this README.
 
 <br/>
 
+---
+
 ### right now
 
-> shipping bounded-wait timeouts to PowerShell. 7 source files, an RFC, and 8 adversarial scenarios.
+> shipping bounded-wait timeouts to PowerShell — 7 source files, an RFC, and 8 adversarial scenarios
 >
 > teaching Axon to verify tensor shapes before your GPU even warms up
 >
 > building from Cairo with 83 AI skills and a broken hand
 
+---
+
+<div align="center">
+  <img src="./assets/tech-sphere.svg" width="700" alt="Tech stack in orbit: TypeScript, Rust, Python, Astro, React, Svelte, SolidJS" />
+</div>
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=ts,rust,python,astro,react,svelte,solidjs,tailwind&theme=dark" alt="TypeScript, Rust, Python, Astro, React, Svelte, SolidJS, Tailwind" />
+</p>
+
 <br/>
 
-<img src="./assets/divider.svg" width="100%" alt="" />
+---
 
-<br/>
-
-## What He Builds
+## What I Build
 
 <table>
 <tr>
@@ -41,16 +55,16 @@ He builds AI agents from Cairo that ship production code to [**PowerShell**](htt
 
 ### [Archon](https://github.com/SufficientDaikon/archon) · AI Skills Engine
 
-The core of everything he ships. 83 skills, 10 agents, complexity routing from TRIVIAL to EXPERT, and a virtuoso execution loop that prevents hallucination cascades.
+The core of everything I ship. 83 skills, 10 agents, complexity routing from TRIVIAL to EXPERT, and a virtuoso execution loop that prevents hallucination cascades.
 
-Write a skill once, deploy it on Claude Code, VS Code Copilot, and 3 more platforms. Not a chatbot wrapper. A cognitive architecture with enforced guardrails.
+Write a skill once, deploy it on Claude Code, VS Code Copilot, and 3 more platforms. Not a chatbot wrapper — a cognitive architecture with enforced guardrails.
 
 </td>
 <td width="40%" valign="top">
 
 ### [Axon](https://github.com/SufficientDaikon/Axon) · ML-First Language
 
-A programming language designed from scratch for machine learning. Compile-time tensor shape verification, ownership-based memory safety, native GPU execution.
+A programming language I designed from scratch for machine learning. Compile-time tensor shape verification, ownership-based memory safety, native GPU execution.
 
 If Python and Rust had a child raised by CUDA engineers.
 
@@ -63,7 +77,7 @@ If Python and Rust had a child raised by CUDA engineers.
 
 Browse, download, and run Hugging Face models without sending a byte to the cloud. Tauri v2 (Rust backend) + React frontend. GGUF quantized model support.
 
-Your models, your machine, your data.
+Your models. Your machine. Your data.
 
 </td>
 <td width="60%" valign="top">
@@ -79,7 +93,7 @@ Not a Linux distro with a chatbot bolted on. A rethink of what an operating syst
 </table>
 
 <details>
-<summary><strong>More things we've shipped</strong></summary>
+<summary><strong>More things I've shipped</strong></summary>
 <br/>
 
 | Project | What it does |
@@ -98,9 +112,22 @@ Not a Linux distro with a chatbot bolted on. A rethink of what an operating syst
 
 <br/>
 
-<img src="./assets/divider.svg" width="100%" alt="" />
+---
+
+## Contributions
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)"  srcset="./profile-3d-contrib/profile-green-animate.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./profile-3d-contrib/profile-green-animate.svg">
+    <img src="./profile-3d-contrib/profile-green-animate.svg"
+         alt="3D animated contribution calendar" width="100%" />
+  </picture>
+</div>
 
 <br/>
+
+---
 
 ## Open Source Impact
 
@@ -114,10 +141,8 @@ These aren't typo fixes. Each PR modifies core engine code in [PowerShell](https
 | [**Static analysis fixes**](https://github.com/PowerShell/PowerShell/pull/27035) | Fixed 6 PVS-Studio findings across the engine. Null derefs, redundant checks, type narrowing issues. | Open |
 | [**Error handling docs**](https://github.com/MicrosoftDocs/PowerShell-Docs/pull/12890) | Added `about_Error_Handling` reference and fixed error terminology across docs. | **Merged** |
 
-Every PR above was researched, implemented, tested, and documented end-to-end. He told me what to build. I built it. The commits are real.
-
 <br/>
 
 <div align="center">
-  <img src="./assets/footer.svg" width="100%" alt="" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00F0FF,50:003B4A,100:0D1117&height=120&section=footer" width="100%" alt="" />
 </div>

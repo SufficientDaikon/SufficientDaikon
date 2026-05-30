@@ -1,0 +1,111 @@
+<svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <path id="orbit-eq"   d="M 120,180 A 280,55 0 1,0 680,180 A 280,55 0 1,0 120,180 Z"/>
+    <path id="orbit-tlt"  d="M 613,31 A 260,55 -35 1,0 187,329 A 260,55 -35 1,0 613,31 Z"/>
+    <path id="orbit-vert" d="M 400,10 A 70,170 0 1,0 400,350 A 70,170 0 1,0 400,10 Z"/>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="hub-glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="hub-grad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#00F0FF" stop-opacity="0.5"/>
+      <stop offset="60%"  stop-color="#00F0FF" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#00F0FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="360" fill="#0D1117" rx="12"/>
+
+  <!-- Orbit rings -->
+  <ellipse cx="400" cy="180" rx="280" ry="55" fill="none" stroke="#00F0FF"
+           stroke-opacity="0.18" stroke-width="0.8" stroke-dasharray="4 7"/>
+  <g transform="rotate(-35 400 180)">
+    <ellipse cx="400" cy="180" rx="260" ry="55" fill="none" stroke="#00F0FF"
+             stroke-opacity="0.12" stroke-width="0.8" stroke-dasharray="4 7"/>
+  </g>
+  <ellipse cx="400" cy="180" rx="70" ry="170" fill="none" stroke="#00F0FF"
+           stroke-opacity="0.12" stroke-width="0.8" stroke-dasharray="4 7"/>
+
+  <!-- Hub -->
+  <circle cx="400" cy="180" r="50" fill="url(#hub-grad)"/>
+  <circle cx="400" cy="180" r="22" fill="none" stroke="#00F0FF" stroke-opacity="0.3" stroke-width="1">
+    <animate attributeName="r" values="22;36;22" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-opacity" values="0.3;0;0.3" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="400" cy="180" r="10" fill="#00F0FF" filter="url(#hub-glow)">
+    <animate attributeName="r" values="10;13;10" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="fill-opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite"/>
+  </circle>
+
+  <text x="400" y="347" text-anchor="middle" font-family="monospace"
+        font-size="9" fill="#00F0FF" opacity="0.35" letter-spacing="4">TECH_STACK · CAIRO, EG</text>
+
+  <!-- Equatorial: TypeScript -->
+  <g filter="url(#glow)">
+    <circle r="14" fill="#3178C6" stroke="#5BA0E0" stroke-width="1.2"/>
+    <text font-size="8" fill="white" text-anchor="middle" dy="3" font-family="monospace" font-weight="bold">TS</text>
+    <animateMotion dur="12s" repeatCount="indefinite" begin="0s" rotate="none">
+      <mpath xlink:href="#orbit-eq"/>
+    </animateMotion>
+  </g>
+
+  <!-- Equatorial: Rust -->
+  <g filter="url(#glow)">
+    <circle r="14" fill="#CE4A0E" stroke="#E07040" stroke-width="1.2"/>
+    <text font-size="8" fill="white" text-anchor="middle" dy="3" font-family="monospace" font-weight="bold">RS</text>
+    <animateMotion dur="12s" repeatCount="indefinite" begin="-4s" rotate="none">
+      <mpath xlink:href="#orbit-eq"/>
+    </animateMotion>
+  </g>
+
+  <!-- Equatorial: Python -->
+  <g filter="url(#glow)">
+    <circle r="14" fill="#306998" stroke="#4B8BBE" stroke-width="1.2"/>
+    <text font-size="8" fill="#FFD43B" text-anchor="middle" dy="3" font-family="monospace" font-weight="bold">PY</text>
+    <animateMotion dur="12s" repeatCount="indefinite" begin="-8s" rotate="none">
+      <mpath xlink:href="#orbit-eq"/>
+    </animateMotion>
+  </g>
+
+  <!-- Tilted: Astro -->
+  <g filter="url(#glow)">
+    <circle r="14" fill="#17191E" stroke="#FF5D01" stroke-width="1.8"/>
+    <text font-size="8" fill="#FF5D01" text-anchor="middle" dy="3" font-family="monospace" font-weight="bold">AS</text>
+    <animateMotion dur="18s" repeatCount="indefinite" begin="0s" rotate="none">
+      <mpath xlink:href="#orbit-tlt"/>
+    </animateMotion>
+  </g>
+
+  <!-- Tilted: React -->
+  <g filter="url(#glow)">
+    <circle r="14" fill="#20232A" stroke="#61DAFB" stroke-width="1.8"/>
+    <text font-size="8" fill="#61DAFB" text-anchor="middle" dy="3" font-family="monospace" font-weight="bold">RE</text>
+    <animateMotion dur="18s" repeatCount="indefinite" begin="-9s" rotate="none">
+      <mpath xlink:href="#orbit-tlt"/>
+    </animateMotion>
+  </g>
+
+  <!-- Vertical: Svelte -->
+  <g filter="url(#glow)">
+    <circle r="14" fill="#FF3E00" stroke="#FF7040" stroke-width="1.2"/>
+    <text font-size="8" fill="white" text-anchor="middle" dy="3" font-family="monospace" font-weight="bold">SV</text>
+    <animateMotion dur="22s" repeatCount="indefinite" begin="0s" rotate="none">
+      <mpath xlink:href="#orbit-vert"/>
+    </animateMotion>
+  </g>
+
+  <!-- Vertical: SolidJS -->
+  <g filter="url(#glow)">
+    <circle r="14" fill="#2C4F7C" stroke="#4B8BBE" stroke-width="1.2"/>
+    <text font-size="8" fill="#C7E4FF" text-anchor="middle" dy="3" font-family="monospace" font-weight="bold">SO</text>
+    <animateMotion dur="22s" repeatCount="indefinite" begin="-11s" rotate="none">
+      <mpath xlink:href="#orbit-vert"/>
+    </animateMotion>
+  </g>
+
+</svg>
