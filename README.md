@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,50:003B4A,100:00F0FF&height=220&section=header&text=Ahmed%20Taha&fontSize=72&fontColor=FFFFFF&animation=twinkling&fontAlignY=38&desc=Building%20AI%20that%20builds%20software&descAlignY=60&descSize=22&descColor=00F0FF" width="100%" alt="Ahmed Taha -- Building AI that builds software" />
+  <img src="./assets/banner.svg" width="100%" alt="Ahmed Taha -- Building AI that builds software" />
 </div>
 
 <p align="center">
@@ -47,15 +47,15 @@ I build AI agents from Cairo that ship production code to [**PowerShell**](https
 
 ---
 
-## Open Source Impact
+## Open Source Impact &nbsp; ![PowerShell](https://img.shields.io/badge/PowerShell-52K%E2%98%85-00F0FF?style=flat-square&logo=powershell&logoColor=white&labelColor=0D1117)
 
 These aren't typo fixes. Each PR modifies core engine code in [PowerShell](https://github.com/PowerShell/PowerShell), a 52K-star project maintained by Microsoft:
 
 | PR | What changed | Status |
 |----|-------------|--------|
-| [**Bounded-wait timeouts**](https://github.com/PowerShell/PowerShell/pull/27027) | Added `Stop(TimeSpan)`, `PSInvocationSettings.Timeout`, and bounded waits across 7 source files. The hosting API can no longer hang forever. [RFC filed.](https://github.com/PowerShell/PowerShell-RFC/pull/409) | In Review |
-| [**WindowStyle Hidden fix**](https://github.com/PowerShell/PowerShell/pull/27111) | Fixed [#3028](https://github.com/PowerShell/PowerShell/issues/3028), an 8-year-old bug with 160+ upvotes. Eliminated the console window flash when launching with `-WindowStyle Hidden`. | In Review |
-| [**UUID v7 default**](https://github.com/PowerShell/PowerShell/pull/27033) | Changed `New-Guid` to generate UUID v7 by default. Monotonic, sortable, timestamp-embedded. Modern GUID for a modern shell. | In Review |
+| [**Bounded-wait timeouts**](https://github.com/PowerShell/PowerShell/pull/27027) | Added <kbd>Stop(TimeSpan)</kbd>, <kbd>PSInvocationSettings.Timeout</kbd>, and bounded waits across 7 source files. The hosting API can no longer hang forever. [RFC filed.](https://github.com/PowerShell/PowerShell-RFC/pull/409) | In Review |
+| [**WindowStyle Hidden fix**](https://github.com/PowerShell/PowerShell/pull/27111) | Fixed [#3028](https://github.com/PowerShell/PowerShell/issues/3028), an 8-year-old bug with 160+ upvotes. Eliminated the console window flash when launching with <kbd>-WindowStyle Hidden</kbd>. | In Review |
+| [**UUID v7 default**](https://github.com/PowerShell/PowerShell/pull/27033) | Changed <kbd>New-Guid</kbd> to generate UUID v7 by default. Monotonic, sortable, timestamp-embedded. Modern GUID for a modern shell. | In Review |
 | [**Static analysis fixes**](https://github.com/PowerShell/PowerShell/pull/27035) | Fixed 6 PVS-Studio findings across the engine. Null derefs, redundant checks, type narrowing issues. | In Review |
 | [**Error handling docs**](https://github.com/MicrosoftDocs/PowerShell-Docs/pull/12890) | Added `about_Error_Handling` reference and fixed error terminology across docs. | **Merged** |
 
@@ -109,6 +109,24 @@ Paused while Axon's borrow checker ships. The architecture is solid and it'll wa
 </table>
 
 <details>
+<summary><strong>Archon routing pipeline</strong></summary>
+<br/>
+
+```mermaid
+graph LR
+    T[Incoming Task] --> CR{Complexity Router}
+    CR -->|TRIVIAL| D[Direct Answer]
+    CR -->|SIMPLE| SA[Single Agent]
+    CR -->|MODERATE| PA[Parallel Agents]
+    CR -->|EXPERT| VL[Virtuoso Loop]
+    PA --> CC[Context Curator]
+    VL --> CC
+    CC --> Out[Deployed: Claude Code · Copilot · 3 more]
+```
+
+</details>
+
+<details>
 <summary><strong>More projects</strong></summary>
 <br/>
 
@@ -133,13 +151,13 @@ Paused while Axon's borrow checker ships. The architecture is solid and it'll wa
 ## Activity
 
 <div align="center">
-  <img src="https://streak-stats.demolab.com/?user=SufficientDaikon&hide_border=true&background=0D1117&ring=00F0FF&fire=00F0FF&currStreakLabel=00F0FF&sideNums=E5E2E1&sideLabels=849495&dates=849495&stroke=3B494B" alt="GitHub contribution streak" />
+  <img src="https://github-readme-stats.vercel.app/api?username=SufficientDaikon&show_icons=true&hide_border=true&bg_color=0D1117&title_color=00F0FF&icon_color=00F0FF&text_color=E5E2E1&count_private=true&custom_title=SufficientDaikon" alt="GitHub stats" />
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=SufficientDaikon&bg_color=0d1117&color=00f0ff&line=00f0ff&point=ffffff&area=true&hide_border=true" width="100%" alt="GitHub activity graph" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=SufficientDaikon&bg_color=0d1117&color=00f0ff&line=00f0ff&point=ffffff&area=true&hide_border=true&radius=6" width="100%" alt="GitHub activity graph" />
 </div>
 
 <br/>

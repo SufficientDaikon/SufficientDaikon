@@ -1,0 +1,93 @@
+<svg width="860" height="160" viewBox="0 0 860 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Glow filter for name text -->
+    <filter id="glow" x="-5%" y="-50%" width="110%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Subtle glow for accent bar -->
+    <filter id="bar-glow" x="-200%" y="0%" width="500%" height="100%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Shimmer gradient: bright spot sweeps left to right across name -->
+    <linearGradient id="shimmer" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="860" y2="0">
+      <stop offset="0" stop-color="#009AB0"/>
+      <stop stop-color="#00F0FF">
+        <animate attributeName="offset" values="0.0;0.35;0.7;0.0" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop stop-color="#E8FEFF">
+        <animate attributeName="offset" values="0.15;0.5;0.85;0.15" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop stop-color="#00F0FF">
+        <animate attributeName="offset" values="0.3;0.65;1.0;0.3" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="1" stop-color="#009AB0"/>
+    </linearGradient>
+
+    <!-- Grid pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#00F0FF" stroke-width="0.3" opacity="0.1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="160" fill="#0D1117"/>
+
+  <!-- Grid overlay -->
+  <rect width="860" height="160" fill="url(#grid)"/>
+
+  <!-- Left accent bar with glow -->
+  <rect width="3" height="160" fill="#00F0FF" opacity="0.9" filter="url(#bar-glow)"/>
+
+  <!-- Scan line sweeping top to bottom -->
+  <rect x="0" y="0" width="860" height="1.5" fill="#00F0FF" opacity="0.18">
+    <animate attributeName="y" values="-2;162" dur="4s" repeatCount="indefinite" calcMode="linear"/>
+  </rect>
+
+  <!-- Name: animated shimmer gradient + glow -->
+  <text x="24" y="96"
+    font-family="'SFMono-Regular','Consolas','Liberation Mono','Menlo',monospace"
+    font-size="60"
+    font-weight="700"
+    letter-spacing="8"
+    fill="url(#shimmer)"
+    filter="url(#glow)">AHMED TAHA</text>
+
+  <!-- Subtitle: spaced monospace, muted -->
+  <text x="27" y="130"
+    font-family="'SFMono-Regular','Consolas','Liberation Mono','Menlo',monospace"
+    font-size="13"
+    letter-spacing="5"
+    fill="#849495">BUILDING AI THAT BUILDS SOFTWARE</text>
+
+  <!-- Blinking block cursor after subtitle -->
+  <rect x="441" y="118" width="8" height="14" fill="#00F0FF">
+    <animate attributeName="opacity" values="1;1;0;0;1" dur="1.4s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Top-right forensic coordinates -->
+  <text x="848" y="22" text-anchor="end"
+    font-family="'SFMono-Regular','Consolas',monospace"
+    font-size="10"
+    fill="#3B494B">CAIRO.EG &middot; 30.04&deg;N 31.24&deg;E</text>
+
+  <text x="848" y="38" text-anchor="end"
+    font-family="'SFMono-Regular','Consolas',monospace"
+    font-size="10"
+    fill="#3B494B">AI &middot; SYSTEMS &middot; OSS</text>
+
+  <!-- Bottom accent line -->
+  <rect x="0" y="157" width="860" height="1" fill="#00F0FF" opacity="0.25"/>
+
+  <!-- Center dot on bottom line -->
+  <circle cx="430" cy="157" r="3" fill="#00F0FF" opacity="0.65"/>
+</svg>
