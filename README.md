@@ -148,16 +148,16 @@ graph LR
 
 ---
 
-## Activity
+## Stats
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=SufficientDaikon&show_icons=true&hide_border=true&bg_color=0D1117&title_color=00F0FF&icon_color=00F0FF&text_color=E5E2E1&count_private=true&custom_title=SufficientDaikon" alt="GitHub stats" />
+  <img src="https://github-profile-trophy.vercel.app/?username=SufficientDaikon&theme=darkhub&no-frame=true&no-bg=true&column=7&margin-w=8" width="100%" alt="GitHub trophies" />
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=SufficientDaikon&bg_color=0d1117&color=00f0ff&line=00f0ff&point=ffffff&area=true&hide_border=true&radius=6" width="100%" alt="GitHub activity graph" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SufficientDaikon&layout=compact&hide_border=true&bg_color=0D1117&title_color=00F0FF&text_color=E5E2E1&langs_count=10&hide=html,css,scss" alt="Top languages" />
 </div>
 
 <br/>
