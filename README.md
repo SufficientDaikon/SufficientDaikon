@@ -40,7 +40,7 @@ I build AI agents from Cairo that ship production code to [**PowerShell**](https
 </div>
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=ts,rust,python,astro,react,svelte,solidjs,tailwind&theme=dark" alt="TypeScript, Rust, Python, Astro, React, Svelte, SolidJS, Tailwind" />
+  <img src="https://skillicons.dev/icons?i=ts,js,python,rust,powershell,astro,react,svelte,solidjs,vue,nodejs,bun,tailwindcss,docker,cloudflare,git&theme=dark" alt="TypeScript, JavaScript, Python, Rust, PowerShell, Astro, React, Svelte, SolidJS, Vue, NodeJS, Bun, TailwindCSS, Docker, Cloudflare, Git" />
 </p>
 
 <br/>
