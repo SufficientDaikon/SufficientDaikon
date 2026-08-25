@@ -1,6 +1,6 @@
 # Ahmed Taha
 
-I build AI that builds software  agent systems that plan, write, and ship production code.
+I build AI that builds software, agent systems that plan, write, debug, and ship production code.
 To know what agents should build, I build the hard parts myself: C# in PowerShell's core engine, a language and borrow checker in Rust, local-first AI tools.
 
 ## Upstream
