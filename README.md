@@ -4,6 +4,7 @@ I build AI that builds software, agent systems that plan, write, debug, and ship
 i was a victim of AI psychosis, so i have a ton of personal AI tools that i made to help me let the ai do work fully hands off
 my favorite is an mcp server i made so claude can send screen shots to gemini to ask for help with design (this was before opus had good vision)
 
+i made a shitton of mcp servers and tools, most aren't on the hub cause i cant be asked publishing them, if you're interested HMU and i'll share them with you.
 ## Opensource
 
 Core-engine work on [PowerShell](https://github.com/PowerShell/PowerShell), Microsoft's cross-platform shell (50k+ stars):
