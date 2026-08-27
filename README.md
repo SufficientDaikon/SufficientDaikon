@@ -1,9 +1,10 @@
 # Ahmed Taha
 
 I build AI that builds software, agent systems that plan, write, debug, and ship production code.
-To know what agents should build, I build the hard parts myself: C# in PowerShell's core engine, a language and borrow checker in Rust, local-first AI tools.
+i was a victim of AI psychosis, so i have a ton of personal AI tools that i made to help me let the ai do work fully hands off
+my favorite is an mcp server i made so claude can send screen shots to gemini to ask for help with design (this was before opus had good vision)
 
-## Upstream
+## Opensource
 
 Core-engine work on [PowerShell](https://github.com/PowerShell/PowerShell), Microsoft's cross-platform shell (50k+ stars):
 
@@ -14,7 +15,7 @@ Core-engine work on [PowerShell](https://github.com/PowerShell/PowerShell), Micr
 - [Six engine fixes](https://github.com/PowerShell/PowerShell/pull/27035) from a static-analysis pass  null dereferences, redundant guards, type narrowing.
 - [The `about_Error_Handling` reference](https://github.com/MicrosoftDocs/PowerShell-Docs/pull/12890) for the official documentation. **Merged.**
 
-## Building
+## Some of what i'm Building
 
 - [**Archon**](https://github.com/SufficientDaikon/archon)  a skills engine for AI agents: one skill library with complexity routing from trivial to expert, deployable to Claude Code, GitHub Copilot, and other agent platforms without rewriting a skill.
 - [**Axon**](https://github.com/SufficientDaikon/Axon)  an ML-first systems language in Rust. Tensor shapes verified at compile time, memory safety from ownership instead of a garbage collector. Lexer, parser, and borrow checker written from scratch.
